@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Cooper Reed</title>
+    <meta name="description" content="Cooper's IPFS Portfolio Site" />
+    <meta name="author" content="The IPFS Docs team, and Cooper." />
+    <style>
+        body {
+            margin: 10px auto;
+            max-width: 75%;
+            line-height: 1.2;
+            font-family: sans-serif;
+            color: rgb(255, 125, 4);
+            background: rgb(0, 0, 0);
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        h1 {
+            font-size: 5rem;
+            font-weight: bolder;
+            color:rgb(255, 125, 4);
+            margin-top: -10px;
+            margin-bottom: -15px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color:white
+        }
+
+        a {
+            color: yellowgreen;
+        }
+
+        img {
+            border-radius: 30px;
+            width: 30%;
+            justify-content: center;
+        }
+
+        p {
+            font-size: 1.7rem;
+        }
+
+    </style>
+</head>
+
+<body onload="main()">
+    <h1>Cooper Reed</h1>
+    <h2>
+        <a href="https://www.linkedin.com/in/cooper-reed/">Linkedin</a>
+        ||
+        <a href="https://github.com/cooperability">GitHub</a>
+        ||
+        <a href="https://twitter.com/Cooperability">Twitter</a>
+        ||
+        <a href="https://mirror.xyz/0xAd7f62080c882D575DCd6F5eb29cB9C09B0d4B0D">Mirror</a>
+        ||
+        <a href="https://www.youtube.com/channel/UCFVGgrZZ80P1DN4nIot6TDg">YouTube</a>
+    </h2>
+
+    <img src="headshot.jpg" />
+    <h2>
+        This website runs on <a href="https://ipfs.io/">InterPlanetary File System</a>,
+        a decentralized peer-to-peer file sharing network powered by blockchain. Work in progress!
+    </h2>
+    <p id="output_p"></p>
+    <script>
+      function main() {
+        const facts = [
+          '"You cannot teach a man anything, you can only help him to find it within himself. \n -Galileo"',
+          '"A man who procrastinates in his choosing will inevitably have his choice made for him by circumstance. \n -Hunter S. Thompson"',
+          '"The future rewards those who press on. I don&#8217;t have time to feel sorry for myself. I don&#8217;t have time to complain. I&#8217;m going to press on. \n -Barack Obama"',
+          '"This is precisely the time when artists go to work. There is no time for despair, no place for self-pity, no need for silence, no room for fear... Like failure, chaos contains information that can lead to knowledge - even wisdom. \n -Toni Morrison"',
+          '"To me, fun is any time I feel like I really display or I really reach my full potential.When the glass ceiling breaks.That&#8217;s f****** fun for me. \n -Miley Cyrus"',
+          '"If you can create different experiences that manifest different desires, then it&#8217;s possible that those will lead to the production of different worlds.” \n -Moxie Marlinspike"'
+        ]
+        document.querySelector('#output_p').innerHTML =
+          facts[Math.floor(Math.random() * facts.length)]
+      }
+    </script>
+</body>
+
+</html>
