@@ -4,6 +4,7 @@
   font-weight: 800;
   letter-spacing: -0.05rem;
   margin: 1rem 0;
+  z-index: 1;
 }
 
 .headingXl {
@@ -12,41 +13,59 @@
   font-weight: 800;
   letter-spacing: -0.05rem;
   margin: 1rem 0;
+    z-index: 1;
+
 }
 
 .headingLg {
   font-size: 1.5rem;
   line-height: 1.4;
   margin: 1rem 0;
+    z-index: 1;
+
 }
 
 .headingMd {
   font-size: 1.2rem;
   line-height: 1.5;
+    z-index: 1;
+
 }
 
 .borderCircle {
+    z-index: 1;
+
   border-radius: 9999px;
 }
 
 .colorInherit {
   color: inherit;
+    z-index: 1;
+
 }
 
 .padding1px {
   padding-top: 1px;
+    z-index: 1;
+
 }
 
 .list {
   list-style: none;
   padding: 0;
   margin: 0;
+    z-index: 1;
+
 }
 
 .listItem {
   margin: 0 0 1.25rem;
+    z-index: 1;
+
 }
 
 .lightText {
   color: #666;
+    z-index: 1;
+
 }

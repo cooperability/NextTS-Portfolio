@@ -12,14 +12,25 @@ export default function Home({ allPostsData }) {
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>[Your Self Introduction]</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this in{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
+        <h3>
+          <a href="https://www.linkedin.com/in/cooper-reed/">Linkedin</a>
+          |  |
+          <a href="https://github.com/cooperability">GitHub</a>
+          |  |
+          <a href="https://twitter.com/Cooperability">Twitter</a>
+          |  |
+          <a href="https://mirror.xyz/0xAd7f62080c882D575DCd6F5eb29cB9C09B0d4B0D">Mirror</a>
+          |  |
+          <a href="https://www.youtube.com/channel/UCFVGgrZZ80P1DN4nIot6TDg">YouTube</a>
+        </h3>
+      </section>
+      <section className={utilStyles.headingMd}>
+        <p>Hi, I’m Cooper! I’ve been building and teaching software for 
+        the last four years. Making music and producing concerts for three. 
+        Education and building for educators for three. Blockchain for two.</p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
+        <h2 className={utilStyles.headingLg}>History of Co-Operability</h2>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
