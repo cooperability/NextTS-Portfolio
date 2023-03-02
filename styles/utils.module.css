@@ -69,3 +69,8 @@
     z-index: 1;
 
 }
+
+.Header {
+  width: 200px;
+  height: 200px;
+}
