@@ -21,16 +21,18 @@ export default function Home({ allPostsData }) {
           <a href="https://mirror.xyz/0xAd7f62080c882D575DCd6F5eb29cB9C09B0d4B0D">
             Mirror
           </a>
-          <a href="https://www.youtube.com/channel/cooperability">YouTube</a>
+          | |<a href="https://www.youtube.com/channel/cooperability">YouTube</a>
         </h3>
       </section>
       <section className={utilStyles.headingMd}>
         <p>
-          **Hi, I’m Cooper**! I’ve been building and teaching software for six
-          years. Making music and producing concerts for five. Blockchain data
-          pipelines for three years. NLP pipelines for two. \\ Finding
-          **Co-Operability** means striving for long-term synergy between our
-          ambitions and our morals.
+          <b>Hi, I'm Cooper!</b> I’ve been creating and teaching software for
+          six years, music for five, blockchain for three, and NLP for two.
+          <br />
+          <br />
+          Finding <b>Co-Operability</b> means striving for long-term synergy
+          between our ambitions and our morals. For me, that means open-sourcing
+          all my projects and turning my hours into free education for others.
         </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
@@ -41,7 +43,6 @@ export default function Home({ allPostsData }) {
               <Link href={`/posts/${id}`}>
                 <a>{title}</a>
               </Link>
-              <br />
               <small className={utilStyles.lightText}>
                 <Date dateString={date} />
               </small>
