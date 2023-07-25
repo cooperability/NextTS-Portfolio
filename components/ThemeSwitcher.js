@@ -16,10 +16,10 @@ const ThemeSwitcher = () => {
 
   return (
     <div>
-      {theme == "light" ? (
-        <button onClick={() => setTheme("dark")}>Dark Mode</button>
-      ) : (
+      {theme == "dark" ? (
         <button onClick={() => setTheme("light")}>Light Mode</button>
+      ) : (
+        <button onClick={() => setTheme("dark")}>Dark Mode</button>
       )}
     </div>
   );
