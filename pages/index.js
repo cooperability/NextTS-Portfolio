@@ -5,6 +5,7 @@ import utilStyles from "../styles/utils.module.css";
 import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
 import Date from "../components/date";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function Home({ allPostsData }) {
@@ -14,18 +15,67 @@ export default function Home({ allPostsData }) {
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <h3>
-          <a href="https://www.linkedin.com/in/cooper-reed/">Linkedin</a>| |
-          <a href="https://github.com/cooperability">GitHub</a>| |
-          <a href="https://twitter.com/Cooperability">Twitter</a>| |
-          <a href="https://mirror.xyz/0xAd7f62080c882D575DCd6F5eb29cB9C09B0d4B0D">
-            Mirror
-          </a>
-          | |<a href="https://www.youtube.com/channel/cooperability">YouTube</a>
-        </h3>
+        <div className="flex flex-row justify-between">
+          <Link href="https://www.linkedin.com/in/cooper-reed/">
+            <div className="hover:cursor-pointer">
+              <Image
+                src="/images/Linkedin.png"
+                alt="LinkedIn"
+                width="50"
+                height="50"
+              />
+            </div>
+          </Link>
+          <Link href="https://github.com/cooperability">
+            <div className="hover:cursor-pointer flex:horizontal justify-center items-center">
+              <Image
+                src="/images/Github.png"
+                alt="GitHub"
+                width="50"
+                height="50"
+              />
+            </div>
+          </Link>
+          <Link href="https://twitter.com/Cooperability">
+            <div className="hover:cursor-pointer flex:horizontal justify-center items-center">
+              <Image
+                src="/images/Twitter.png"
+                alt="Twitter"
+                width="50"
+                height="50"
+              />
+            </div>
+          </Link>
+          <Link href="https://mirror.xyz/0xAd7f62080c882D575DCd6F5eb29cB9C09B0d4B0D">
+            <div className="hover:cursor-pointer flex:horizontal justify-center items-center">
+              <Image
+                src="/images/Mirror.jpeg"
+                alt="Mirror"
+                width="50"
+                height="50"
+              />
+            </div>
+          </Link>
+          <Link href="https://www.youtube.com/channel/cooperability">
+            <div className="hover:cursor-pointer flex:horizontal justify-center items-center">
+              <Image
+                src="/images/Youtube.png"
+                alt="Youtube"
+                width="50"
+                height="50"
+              />
+            </div>
+          </Link>
+          <Link href="https://www.imdb.com/name/nm5343773/">
+            <div className="hover:cursor-pointer flex:horizontal justify-center items-center">
+              <Image src="/images/IMDb.png" alt="IMDb" width="50" height="50" />
+            </div>
+          </Link>
+        </div>
       </section>
       <section className={utilStyles.headingMd}>
         <p>
+          <br />
           <b>Hi, I'm Cooper!</b> I’ve been creating and teaching software for
           six years, music for five, blockchain for three, and NLP for two.
           <br />
@@ -36,7 +86,7 @@ export default function Home({ allPostsData }) {
         </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>History of Co-Operability</h2>
+        <h2 className={utilStyles.headingLg}>Dev Log</h2>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>

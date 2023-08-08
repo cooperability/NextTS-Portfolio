@@ -6,6 +6,7 @@ import Link from "next/link";
 import bg from "../public/images/parkslope.jpg";
 import Providers from "./providers";
 import ThemeSwitcher from "./ThemeSwitcher";
+import type {Metadata} from 'next'
 
 const name = "Cooper Reed";
 export const siteTitle = "Co-Operability";
