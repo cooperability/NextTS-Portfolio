@@ -7,4 +7,4 @@ Visit the live webpage at [cooperability.com](cooperability.com).
 ## Resources I used to build this website
 
 [Light/Dark Mode Button in NextJS](https://www.youtube.com/watch?v=optD7ns4ISQ) \
-[Tailwind with Next](https://nextjs.org/docs/app/building-your-application/styling/tailwind-css) \
+[Tailwind with Next](https://nextjs.org/docs/app/building-your-application/styling/tailwind-css)
