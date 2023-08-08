@@ -32,6 +32,12 @@
 
 }
 
+.icons {
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+}
+
 .borderCircle {
     z-index: 1;
 

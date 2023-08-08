@@ -17,9 +17,19 @@ const ThemeSwitcher = () => {
   return (
     <div>
       {theme == "dark" ? (
-        <button onClick={() => setTheme("light")}>Light Mode</button>
+        <button
+          class="bg-slate-100 hover:bg-slate-300 text-black font-bold py-2 px-4 rounded"
+          onClick={() => setTheme("light")}
+        >
+          Light Mode
+        </button>
       ) : (
-        <button onClick={() => setTheme("dark")}>Dark Mode</button>
+        <button
+          class="bg-slate-800 hover:bg-slate-900 text-white font-bold py-2 px-4 rounded"
+          onClick={() => setTheme("dark")}
+        >
+          Dark Mode
+        </button>
       )}
     </div>
   );

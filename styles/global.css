@@ -1,3 +1,4 @@
+
 html,
 body {
   padding: 0;
@@ -38,8 +39,17 @@ button {
 
 @layer base {
   body {
-    @apply bg-gray-50 text-gray-900 dark: bg-black dark:text-gray-100;
+    @apply bg-gray-50 text-gray-900 dark:bg-black dark:text-gray-100;
     @apply min-h-screen;
+    body {
+    color: #000;
+    background-color: #fff;
+}
+
+[data-theme="dark"] body {
+    color:#fff;
+    background-color: #000;
+}
   }
 
   ::selection {
