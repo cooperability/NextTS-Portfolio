@@ -1,13 +1,13 @@
 import Head from "next/head";
-import Header from "../sections/Header.js";
-import Layout, { siteTitle } from "../components/layout.jsx";
+import Header from "../sections/Header";
+import Layout, { siteTitle } from "../components/layout";
 import utilStyles from "../styles/utils.module.css";
-import { getSortedPostsData } from "../lib/posts.js";
+import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
-import Date from "../components/date.js";
+import Date from "../components/date";
 import Image from "next/image";
 import { useState } from "react";
-import getRandomQuote from "./quote.jsx";
+import getRandomQuote from "./quote";
 
 export default function Home({ allPostsData, randomQ }) {
   return (
