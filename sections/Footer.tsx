@@ -14,6 +14,7 @@ const Footer = () => {
               <Image
                 src="/images/Linkedin.png"
                 alt="LinkedIn"
+                className={styles.socialsLink}
                 width="50"
                 height="50"
               />
@@ -23,6 +24,7 @@ const Footer = () => {
             <div className="hover:cursor-pointer flex:horizontal justify-center items-center">
               <Image
                 src="/images/Github.png"
+                className={styles.socialsLink}
                 alt="GitHub"
                 width="50"
                 height="50"
@@ -34,6 +36,7 @@ const Footer = () => {
               <Image
                 src="/images/Twitter.png"
                 alt="Twitter"
+                className={styles.socialsLink}
                 width="50"
                 height="50"
               />
@@ -44,6 +47,7 @@ const Footer = () => {
               <Image
                 src="/images/Mirror.jpeg"
                 alt="Mirror"
+                className={styles.socialsLink}
                 width="50"
                 height="50"
               />
@@ -53,6 +57,7 @@ const Footer = () => {
             <div className="hover:cursor-pointer flex:horizontal justify-center items-center">
               <Image
                 src="/images/Youtube.png"
+                className={styles.socialsLink}
                 alt="Youtube"
                 width="50"
                 height="50"
@@ -61,7 +66,12 @@ const Footer = () => {
           </Link>
           <Link href="https://www.imdb.com/name/nm5343773/">
             <div className="hover:cursor-pointer flex:horizontal justify-center items-center">
-              <Image src="/images/IMDb.png" alt="IMDb" width="50" height="50" />
+              <Image
+                src="/images/IMDb.png"
+                className={styles.socialsLink}
+                alt="IMDb"
+                width="50"
+                height="50" />
             </div>
           </Link>
         </div>

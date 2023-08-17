@@ -19,7 +19,7 @@ export default function Home({ allPostsData, randomQ }) {
         <title>{siteTitle}</title>
       </Head>
       <section className={styles.headingMd}>
-        <div style={{ display: 'flex', justifyContent: "space-evenly" }}>
+        <div style={{ display: 'flex', justifyContent: "space-evenly", marginTop: "20px" }}>
           <Image
             priority
             src="/images/profile.jpg"
@@ -29,7 +29,7 @@ export default function Home({ allPostsData, randomQ }) {
             alt={name}
           />
           <div><span> &nbsp;&nbsp;&nbsp;&nbsp;</span></div>
-          <p><b>Hi, I'm Cooper!</b> I’ve been programming software for
+          <p><b>Hi, I'm Cooper!</b> I’ve been making software for
             six years, music five, web3 three, and NLP two.</p>
         </div>
         <p>
