@@ -52,7 +52,7 @@ export default function Home() {
             <b>A quote that speaks to me:</b>
             <span>&nbsp;&nbsp;</span>
             <button
-              className="bg-slate-100 hover:bg-slate-300 text-black py-1 px-1 rounded flex text-lg"
+              className="py-1 px-1 rounded flex text-lg border"
               onClick={() => setQuote(quotes[Math.floor(Math.random() * quotes.length)])}
             >
               Randomize

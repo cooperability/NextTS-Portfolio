@@ -102,14 +102,13 @@ const Header = () => {
       return (
         <div>
           <button
-            className={styles.mobileMenuIcon}
             onClick={toggleSidebar}
             aria-label="Toggle Menu"
           >
             {isSidebarOpen ? (
-              <XIcon className="w-7 h-7 text-gray-900" />
+              <XIcon className="w-7 h-7" />
             ) : (
-              <MenuIcon className="w-7 h-7 text-gray-900" />
+              <MenuIcon className="w-7 h-7" />
             )}
           </button>
         </div>
