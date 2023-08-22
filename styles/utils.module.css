@@ -1,3 +1,19 @@
+.container {
+  max-width: 36rem;
+  padding: 0 1rem;
+  margin: 3rem auto 6rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.backToHome {
+  margin: 3rem 0 0;
+}
+
 .heading2Xl {
   font-size: 2.5rem;
   line-height: 1.2;
@@ -118,4 +134,50 @@
 .hoverImage:hover {
   opacity: 1;
   cursor: pointer;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  /* Start off-screen */
+  width: 300px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.open {
+  right: 0;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.sidebarNav {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.sidebarNav a {
+  margin: 10px 0;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.sidebarNav a:hover {
+  color: #0070f3;
+  /* Change to your preferred link hover color */
 }
