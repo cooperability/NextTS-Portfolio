@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import styles from "./layout.module.css";
+import styles from "../styles/utils.module.css";
 import Link from "next/link";
 import bg from "../public/images/parkslope.jpg";
 import Providers from "./providers";

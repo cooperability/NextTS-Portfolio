@@ -1,7 +1,9 @@
+"use client"
 import Head from "next/head";
 import Layout, { siteTitle } from "../components/layout";
 import styles from "../styles/utils.module.css";
 import Image from "next/image";
+import { useState } from "react";
 
 const name = "Cooper Reed";
 const quotes = [
@@ -19,6 +21,7 @@ const quotes = [
 ]
 
 export default function Home() {
+  const [quote, setQuote] = useState(quotes[Math.floor(Math.random() * quotes.length)])
   return (
     <Layout home>
       <Head>
@@ -45,10 +48,18 @@ export default function Home() {
           all my projects and turning my hours into free education for others.
           <br />
           <br />
-          <b>Here's a random quote that speaks to me:</b>
-          <br />
+          <div className="flex justify-between">
+            <b>A quote that speaks to me:</b>
+            <span>&nbsp;&nbsp;</span>
+            <button
+              className="bg-slate-100 hover:bg-slate-300 text-black py-1 px-1 rounded flex text-lg"
+              onClick={() => setQuote(quotes[Math.floor(Math.random() * quotes.length)])}
+            >
+              Randomize
+            </button>
+          </div>
           <span suppressHydrationWarning>
-            {quotes[Math.floor(Math.random() * quotes.length)]}
+            {quote}
           </span>
         </p>
       </section>
