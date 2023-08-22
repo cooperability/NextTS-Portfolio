@@ -2,12 +2,11 @@ import Link from 'next/link';
 import Image from "next/image";
 import styles from "../styles/utils.module.css";
 
-
 const Footer = () => {
   return (
     <footer className="px-2 sm:px-1 py-1 mt-2">
       <section className={styles.headingMd}>
-        <div className={styles.horizLine}></div>
+        <div className={styles.horizLine} />
         <div className="flex flex-row justify-between">
           <Link href="https://www.linkedin.com/in/cooper-reed/">
             <div className="hover:cursor-pointer">

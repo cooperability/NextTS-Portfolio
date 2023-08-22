@@ -1,5 +1,4 @@
-import Footer from "../sections/Footer";
-import Layout, { siteTitle } from "../components/layout";
+import Layout from "../components/layout";
 import Link from 'next/link';
 import Image from "next/image";
 import styles from "../styles/utils.module.css";
@@ -145,7 +144,6 @@ const Skills: React.FC = () => {
           </Link>
         </div>
       </section>
-      <Footer />
     </Layout>
   );
 };
