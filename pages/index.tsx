@@ -48,20 +48,20 @@ export default function Home() {
           all my projects and turning my hours into free education for others.
           <br />
           <br />
-          <div className="flex justify-between">
-            <b>A quote that speaks to me:</b>
-            <span>&nbsp;&nbsp;</span>
-            <button
-              className="py-1 px-1 rounded flex text-lg border"
-              onClick={() => setQuote(quotes[Math.floor(Math.random() * quotes.length)])}
-            >
-              Randomize
-            </button>
-          </div>
-          <span suppressHydrationWarning>
-            {quote}
-          </span>
         </p>
+        <div className="flex justify-between">
+          <b>A quote that speaks to me:</b>
+          <span>&nbsp;&nbsp;</span>
+          <button
+            className="py-1 px-1 rounded flex text-lg border"
+            onClick={() => setQuote(quotes[Math.floor(Math.random() * quotes.length)])}
+          >
+            Randomize
+          </button>
+        </div>
+        <span suppressHydrationWarning>
+          {quote}
+        </span>
       </section>
     </Layout>
   );
