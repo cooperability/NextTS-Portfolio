@@ -16,7 +16,7 @@ export default function Layout({ children, home }) {
       <Providers>
         <Header />
         <Head>
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" type="image/ico" href="/icon.ico" />
           <meta
             name="description"
             content="Cooper's personal website on next.js"
