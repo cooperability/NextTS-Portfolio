@@ -5,7 +5,6 @@ This personal website runs on a Next frontend on Vercel. I'm parting with IPFS b
 Visit the live webpage at [cooperability.com](https://www.cooperability.com).
 
 ## Resources I used to build this website
-
 [Light/Dark Mode Button in NextJS](https://www.youtube.com/watch?v=optD7ns4ISQ) \
 [Tailwind with Next](https://nextjs.org/docs/app/building-your-application/styling/tailwind-css) \
 [Server-side rendering a random number](https://auroratide.com/posts/server-side-rendering-a-random-number) \
