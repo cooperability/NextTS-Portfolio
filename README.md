@@ -8,4 +8,6 @@ Visit the live webpage at [cooperability.com](https://www.cooperability.com).
 
 [Light/Dark Mode Button in NextJS](https://www.youtube.com/watch?v=optD7ns4ISQ) \
 [Tailwind with Next](https://nextjs.org/docs/app/building-your-application/styling/tailwind-css) \
-[Server-side rendering a random number](https://auroratide.com/posts/server-side-rendering-a-random-number)
+[Server-side rendering a random number](https://auroratide.com/posts/server-side-rendering-a-random-number) \
+[Dynamic route-based active links](https://medium.com/@mikegajdos81/how-to-create-active-navlink-in-nextjs-d6d3934bd59a) \
+[Analytics in Next.js](https://ahmadrosid.com/blog/vercel-analytics-tutorial) \

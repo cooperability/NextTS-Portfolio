@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import PropTypes from "prop-types";
+import propTypes from "prop-types";
 import Link from "next/link";
 import React, { Children } from "react";
 
@@ -22,7 +22,7 @@ const ActiveLink = ({ children, activeClassName, ...props }) => {
   );
 };
 
-ActiveLink.PropTypes = {
-  activeClassName: PropTypes.string.isRequired,
+ActiveLink.propTypes = {
+  activeClassName: propTypes.string.isRequired,
 };
 export default ActiveLink;

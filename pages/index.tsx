@@ -16,8 +16,15 @@ const quotes = [
   '"The fact is that no man is a datum which is passively suffered; the rejection of existence is still another way of existing; nobody can know the peace of the tomb while he is alive." -Simone de Beauvoir',
   '"Honestly, I just kind of wing it" -Sun Tzu',
   '"You can hold yourself back from the sufferings of the world, that is something you are free to do and it accords with your nature, but perhaps this very holding back is the one suffering you could avoid." -Franz Kafka',
-  '"I always said I\'d never stoop so low as to be fashionable...it\'s too easy." - Dolly Parton',
-  '"If I feed the poor they call me a Saint, if I ask why the poor have no food they call me a communist." -Hélder Câmara'
+  '"I always said I\'d never stoop so low as to be fashionable...it\'s too easy." -Dolly Parton',
+  '"If I feed the poor they call me a Saint, if I ask why the poor have no food they call me a communist." -Hélder Câmara',
+  '"The universe is a big place, perhaps the biggest." -Kurt Vonnegut',
+  '"I spent 15 years before I had any real, noticeable success...persistence is certainly something I think I can credit myself for having." -Harrison Ford',
+  '"There\'s a notion I\'d like to see buried: the ordinary person. Ridiculous. There is no ordinary person." -Alan Moore, Watchmen',
+  '"Life shrinks or expands in proportion to one\'s courage." -Anaïs Nin',
+  '"At the end of the day, we can endure much more than we think we can." -Frida Kahlo',
+  '"An experiental idea doesn\'t have to be separated from a mainstream context. The really exciting thing is where those two things are together. That\'s where you can get real change." -SOPHIE (RIP)',
+
 ]
 
 export default function Home() {
@@ -41,6 +48,7 @@ export default function Home() {
         <p>
           <b>Hi, I'm Cooper!</b> I’ve been making software for
           six years, music five, web3 three, and NLP two.
+          Here's my <a className="font-bold underline" href="https://drive.google.com/file/d/197fniv8a0-iVVzl_aiwSBl6NaFnTppnz/view?usp=sharing">resume.</a>
           <br />
           <br />
           To me, <b>Co-Operability</b> means long-term synergy
@@ -50,10 +58,10 @@ export default function Home() {
           <br />
         </p>
         <div className="flex justify-between">
-          <b>A quote that speaks to me:</b>
+          <b>A favorite quote:</b>
           <span>&nbsp;&nbsp;</span>
           <button
-            className="py-1 px-1 rounded flex text-lg border"
+            className="py-1 px-1 rounded flex text-lg font-bold border-2 background"
             onClick={() => setQuote(quotes[Math.floor(Math.random() * quotes.length)])}
           >
             Randomize
