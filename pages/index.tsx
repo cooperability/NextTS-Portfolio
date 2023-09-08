@@ -4,6 +4,8 @@ import Layout, { siteTitle } from "../components/layout";
 import styles from "../styles/utils.module.css";
 import Image from "next/image";
 import { useState } from "react";
+import Link from 'next/link';
+
 
 const name = "Cooper Reed";
 const quotes = [
@@ -39,7 +41,9 @@ export default function Home() {
           />
         </div>
         <p>
-          <b>Hi, I'm Cooper!</b> I’ve been making software for
+          <b>Hi, I'm Cooper!</b>  Here's
+          my <u><b><a href="https://drive.google.com/file/d/197fniv8a0-iVVzl_aiwSBl6NaFnTppnz/view?usp=sharing">Resume.</a></b></u> 
+          &nbsp;I’ve been creating software for
           six years, music five, web3 three, and NLP two.
           <br />
           <br />
