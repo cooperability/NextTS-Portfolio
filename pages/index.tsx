@@ -42,9 +42,19 @@ export default function Home() {
         </div>
         <p>
           <b>Hi, I'm Cooper!</b>  Here's
-          my <u><b><a href="https://drive.google.com/file/d/197fniv8a0-iVVzl_aiwSBl6NaFnTppnz/view?usp=sharing">Resume.</a></b></u> 
-          &nbsp;I’ve been creating software for
-          six years, music five, web3 three, and NLP two.
+          my <u><b><a href="https://drive.google.com/file/d/197fniv8a0-iVVzl_aiwSBl6NaFnTppnz/view?usp=sharing">Resume.</a></b></u>
+          &nbsp;I’ve been building web apps in Blockchain + AI for 6 years. I'm currently working on <u><b><a href="https://github.com/cooperability/BMX-bookmark-extractor">BMX, the BookMark eXtractor</a></b></u>
+          , a user-friendly pipeline for ingesting data from the web into AI models. Here's one component:
+          <Image
+            priority
+            src="/images/BMX.gif"
+            height={2530}
+            width={1656}
+            alt={name}
+          />
+          Built with Typescript-Django-Postgres via Railway.
+          <br />
+          Scraping by BeautifulSoup, Scrapy integrations soon.
           <br />
           <br />
           To me, <b>Co-Operability</b> means long-term synergy
