@@ -19,7 +19,8 @@ const quotes = [
   '"Honestly, I just kind of wing it" -Sun Tzu',
   '"You can hold yourself back from the sufferings of the world, that is something you are free to do and it accords with your nature, but perhaps this very holding back is the one suffering you could avoid." -Franz Kafka',
   '"I always said I\'d never stoop so low as to be fashionable...it\'s too easy." - Dolly Parton',
-  '"If I feed the poor they call me a Saint, if I ask why the poor have no food they call me a communist." -Hélder Câmara'
+  '"If I feed the poor they call me a Saint, if I ask why the poor have no food they call me a communist." -Hélder Câmara',
+  '"At the end of the day, we have an economy that works for the rich by cheating the poor, and unequal schools are the result of that, not the cause." -Aaron Swartz'
 ]
 
 export default function Home() {
