@@ -12,11 +12,11 @@ const Skills: React.FC = () => {
                 </p>
                 <div className={styles.horizLine}></div>
 
-                <Link href="https://www.imdb.com/name/nm5343773/">
+                <Link href="https://opioidconverter.vercel.app">
                     <div className="hover:cursor-pointer flex:horizontal justify-center items-center">
                         <Image
                             src="/images/demooc.png"
-                            alt="IMDb"
+                            alt="converter"
                             width="1656"
                             height="2530" />
                     </div>
