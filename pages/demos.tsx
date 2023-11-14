@@ -10,6 +10,19 @@ const Skills: React.FC = () => {
                 <p>
                     Click to view (desktop optimized)
                 </p>
+                I'm currently working on <u><b><a href="https://github.com/cooperability/BMX-bookmark-extractor">BMX, the BookMark eXtractor</a></b></u>
+                , a user-friendly pipeline for ingesting data from the web into AI models. Here's one component:
+                <Image
+                    priority
+                    src="/images/BMX.gif"
+                    height={2530}
+                    width={1656}
+                    alt={"BookMark eXtractor V2"}
+                />
+                Built with Typescript-Django-Postgres via Railway.
+                <br />
+                Scraping by BeautifulSoup, Scrapy integrations soon.
+                <br />
                 <div className={styles.horizLine}></div>
 
                 <Link href="https://opioidconverter.vercel.app">

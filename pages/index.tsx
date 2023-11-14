@@ -4,7 +4,7 @@ import Layout, { siteTitle } from "../components/layout";
 import styles from "../styles/utils.module.css";
 import Image from "next/image";
 import { useState } from "react";
-import Link from 'next/link';
+import ActiveLink from "../components/activeLink";
 
 
 const name = "Cooper Reed";
@@ -48,23 +48,28 @@ export default function Home() {
         <p>
           <b>Hi, I'm Cooper!</b>  Here's
           my <u><b><a href="https://drive.google.com/file/d/197fniv8a0-iVVzl_aiwSBl6NaFnTppnz/view?usp=sharing">Resume.</a></b></u>
-          &nbsp;I’ve been building web apps in Blockchain + AI for 6 years. I'm currently working on <u><b><a href="https://github.com/cooperability/BMX-bookmark-extractor">BMX, the BookMark eXtractor</a></b></u>
-          , a user-friendly pipeline for ingesting data from the web into AI models. Here's one component:
-          <Image
-            priority
-            src="/images/BMX.gif"
-            height={2530}
-            width={1656}
-            alt={name}
-          />
-          Built with Typescript-Django-Postgres via Railway.
-          <br />
-          Scraping by BeautifulSoup, Scrapy integrations soon.
-          <br />
+          &nbsp;I’ve been building web apps in Blockchain + AI for 6 years. I also interview cool people sometimes.
+          This site hosts
+          <u><b>
+            <ActiveLink activeClassName="active" href="/demos">
+              <a className={styles.navLink}>Demos</a>
+            </ActiveLink>
+          </b></u>, a visual summary of my
+          <u><b>
+            <ActiveLink activeClassName="active" href="/skills">
+              <a className={styles.navLink}>Skills</a>
+            </ActiveLink>
+          </b></u>,
+          random           <u><b>
+            <ActiveLink activeClassName="active" href="/log">
+              <a className={styles.navLink}>musings</a>
+            </ActiveLink>
+          </b></u>, and all my links (bottom of page).
           <br />
           To me, <b>Co-Operability</b> means long-term synergy
           between my ambitions and morals. For me, that means open-sourcing
-          all my projects and turning my hours into free education for others.
+          all my work and turning my hours into free education for others. My
+          interviews follow this theme.
           <br />
           <br />
         </p>
