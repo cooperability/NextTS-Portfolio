@@ -60,12 +60,13 @@ export default function Home() {
               <a className={styles.navLink}>Skills</a>
             </ActiveLink>
           </b></u>,
-          random           <u><b>
+          random
+          <u><b>
             <ActiveLink activeClassName="active" href="/log">
               <a className={styles.navLink}>musings</a>
             </ActiveLink>
           </b></u>, and all my links (bottom of page).
-          <br />
+          <br /> <br />
           To me, <b>Co-Operability</b> means long-term synergy
           between my ambitions and morals. For me, that means open-sourcing
           all my work and turning my hours into free education for others. My
