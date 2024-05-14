@@ -3,13 +3,10 @@ const nextConfig = {
   plugins: {
     "postcss-import": {},
     "tailwindcss/nesting": {},
-    tailwindcss: {},
-    autoprefixer: {},
+    "tailwindcss": {},
+    "autoprefixer": {},
   },
   reactStrictMode: true,
-  experimental: {
-    newNextLinkBehavior: false,
-  },
 };
 
 module.exports = nextConfig;

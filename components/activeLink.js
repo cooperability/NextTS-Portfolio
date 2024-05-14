@@ -14,7 +14,7 @@ const ActiveLink = ({ children, activeClassName, ...props }) => {
       : "activeNavLink";
 
   return (
-    <Link {...props}>
+    <Link legacyBehavior {...props}>
       {React.cloneElement(child, {
         className: className || null,
       })}
