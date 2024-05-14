@@ -51,21 +51,21 @@ export default function Home() {
           <b>Hi, I'm Cooper!</b>  Here's
           my <u><b><a href="https://drive.google.com/file/d/197fniv8a0-iVVzl_aiwSBl6NaFnTppnz/view?usp=sharing">Resume.</a></b></u>
           &nbsp;I’ve been building web apps in Blockchain + AI for 6 years. I also interview cool people sometimes.
-          This site hosts
+          This site hosts 
           <u><b>
             <ActiveLink activeClassName="active" href="/demos">
-              <a className={styles.navLink}>Demos</a>
+              <a className={styles.navLink}> Demos</a>
             </ActiveLink>
           </b></u>, a visual summary of my
           <u><b>
             <ActiveLink activeClassName="active" href="/skills">
-              <a className={styles.navLink}>Skills</a>
+              <a className={styles.navLink}> Skills</a>
             </ActiveLink>
           </b></u>,
           random
           <u><b>
             <ActiveLink activeClassName="active" href="/log">
-              <a className={styles.navLink}>musings</a>
+              <a className={styles.navLink}> musings</a>
             </ActiveLink>
           </b></u>, and all my links (bottom of page).
           <br /> <br />
