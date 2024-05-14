@@ -30,6 +30,16 @@ const Footer = () => {
               />
             </div>
           </Link>
+          <Link href="https://g.dev/cooperability">
+            <div className="hover:cursor-pointer flex:horizontal justify-center items-center">
+              <Image
+                src="/images/Gdevelopers.png"
+                className={styles.socialsLink}
+                alt="Google Developers"
+                width="50"
+                height="50" />
+            </div>
+          </Link>
           <Link href="https://twitter.com/Cooperability">
             <div className="hover:cursor-pointer flex:horizontal justify-center items-center">
               <Image
