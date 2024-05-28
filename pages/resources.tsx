@@ -2,7 +2,19 @@ import Link from "next/link";
 import Date from "../components/date";
 import utilStyles from "../styles/utils.module.css";
 import Layout, { siteTitle } from "../components/layout";
-import { getSortedPostsData } from "../lib/posts";
+import { GetStaticProps } from 'next';
+import { serialize } from 'next-mdx-remote/serialize';
+import matter from 'gray-matter';
+import fs from 'fs';
+import path from 'path';
+
+type Props = {
+    allPostsData: {
+        id: string;
+        title: string;
+        date: string;
+    }
+};
 
 export default function Resources({ allPostsData }) {
     return (
@@ -26,11 +38,35 @@ export default function Resources({ allPostsData }) {
     );
 };
 
-export async function getStaticProps() {
-    const allPostsData = getSortedPostsData();
+const POSTS_PATH = path.join(process.cwd(), 'posts');
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+    const fileNames = fs.readdirSync(POSTS_PATH);
+
+    const allPostsData = fileNames.map((fileName) => {
+      const fullPath = path.join(POSTS_PATH, fileName);
+      const fileContents = fs.readFileSync(fullPath, 'utf8');
+  
+      const { data } = matter(fileContents);
+  
+      return {
+        id: fileName.replace(/\.mdx?$/, ''),
+        ...(data as { date: string; title: string }),
+      };
+    });
+  
     return {
-        props: {
-            allPostsData,
-        },
+      props: {
+        allPostsData,
+      },
     };
-}
+};
+
+// export async function getStaticProps() {
+//     const allPostsData = getSortedPostsData();
+//     return {
+//         props: {
+//             allPostsData,
+//         },
+//     };
+// }
