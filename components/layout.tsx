@@ -34,8 +34,8 @@ export default function Layout({ children, home }) {
         <main>{children}</main>
         {!home && (
           <div className={styles.backToHome}>
-            <Link href="/devlog">
-              <a>← Back to Dev Log</a>
+            <Link legacyBehavior href="/resources">
+              <a>← Back to Resources</a>
             </Link>
           </div>
         )}

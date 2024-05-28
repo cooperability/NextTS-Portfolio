@@ -4,11 +4,10 @@ import utilStyles from "../styles/utils.module.css";
 import Layout, { siteTitle } from "../components/layout";
 import { getSortedPostsData } from "../lib/posts";
 
-export default function DevLog({ allPostsData }) {
+export default function Resources({ allPostsData }) {
     return (
         <Layout home>
             <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-                <h2 className={utilStyles.headingLg}>Dev Log</h2>
                 <ul className={utilStyles.list}>
                     {allPostsData?.map(({ id, date, title }) => (
                         <li className={utilStyles.listItem} key={id}>
