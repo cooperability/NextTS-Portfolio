@@ -64,8 +64,8 @@ export default function Home() {
           </b></u>,
           random
           <u><b>
-            <ActiveLink activeClassName="active" href="/log">
-              <a className={styles.navLink}> musings</a>
+            <ActiveLink activeClassName="active" href="/resources">
+              <a className={styles.navLink}> resources I built & published </a>
             </ActiveLink>
           </b></u>, and all my links (bottom of page).
           <br /> <br />

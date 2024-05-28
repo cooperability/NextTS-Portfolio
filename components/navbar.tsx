@@ -10,8 +10,8 @@ const Navbar: React.FC = () => {
       <Link legacyBehavior href="/skills">
         <a className={styles.navLink}>Skills</a>
       </Link>
-      <Link legacyBehavior href="/devlog">
-        <a className={styles.navLink}>Dev Log</a>
+      <Link legacyBehavior href="/resources">
+        <a className={styles.navLink}>Resources</a>
       </Link>
     </nav>
   );
