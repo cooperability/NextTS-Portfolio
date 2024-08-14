@@ -27,6 +27,7 @@ const quotes = [
   '"We are what we pretend to be, so we must be careful about what we pretend to be." -Kurt Vonnegut',
   '"The only way to deal with the future is to be really present." -Alan Watts',
   '“There are decades where nothing happens; and there are weeks where decades happen.” – Vladimir Ilyich Lenin',
+  '"We don\'t hope. We plan." -Reverend Mother Mohian, Dune',
 ]
 
 export default function Home() {
