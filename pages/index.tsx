@@ -51,29 +51,23 @@ export default function Home() {
         <p>
           <b>Hi, I'm Cooper!</b>  Here's
           my <u><b><a href="https://drive.google.com/file/d/197fniv8a0-iVVzl_aiwSBl6NaFnTppnz/view?usp=sharing">Resume.</a></b></u>
-          &nbsp;I’ve been building web apps in Blockchain + AI for 6 years. I also interview cool people sometimes.
+          &nbsp;I’ve built web apps in Blockchain + AI for 6 years. I also <u><b><a href =""></a>interview cool people</b></u> sometimes.
           This site hosts 
           <u><b>
             <ActiveLink activeClassName="active" href="/demos">
-              <a className={styles.navLink}> Demos</a>
+              <a className={styles.navLink}> Demos, </a>
             </ActiveLink>
-          </b></u>, a visual summary of my
-          <u><b>
-            <ActiveLink activeClassName="active" href="/skills">
-              <a className={styles.navLink}> Skills</a>
-            </ActiveLink>
-          </b></u>,
-          random
+          </b></u>
           <u><b>
             <ActiveLink activeClassName="active" href="/resources">
-              <a className={styles.navLink}> resources I built & published </a>
+              <a className={styles.navLink}>resources I built &/or catalogued, </a>
             </ActiveLink>
-          </b></u>, and all my links (bottom of page).
+          </b></u>, and all my links (footer).
           <br /> <br />
           To me, <b>Co-Operability</b> means long-term synergy
-          between my ambitions and morals. For me, that means open-sourcing
-          all my work and turning my hours into free education for others. My
-          interviews follow this theme.
+          between my ambitions and morals. I open-source my 
+          personal work and try to create useful resources for
+          others. My interviews follow this theme.
           <br />
           <br />
         </p>
