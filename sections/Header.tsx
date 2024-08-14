@@ -74,7 +74,6 @@ const Header = () => {
           onClick={() => setTheme("light")}
         >
           <SunIcon className="w-7 h-7 text-yellow-500 " role="button" />
-          Light
         </button>
       );
     } else {
@@ -84,7 +83,6 @@ const Header = () => {
           onClick={() => setTheme("dark")}
         >
           <MoonIcon className="w-7 h-7 text-gray-900 " role="button" />
-          Dark
         </button>
       );
     }
