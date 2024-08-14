@@ -50,30 +50,15 @@ export default function Home() {
         </div>
         <p>
           <b>Hi, I'm Cooper!</b>  Here's
-          my <u><b><a href="https://drive.google.com/file/d/197fniv8a0-iVVzl_aiwSBl6NaFnTppnz/view?usp=sharing">Resume.</a></b></u>
-          &nbsp;I’ve been building web apps in Blockchain + AI for 6 years. I also interview cool people sometimes.
-          This site hosts 
-          <u><b>
-            <ActiveLink activeClassName="active" href="/demos">
-              <a className={styles.navLink}> Demos</a>
-            </ActiveLink>
-          </b></u>, a visual summary of my
-          <u><b>
-            <ActiveLink activeClassName="active" href="/skills">
-              <a className={styles.navLink}> Skills</a>
-            </ActiveLink>
-          </b></u>,
-          random
-          <u><b>
-            <ActiveLink activeClassName="active" href="/resources">
-              <a className={styles.navLink}> resources I built & published </a>
-            </ActiveLink>
-          </b></u>, and all my links (bottom of page).
+          my <u><b><a href="https://drive.google.com/file/d/1WTdhlb01IISgoRS7_m18u4weQPxEBnc4/view?usp=sharing">Resume</a></b></u>.
+          I’ve built web apps in Blockchain + AI for 6 years. I also <u><b><a href ="https://mirror.xyz/0xAd7f62080c882D575DCd6F5eb29cB9C09B0d4B0D"></a>write</b></u> and&nbsp;
+          <u><b><a href ="https://www.youtube.com/@cooperability"></a>interview</b></u> sometimes.
+          This site hosts some of my personal work (header). Visit my links for more (footer).
           <br /> <br />
           To me, <b>Co-Operability</b> means long-term synergy
-          between my ambitions and morals. For me, that means open-sourcing
-          all my work and turning my hours into free education for others. My
-          interviews follow this theme.
+          between my ambitions and morals. I open-source my 
+          personal work and try to create useful resources for
+          others. My interviews follow this theme.
           <br />
           <br />
         </p>

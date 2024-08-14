@@ -79,10 +79,11 @@ const Header = () => {
     } else {
       return (
         <button
-          className="bg-slate-600 hover:bg-slate-800 text-white font-bold py-1 px-1 rounded flex"
+          className="bg-slate-400 border-black-50 hover:bg-slate-500 text-white font-bold py-1 px-1 rounded flex"
           onClick={() => setTheme("dark")}
         >
           <MoonIcon className="w-7 h-7 text-gray-900 " role="button" />
+
         </button>
       );
     }
