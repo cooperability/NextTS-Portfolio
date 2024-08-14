@@ -51,8 +51,8 @@ export default function Home() {
         <p>
           <b>Hi, I'm Cooper!</b>  Here's
           my <u><b><a href="https://drive.google.com/file/d/1WTdhlb01IISgoRS7_m18u4weQPxEBnc4/view?usp=sharing">Resume</a></b></u>.
-          I’ve built web apps in Blockchain + AI for 6 years. I also <u><b><a href ="https://mirror.xyz/0xAd7f62080c882D575DCd6F5eb29cB9C09B0d4B0D"></a>write</b></u> and&nbsp;
-          <u><b><a href ="https://www.youtube.com/@cooperability"></a>interview</b></u> sometimes.
+          I’ve built web apps in Blockchain + AI for 6 years. I also <u><b><a href ="https://mirror.xyz/0xAd7f62080c882D575DCd6F5eb29cB9C09B0d4B0D">write</a></b></u> and&nbsp;
+          <u><b><a href ="https://www.youtube.com/@cooperability">interview</a></b></u> sometimes.
           This site hosts some of my personal work (header). Visit my links for more (footer).
           <br /> <br />
           To me, <b>Co-Operability</b> means long-term synergy
