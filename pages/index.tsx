@@ -28,6 +28,8 @@ const quotes = [
   '"The only way to deal with the future is to be really present." -Alan Watts',
   '“There are decades where nothing happens; and there are weeks where decades happen.” – Vladimir Ilyich Lenin',
   '"We don\'t hope. We plan." -Reverend Mother Mohian, Dune',
+  '"Risk is what\'s left over when you think you\'ve thought of everything." - Carl Richards, The Behavior Gap',
+  '"Pride is not the opposite of shame, but its source. True humility is the only antidote to shame." - Uncle Iroh, Avatar: The Last Airbender',
 ]
 
 export default function Home() {
@@ -53,17 +55,17 @@ export default function Home() {
           my <u><b><a href="https://drive.google.com/file/d/1WTdhlb01IISgoRS7_m18u4weQPxEBnc4/view?usp=sharing">Resume</a></b></u>.
           I’ve built web apps in Blockchain + AI for 6 years. I also <u><b><a href ="https://mirror.xyz/0xAd7f62080c882D575DCd6F5eb29cB9C09B0d4B0D">write</a></b></u> and&nbsp;
           <u><b><a href ="https://www.youtube.com/@cooperability">interview</a></b></u> sometimes.
-          This site hosts some of my personal work (header). Visit my links for more (footer).
+          My links (footer) are where my personal work is hosted.
           <br /> <br />
           To me, <b>Co-Operability</b> means long-term synergy
           between my ambitions and morals. I open-source my 
-          personal work and try to create useful resources for
+          work where possible, and try to create useful resources for
           others. My interviews follow this theme.
           <br />
           <br />
         </p>
         <div className="flex justify-between">
-          <b>A quote that speaks to me:</b>
+          <b>A random quote that speaks to me:</b>
           <span>&nbsp;&nbsp;</span>
           <button
             className="py-1 px-1 rounded flex text-lg border"
