@@ -20,6 +20,7 @@ export default function Resources({ allPostsData }) {
     return (
         <Layout home>
             <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+                <h1>Generative AI Prompts</h1>
                 <ul className={utilStyles.list}>
                     {allPostsData?.map(({ id, date, title }) => (
                         <li className={utilStyles.listItem} key={id}>
