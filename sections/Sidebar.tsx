@@ -16,8 +16,8 @@ const Sidebar = ({ isOpen, onClose }) => {
                 <ActiveLink activeClassName="active" href="/skills">
                     <a className={styles.navLink}>| Skills |</a>
                 </ActiveLink>
-                <ActiveLink activeClassName="active" href="/resources">
-                    <a className={styles.navLink}>| Resources |</a>
+                <ActiveLink activeClassName="active" href="/prompts">
+                    <a className={styles.navLink}>| Prompts |</a>
                 </ActiveLink>
                 {/* Add more links as needed */}
             </nav>

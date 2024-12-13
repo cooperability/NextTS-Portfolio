@@ -16,7 +16,7 @@ type Props = {
     }
 };
 
-export default function Resources({ allPostsData }) {
+export default function Prompts({ allPostsData }) {
     return (
         <Layout home>
             <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
