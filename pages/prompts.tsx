@@ -8,20 +8,22 @@ import matter from 'gray-matter';
 import fs from 'fs';
 import path from 'path';
 
-type Props = {
-    allPostsData: {
-        id: string;
-        title: string;
-        date: string;
-    }
-};
+interface PostData {
+  id: string;
+  date: string;
+  title: string;
+}
 
-export default function Prompts({ allPostsData }) {
+interface PromptsProps {
+  allPostsData: PostData[];
+}
+
+export default function Prompts({ allPostsData }: PromptsProps) {
     return (
         <Layout home>
             <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
                 <ul className={utilStyles.list}>
-                    {allPostsData?.map(({ id, date, title }) => (
+                    {allPostsData?.map(({ id, date, title }: PostData) => (
                         <li className={utilStyles.listItem} key={id}>
                             <Link legacyBehavior href={`/posts/${id}`}>
                                 <a>{title}</a>

@@ -62,6 +62,12 @@ const Skills: React.FC = () => {
             </Link>
           </div>
         </div>
+        <div>
+          <p>Demos:</p>
+          <a href="/opioid-converter"><u><b>Opioid Converter</b></u>(TS + CSS)</a>
+          <br />
+          <Link href="https://github.com/cooperability/NextTS-Portfolio"><u><b>This website</b></u>(Next Tailwind, Vercel)</Link>
+        </div>
         <div className={styles.horizLine}></div>
         <p>
           <b>Back End</b>
@@ -142,6 +148,19 @@ const Skills: React.FC = () => {
               />
             </div>
           </Link>
+        </div>
+        <div>
+          <p>Demos:</p>
+          I'm currently working on <a href="https://github.com/cooperability/BMX-bookmark-extractor"><u><b>BMX, the BookMark eXtractor</b></u></a>
+          , a user-friendly pipeline for ingesting data from the web into AI models. Here's one component:
+          <Image
+              priority
+              src="/images/BMX.gif"
+              height={2530}
+              width={1656}
+              alt={"BookMark eXtractor V2"}
+          />
+          Built with Typescript-Django-Postgres via Railway. Scraping by BeautifulSoup, Scrapy integrations soon.
         </div>
       </section>
     </Layout>
