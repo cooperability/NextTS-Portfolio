@@ -49,9 +49,6 @@ const Header = () => {
           <ActiveLink activeClassName="active" href="/">
             <a className={styles.navLink}>| Home |</a>
           </ActiveLink>
-          <ActiveLink activeClassName="active" href="/demos">
-            <a className={styles.navLink}>| Demos |</a>
-          </ActiveLink>
           <ActiveLink activeClassName="active" href="/skills">
             <a className={styles.navLink}>| Skills |</a>
           </ActiveLink>
