@@ -3,7 +3,13 @@ import Link from "next/link";
 import styles from "../styles/utils.module.css";
 import ActiveLink from "../components/activeLink";
 
-const Sidebar = ({ isOpen, onClose }) => {
+const Sidebar = ({ 
+  isOpen,
+  onClose 
+}: {
+  isOpen: boolean;
+  onClose: () => void;
+}) => {
     return (
         <div className={`${styles.sidebar} ${isOpen ? styles.open : ""}`}>
             <button className={styles.closeButton} onClick={onClose}>

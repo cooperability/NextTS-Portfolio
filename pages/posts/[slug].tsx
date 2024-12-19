@@ -52,6 +52,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+  if (!params?.slug) {
+    throw new Error('Slug is required');
+  }
   const postFilePath = path.join(POSTS_PATH, `${params.slug}.mdx`);
   const source = fs.readFileSync(postFilePath);
 

@@ -1,0 +1,198 @@
+.converter {
+  padding: 2% 15%;
+  box-sizing: border-box;
+  background-color: #e0e0e0;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.logoContainer {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  border-radius: 8px 8px 0 0;
+  padding: 1rem 1.5rem;
+  border-bottom: 3px solid #800000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.title {
+  font-weight: 600;
+  color: #800000;
+  margin-left: 1.5rem;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+}
+
+.mdisplay {
+  background-color: #800000;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.equivalence {
+  color: white;
+  margin: 0.25rem 0;
+  font-size: clamp(1.125rem, 1.75vw, 1.25rem);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.table {
+  width: 100%;
+  background-color: white;
+  border-radius: 0 0 8px 8px;
+  border-spacing: 0;
+  border-collapse: collapse;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  align-items: stretch;
+}
+
+.headerRow {
+  background-color: white;
+  color: #333;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.headerRow th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 700;
+  font-size: clamp(0.875rem, 1.25vw, 1rem);
+}
+
+.headerRow th:first-child {
+  width: 25%;
+}
+
+.headerRow th:nth-child(2) {
+  width: 50%;
+}
+
+.headerRow th:last-child {
+  width: 25%;
+  text-align: center;
+}
+
+.row {
+  background-color: white;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.row td {
+  padding: 0.75rem 1rem;
+}
+
+
+.row:hover {
+  background-color: #f8f8f8;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.medicationCell {
+  color: #333;
+  font-weight: 400;
+  font-size: clamp(0.875rem, 1.25vw, 1rem);
+  width: 50%;
+}
+
+.doseCell {
+  position: relative;
+  width: 25%;
+}
+
+.doseCell span {
+  position: absolute;
+  right: 1.5rem;
+  color: #333;
+  pointer-events: none;
+}
+
+.doseInput {
+  width: 100%;
+  padding: 0.5rem 2.5rem 0.5rem 0.5rem;
+  text-align: left;
+  border: 2px solid #d1d1d1;
+  border-radius: 4px;
+  font-size: clamp(0.875rem, 1.25vw, 1rem);
+  color: #333;
+  background-color: white;
+  transition: all 0.2s ease;
+}
+
+.doseInput:hover {
+  border-color: #800000;
+}
+
+.doseInput.active {
+  border-color: #800000;
+  box-shadow: 0 0 0 1px #800000;
+  outline: none;
+}
+
+.incrementCell {
+  width: 25%;
+  display: inline-flex;
+  gap: 0.5rem;
+  margin-left: 1rem;
+  align-items: center;
+  right: 4rem;
+}
+
+.incrementValue {
+  color: #333;
+  font-weight: 500;
+  font-size: clamp(0.875rem, 1.25vw, 1rem);
+  min-width: 2rem;
+  text-align: center;
+}
+
+.button {
+  background-color: #800000 !important;
+  color: white !important;
+  border: none !important;
+  width: 2rem !important;
+  height: 2rem !important;
+  border-radius: 4px !important;
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: background-color 0.2s ease !important;
+  text-decoration: none !important;
+}
+
+.button:disabled {
+  background-color: #d1d1d1 !important;
+  cursor: not-allowed;
+}
+
+.button:not(:disabled):hover {
+  background-color: #600000 !important;
+}
+
+.clearAll {
+  background-color: #333 !important;
+  color: white !important;
+  border: none !important;
+  padding: 0.5rem 1.25rem !important;
+  border-radius: 4px !important;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: clamp(0.875rem, 1.25vw, 1rem);
+  transition: background-color 0.2s ease !important;
+}
+
+.clearAll:hover {
+  background-color: #1a1a1a !important;
+}

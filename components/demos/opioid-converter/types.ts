@@ -9,3 +9,11 @@ export interface CalculationResult {
   inputDrug: string;
   outputDrug: string;
 } 
+
+export type MedicationItem = {
+  display: string;
+  increment: number;
+  unit: string;
+  dailyDose: number;
+  toMorphine: number;
+};

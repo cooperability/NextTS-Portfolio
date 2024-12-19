@@ -10,7 +10,13 @@ import Footer from "../sections/Footer"
 const name = "Cooper Reed";
 export const siteTitle = "Co-Operability";
 
-export default function Layout({ children, home }) {
+export default function Layout({ 
+  children,
+  home 
+}: { 
+  children: React.ReactNode;
+  home?: boolean;  // optional prop marked with ?
+}) {
   return (
     <div className={styles.container}>
       <Providers>
