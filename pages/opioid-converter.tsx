@@ -1,10 +1,11 @@
-import OpioidConverter from '@/components/demos/opioid-converter/OpioidConverter';
-import OpioidConverterLayout from '@/components/demos/layout';
+import OpioidConverter from '@/components/opioid-converter/OpioidConverter';
+import OpioidConverterLayout from '@/components/opioid-converter/OpioidConverterLayout';
+import type { NextPageWithLayout } from './_app';
 import Head from 'next/head';
 import { useCallback } from 'react';
 import { useRouter } from 'next/router';
 
-const OpioidConverterPage = () => {
+const OpioidConverterPage: NextPageWithLayout = () => {
   const router = useRouter();
 
   const handleError = useCallback((error: Error) => {
