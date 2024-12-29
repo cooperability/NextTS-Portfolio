@@ -11,3 +11,13 @@ Visit the live webpage at [cooperability.com](https://www.cooperability.com).
 [Server-side rendering a random number](https://auroratide.com/posts/server-side-rendering-a-random-number) \
 [Adding analytics with Vercel](https://ahmadrosid.com/blog/vercel-analytics-tutorial) \
 [Changing the site's icon](https://stackoverflow.com/questions/74353529/how-to-add-a-favicon-to-a-nextjs-app-structure-possible-hydration-issue) \
+
+
+## Next to be done here:
+- [ ] Opioid Converter Mobile compatible
+- [ ] Nlp_ipynb and course completion
+- [ ] anki decks shareable
+- [ ] Demo hover + active link compatibility
+- [ ] Writeup of OC compatibility work
+
+

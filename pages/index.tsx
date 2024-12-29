@@ -53,8 +53,8 @@ export default function Home() {
         <p>
           <b>Hi, I'm Cooper!</b>  Here's
           my <u><b><a href="https://docs.google.com/document/d/15wtKG9juJMYQOI793LvNYMfmeu7hyErO4xWixkTrSHI/edit?usp=sharing">Resume</a></b></u>.
-          I’ve built web apps in Blockchain + AI for 6 years. I also <u><b><a href ="https://mirror.xyz/0xAd7f62080c882D575DCd6F5eb29cB9C09B0d4B0D">write</a></b></u> and&nbsp;
-          <u><b><a href ="https://www.youtube.com/@cooperability">interview</a></b></u> sometimes.
+          I’ve built web apps for 6 years. I also <u><b><a href ="https://mirror.xyz/0xAd7f62080c882D575DCd6F5eb29cB9C09B0d4B0D">write</a></b></u> and&nbsp;
+          <u><b><a href ="https://www.youtube.com/@cooperability">interview</a></b></u>.
           My links (footer) are where my personal work is hosted.
           <br /> <br />
           To me, <b>Co-Operability</b> means long-term synergy
