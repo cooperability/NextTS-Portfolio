@@ -64,9 +64,11 @@ const Skills: React.FC = () => {
         </div>
         <div>
           <p>Demos:</p>
-          <a href="/opioid-converter"><u><b>Opioid Converter</b></u>(TS + CSS)</a>
+          <a href="/opioid-converter"><u><b>Opioid Converter</b></u>(TypeScript + Tailwind)[💻]</a>
           <br />
-          <Link href="https://github.com/cooperability/NextTS-Portfolio"><u><b>This website</b></u>(Next Tailwind, Vercel)</Link>
+          <Link href="https://github.com/cooperability/NextTS-Portfolio"><u><b>This website</b></u>(NextJS, TS, Tailwind, Vercel)[📱💻]</Link>
+          <br />
+          <Link href="https://lindabrettler.com"><u><b>Lindabrettler.com</b></u>(Squarespace)[💻📱]</Link>
         </div>
         <div className={styles.horizLine}></div>
         <p>
