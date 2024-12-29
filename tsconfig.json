@@ -38,7 +38,7 @@
     "components/date.js", 
     "components/activeLink.js",
     "components/demos/**/*"
-  ],
+, "components/opioid-converter"  ],
   "exclude": [
     "node_modules"
   ]
