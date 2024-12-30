@@ -67,6 +67,8 @@
   align-items: stretch;
   @media (max-width: 768px) {
     font-size: 0.875rem;
+    grid-template-columns: 35% 35% 30%;
+    gap: 0.25rem;
   }
 }
 
@@ -145,7 +147,9 @@
   background-color: white;
   transition: all 0.2s ease;
   @media (max-width: 768px) {
-    padding: 0.25rem 2rem 0.25rem 0.25rem;
+    width: 100%;
+    min-width: 70px;
+    padding: 0.25rem;
     font-size: 16px;
   }
 }
@@ -224,4 +228,12 @@
 
 .clearAll:hover {
   background-color: #1a1a1a !important;
+}
+
+.headerCell {
+  @media (max-width: 768px) {
+    white-space: normal;
+    line-height: 1.2;
+    padding: 0.25rem;
+  }
 }
