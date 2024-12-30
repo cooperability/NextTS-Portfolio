@@ -11,6 +11,7 @@ Visit the live webpage at [cooperability.com](https://www.cooperability.com).
 [Server-side rendering a random number](https://auroratide.com/posts/server-side-rendering-a-random-number) \
 [Adding analytics with Vercel](https://ahmadrosid.com/blog/vercel-analytics-tutorial) \
 [Changing the site's icon](https://stackoverflow.com/questions/74353529/how-to-add-a-favicon-to-a-nextjs-app-structure-possible-hydration-issue) \
+[something to explain mobile compatibility](https://en.wikipedia.org/wiki/Web_Compatibility_Test_for_Mobile_Browsers)
 
 
 ## Next to be done here:
@@ -19,5 +20,6 @@ Visit the live webpage at [cooperability.com](https://www.cooperability.com).
 - [ ] anki decks shareable
 - [ ] Demo hover + active link compatibility
 - [ ] Writeup of OC compatibility work
+- [ ] Skills -> Projects
 
 
