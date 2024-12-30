@@ -1,0 +1,52 @@
+# Opioid Calculator
+
+A medical tool for converting between different opioid medications, calculating morphine equivalence, and determining appropriate methadone conversions.
+
+## Features
+
+- Real-time conversion between multiple opioid medications
+- Automatic calculation of morphine and methadone equivalence
+- Increment/decrement buttons for precise dosage adjustments
+- Clear all functionality for quick resets
+- Mobile-responsive design
+
+## Technical Implementation
+
+### Core Functionality
+- Built using React and TypeScript
+- Implements controlled form inputs for precise dosage management
+- Uses mathematical models for accurate opioid conversions
+- Includes special handling for methadone's non-linear conversion
+
+### Mobile Enhancements
+1. **Responsive Layout**
+   - Adjusted padding and margins for smaller screens
+   - Implemented flexible column layouts for narrow viewports
+   - Optimized button and input sizes for touch interactions
+
+2. **Typography**
+   - Used clamp() for fluid typography scaling
+   - Increased touch target sizes for better accessibility
+   - Adjusted font sizes to maintain readability on small screens
+
+3. **Input Handling**
+   - Set explicit font-size to prevent iOS zoom on focus
+   - Optimized input padding for mobile keyboards
+   - Enhanced touch targets for increment/decrement buttons
+
+4. **Performance**
+   - Implemented efficient state management
+   - Optimized re-renders using useCallback
+   - Maintained smooth animations on mobile devices
+
+## Usage
+
+The calculator allows healthcare providers to:
+1. Enter daily doses for various opioid medications
+2. Use +/- buttons for precise adjustments
+3. View real-time morphine and methadone equivalence
+4. Clear all values with a single click
+
+## Safety Note
+
+This tool is intended for use by healthcare professionals only. All conversions should be verified against current clinical guidelines.
