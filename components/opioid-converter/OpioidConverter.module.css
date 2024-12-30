@@ -148,7 +148,7 @@
   transition: all 0.2s ease;
   @media (max-width: 768px) {
     width: 100%;
-    min-width: 100px;
+    min-width: 85px;
     padding: 0.25rem;
     font-size: 16px;
   }
