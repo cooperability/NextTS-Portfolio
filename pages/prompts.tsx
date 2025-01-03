@@ -7,6 +7,7 @@ import { serialize } from 'next-mdx-remote/serialize';
 import matter from 'gray-matter';
 import fs from 'fs';
 import path from 'path';
+import styles from "../styles/utils.module.css";
 
 interface PostData {
   id: string;
@@ -22,18 +23,30 @@ export default function Prompts({ allPostsData }: PromptsProps) {
     return (
         <Layout home>
             <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+                <p>
+                  <b>Key:</b>
+                </p>
+                <p>
+                  📝 = Text Manipulation
+                </p>
+                <p>
+                  🧱 = Template
+                </p>
+                <div className={styles.horizLine}></div>
                 <ul className={utilStyles.list}>
-                    {allPostsData?.map(({ id, date, title }: PostData) => (
-                        <li className={utilStyles.listItem} key={id}>
-                            <Link legacyBehavior href={`/posts/${id}`}>
-                                <a>{title}</a>
-                            </Link>
-                            <span> </span>
-                            <small className={utilStyles.lightText}>
-                                <Date dateString={date} />
-                            </small>
-                        </li>
-                    ))}
+                    {allPostsData
+                        ?.sort((a, b) => b.date.localeCompare(a.date))
+                        .map(({ id, date, title }: PostData) => (
+                            <li className={utilStyles.listItem} key={id}>
+                                <Link legacyBehavior href={`/posts/${id}`}>
+                                    <a>{title}</a>
+                                </Link>
+                                <span> </span>
+                                <small className={utilStyles.lightText}>
+                                    <Date dateString={date} />
+                                </small>
+                            </li>
+                        ))}
                 </ul>
             </section>
         </Layout>

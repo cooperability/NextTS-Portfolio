@@ -52,11 +52,13 @@ export default function Home() {
           />
         </div>
         <p>
-          <b>Hi, I'm Cooper!</b>  Here's
-          my <u><b><a href="https://docs.google.com/document/d/15wtKG9juJMYQOI793LvNYMfmeu7hyErO4xWixkTrSHI/edit?usp=sharing">Resume</a></b></u>.
-          I’ve built web apps for 6 years. I also <u><b><a href ="https://mirror.xyz/0xAd7f62080c882D575DCd6F5eb29cB9C09B0d4B0D">write</a></b></u> and&nbsp;
-          <u><b><a href ="https://www.youtube.com/@cooperability">interview</a></b></u>.
-          My links (footer) are where my personal work is hosted.
+          <b>Hi, I'm Cooper!</b>  I&nbsp;
+          <u><b><a href ="https://github.com/cooperability">code</a></b></u>,&nbsp;
+          <u><b><a href ="https://cooperability.substack.com/">write</a></b></u>, and&nbsp;
+          <u><b><a href ="https://www.youtube.com/@cooperability">interview</a></b></u>.&nbsp;
+          <br />
+          Here's my <u><b><a href="https://docs.google.com/document/d/15wtKG9juJMYQOI793LvNYMfmeu7hyErO4xWixkTrSHI/edit?usp=sharing">Resume</a></b></u>&nbsp;
+          and <u><b><a href ="/posts/linktree">all my links</a></b></u>.
           <br /> <br />
           To me, <b>Co-Operability</b> means long-term synergy
           between my ambitions and morals. I open-source my 
