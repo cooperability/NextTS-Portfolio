@@ -41,11 +41,11 @@ const Footer = () => {
               />
             </div>
           </Link>
-          <Link href="https://mirror.xyz/0xAd7f62080c882D575DCd6F5eb29cB9C09B0d4B0D">
+          <Link href="https://cooperability.substack.com/">
             <div className="hover:cursor-pointer flex:horizontal justify-center items-center">
               <Image
-                src="/images/Mirror.jpeg"
-                alt="Mirror"
+                src="/images/substack.png"
+                alt="Substack"
                 className={styles.socialsLink}
                 width="50"
                 height="50"
