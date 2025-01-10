@@ -112,6 +112,10 @@ const Skills: React.FC = () => {
             </div>
           </Link>
         </div>
+        <div>
+          <p>Demos:</p>
+          <Link href="https://github.com/cooperability/nlp_ipynb/"><u><b>NLP_ipynb</b></u>(Python + SpaCy/NLTK/pd etc)[💻📱]</Link>
+        </div>
         <div className={styles.horizLine}></div>
         <p>
           <b>Database</b>
