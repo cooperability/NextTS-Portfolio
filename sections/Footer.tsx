@@ -75,6 +75,13 @@ const Footer = () => {
           </Link>
         </div>
         <div className="text-center text-sm text-gray-500">
+          <span className="dark:text-gray-100 text-gray-900 text-lg mr-2">
+            {" "}
+            <u><a href="https://docs.google.com/document/d/15wtKG9juJMYQOI793LvNYMfmeu7hyErO4xWixkTrSHI/edit?usp=sharing">Resume</a></u>&nbsp;&nbsp;&nbsp;
+            <u><a href ="/posts/linktree">All Links</a></u>
+          </span>{" "}
+        </div>
+        <div className="text-center text-sm text-gray-500">
           <span className="dark:text-gray-100 text-gray-900 font-bold text-lg mr-2">
             {" "}
             Cooper Reed

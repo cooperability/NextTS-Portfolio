@@ -16,7 +16,8 @@ Visit the live webpage at [cooperability.com](https://www.cooperability.com).
 
 ## Next to be done here:
 - [4/5] Opioid Converter Mobile compatible + Writeup
-- [0/5] Nlp_ipynb and course completion
+- [0/5] Nlp_ipynb and course completion; JupyterLite
 - [0/5] anki decks shareable
 - [0/5] Demo hover + active link compatibility
 - [0/5] Recommendations prompt
+- [0/5] Vercel Observability & Analytics integration
