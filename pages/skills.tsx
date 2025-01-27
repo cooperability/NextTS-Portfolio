@@ -68,6 +68,8 @@ const Skills: React.FC = () => {
           <br />
           <Link href="https://github.com/cooperability/NextTS-Portfolio"><u><b>This website</b></u>(NextJS, TS, Tailwind, Vercel)[💻📱]</Link>
           <br />
+          <Link href="https://drive.google.com/file/d/1oDYsEytMWbKWmyotBZDIMBzoL5DM1tDV/view?usp=sharing"><u><b>Edstruments Personnel Management Portal</b></u>(React, TS, Tailwind, Redux)[📽️]</Link>
+          <br />
           <Link href="https://lindabrettler.com"><u><b>Lindabrettler.com</b></u>(Squarespace)[💻📱]</Link>
         </div>
         <div className={styles.horizLine}></div>
