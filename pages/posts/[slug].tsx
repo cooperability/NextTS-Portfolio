@@ -25,13 +25,11 @@ export default function PostPage({ source, frontMatter }: Props) {
         <div className={utilStyles.lightText}>
           <Date dateString={frontMatter.date} />
         </div>
-        {/* UPDATED CODE START */}
         {source ? (
           <MDXRemote {...source} />
         ) : (
           <div dangerouslySetInnerHTML={{ __html: frontMatter.contentHtml }} />
         )}
-        {/* UPDATED CODE END */}
       </article>
     </Layout>
   );
