@@ -4,7 +4,6 @@ import Layout, { siteTitle } from "../components/layout";
 import styles from "../styles/utils.module.css";
 import Image from "next/image";
 import { useState } from "react";
-import ActiveLink from "../components/activeLink";
 
 
 const name = "Cooper Reed";
@@ -30,8 +29,9 @@ const quotes = [
   '"We don\'t hope. We plan." -Reverend Mother Mohian, Dune',
   '"Risk is what\'s left over when you think you\'ve thought of everything." - Carl Richards, The Behavior Gap',
   '"Pride is not the opposite of shame, but its source. True humility is the only antidote to shame." - Uncle Iroh, Avatar: The Last Airbender',
-  '""Masculine means you go to work, you support your family, you help out your neighbors – that\’s masculine, that\’s machismo. We got it screwed up, thinking we\’re supposed to be warriors. No, we\’re not, we\’re supposed to be caretakers." -Danny Trejo',
+  '"Masculine means you go to work, you support your family, you help out your neighbors – that\’s masculine, that\’s machismo. We got it screwed up, thinking we\’re supposed to be warriors. No, we\’re not, we\’re supposed to be caretakers." -Danny Trejo',
   '"We judge ourselves by what we feel capable of doing, while others judge us by what we have already done." -Henry Wadsworth Longfellow',
+  '"In a world where the big fish eat small fish and the small fish eat shrimps, Singapore must become a poisonous shrimp." -Lee Kuan Yew',
 ]
 
 export default function Home() {
@@ -60,7 +60,7 @@ export default function Home() {
           <br /> <br />
           To me, <b>Co-Operability</b> means long-term synergy
           between my ambitions and morals. I open-source my 
-          work where possible, and try to create useful resources for
+          personal work, and try to create useful resources for
           others. My interviews follow this theme.
           <br />
           <br />

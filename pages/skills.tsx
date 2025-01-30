@@ -8,9 +8,9 @@ const Skills: React.FC = () => {
     <Layout home>
       <section className={styles.headingMd}>
         <p>
-          <b>Front End</b>
+          <b>Front End:</b>
         </p>
-        <div className="flex flex-row justify-evenly">
+        <div className="flex flex-row justify-evenly mb-2">
           <div className="flex">
             <Link href="https://react.dev/">
               <div className="hover:cursor-pointer">
@@ -63,20 +63,19 @@ const Skills: React.FC = () => {
           </div>
         </div>
         <div>
-          <p>Demos:</p>
           <a href="/opioid-converter"><u><b>Opioid Converter</b></u>(TypeScript + CSS)[💻📱]</a>
           <br />
           <Link href="https://github.com/cooperability/NextTS-Portfolio"><u><b>This website</b></u>(NextJS, TS, Tailwind, Vercel)[💻📱]</Link>
           <br />
-          <Link href="https://drive.google.com/file/d/1oDYsEytMWbKWmyotBZDIMBzoL5DM1tDV/view?usp=sharing"><u><b>Edstruments Personnel Management Portal</b></u>(React, TS, Tailwind, Redux)[📽️]</Link>
+          <Link href="https://drive.google.com/file/d/1oDYsEytMWbKWmyotBZDIMBzoL5DM1tDV/view?usp=sharing"><u><b>Edstruments Personnel Portal</b></u>(React, TS, Tailwind, Redux)[📽️]</Link>
           <br />
           <Link href="https://lindabrettler.com"><u><b>Lindabrettler.com</b></u>(Squarespace)[💻📱]</Link>
         </div>
         <div className={styles.horizLine}></div>
         <p>
-          <b>Back End</b>
-        </p>
-        <div className="flex flex-row justify-evenly">
+            <b>Back End:</b>
+          </p>
+        <div className="flex flex-row justify-evenly mb-2">
           <div className="flex">
             <Link href="https://www.python.org/">
               <div className="hover:cursor-pointer">
@@ -115,14 +114,13 @@ const Skills: React.FC = () => {
           </Link>
         </div>
         <div>
-          <p>Demos:</p>
           <Link href="https://github.com/cooperability/nlp_ipynb/"><u><b>NLP_ipynb</b></u>(Python + SpaCy/NLTK/pd etc)[💻📱]</Link>
         </div>
         <div className={styles.horizLine}></div>
         <p>
-          <b>Database</b>
-        </p>
-        <div className="flex flex-row justify-evenly">
+            <b>Database:</b>
+          </p>
+        <div className="flex flex-row justify-evenly mb-2">
           <Link href="https://www.postgresql.org/">
             <div className="hover:cursor-pointer">
               <Image
@@ -158,9 +156,8 @@ const Skills: React.FC = () => {
           </Link>
         </div>
         <div>
-          <p>Demos:</p>
-          I'm currently working on <a href="https://github.com/cooperability/BMX-bookmark-extractor"><u><b>BMX, the BookMark eXtractor</b></u></a>
-          , a user-friendly pipeline for ingesting web data into AI models, and eventually, your brain.
+          WIP: <a href="https://github.com/cooperability/BMX-bookmark-extractor"><u><b>BMX, the BookMark eXtractor</b></u></a>
+          , a user-friendly pipeline for organizing and ingesting web data into AI models.
         </div>
       </section>
     </Layout>

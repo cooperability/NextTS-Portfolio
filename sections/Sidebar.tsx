@@ -25,7 +25,6 @@ const Sidebar = ({
                 <ActiveLink activeClassName="active" href="/prompts">
                     <a className={styles.navLink}>| Prompts |</a>
                 </ActiveLink>
-                {/* Add more links as needed */}
             </nav>
         </div>
     );
