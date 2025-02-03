@@ -54,14 +54,14 @@ export default function Home() {
         </div>
         <p>
           Hi, I'm <b>Cooper!</b> I&nbsp;
-          <u><b><a href ="https:/>/github.com/cooperability">code</a></b></u>,&nbsp;
+          <u><b><a href ="https://github.com/cooperability">code</a></b></u>,&nbsp;
           <u><b><a href ="https://cooperability.substack.com/">write</a></b></u>, and&nbsp;
           <u><b><a href ="https://www.youtube.com/@cooperability">interview</a></b></u>.&nbsp;
           <br /> <br />
           To me, <b>Co-Operability</b> means long-term synergy
           between my ambitions and morals. I open-source my 
-          personal work, and try to create useful resources for
-          others. My interviews follow this theme.
+          work and learning as resources for others. My interviews 
+          follow this theme.
           <br />
           <br />
         </p>
