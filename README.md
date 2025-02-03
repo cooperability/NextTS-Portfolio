@@ -27,3 +27,4 @@ When implementing date-based sorting for posts, we discovered that simpler is be
 - [0/5] Demo hover + active link compatibility
 - [0/5] Recommendations prompt
 - [0/5] Vercel Observability & Analytics integration
+- [0/5] Switch X link to Bluesky Link
