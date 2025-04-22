@@ -30,10 +30,10 @@ const Footer = () => {
               />
             </div>
           </Link>
-          <Link href="https://twitter.com/Cooperability">
+          <Link href="https://bsky.app/profile/cooperability.com">
             <div className="hover:cursor-pointer flex:horizontal justify-center items-center">
               <Image
-                src="/images/Twitter.png"
+                src="/images/bluesky.png"
                 alt="Twitter"
                 className={styles.socialsLink}
                 width="50"
@@ -61,16 +61,6 @@ const Footer = () => {
                 width="50"
                 height="50"
               />
-            </div>
-          </Link>
-          <Link href="https://www.imdb.com/name/nm5343773/">
-            <div className="hover:cursor-pointer flex:horizontal justify-center items-center">
-              <Image
-                src="/images/IMDb.png"
-                className={styles.socialsLink}
-                alt="IMDb"
-                width="50"
-                height="50" />
             </div>
           </Link>
         </div>
