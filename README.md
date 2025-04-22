@@ -21,10 +21,7 @@ When implementing date-based sorting for posts, we discovered that simpler is be
 
 
 ## Next to be done here:
-- [4/5] Opioid Converter Mobile compatible + Writeup
 - [0/5] Nlp_ipynb and course completion; JupyterLite
 - [0/5] anki decks shareable
 - [0/5] Demo hover + active link compatibility
-- [0/5] Recommendations prompt
 - [0/5] Vercel Observability & Analytics integration
-- [0/5] Switch X link to Bluesky Link

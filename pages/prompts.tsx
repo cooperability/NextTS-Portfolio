@@ -32,6 +32,9 @@ export default function Prompts({ allPostsData }: PromptsProps) {
                 <p>
                   🧱 = Template
                 </p>
+                <p>
+                  🏦 = Archive / Resource
+                </p>
                 <div className={styles.horizLine}></div>
                 <ul className={utilStyles.list}>
                     {allPostsData
