@@ -25,3 +25,4 @@ When implementing date-based sorting for posts, we discovered that simpler is be
 - [0/5] anki decks shareable
 - [0/5] Demo hover + active link compatibility
 - [0/5] Vercel Observability & Analytics integration
+- [0/5] Remove LegacyBehavior

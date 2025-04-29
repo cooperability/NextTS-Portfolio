@@ -10,6 +10,34 @@
   align-items: center;
 }
 
+.themeToggleBtn {
+  border-radius: 9999px;
+  height: 100%;
+}
+
+.themeToggleBtn svg {
+  display: inline-block; 
+  width: 2rem; 
+  height: 2rem; 
+  fill: currentColor;
+}
+
+.randomizeBtn {
+  border-radius: 9999px;
+  height: 100%;
+}
+
+
+/* Light mode variant */
+.themeToggleLight {
+  @apply bg-slate-400 border-black-50 hover:bg-slate-500 text-white;
+}
+
+/* Dark mode variant */
+.themeToggleDark {
+  @apply bg-slate-100 hover:bg-slate-300 text-black;
+}
+
 .backToHome {
   margin: 3rem 0 0;
 }
@@ -59,8 +87,21 @@
   border-radius: 9999px;
 }
 
+.socialIconRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.linkRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
 .socialsLink {
-  z-index: 1;
   border-radius: 9999px;
   opacity: 0.85;
 }
@@ -80,6 +121,13 @@
   padding-top: 1px;
   z-index: 1;
 
+}
+
+.footerText {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .list {
@@ -103,7 +151,7 @@
 
 .Header {
   width: 100%;
-  height: 40px;
+  height: 2.5rem;
   display: flex;
   justify-content: space-between;
   margin-bottom: 5px;
@@ -112,7 +160,6 @@
 .navbar {
   display: flex;
   background-color: transparent;
-  padding: 1rem;
   justify-content: space-between;
   font-size: 1.2rem;
   line-height: 1.5;
@@ -130,7 +177,7 @@
 }
 
 .horizLine {
-  border: 2px solid;
+  border: 1px solid;
   margin: 10px 3px;
 }
 

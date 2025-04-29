@@ -40,9 +40,9 @@ export default function Layout({
         <main>{children}</main>
         {!home && (
           <div className={styles.backToHome}>
-            <Link legacyBehavior href="/prompts">
-              <a>← Back to Prompts</a>
-            </Link>
+            <a href="/prompts">
+              ← Back to Prompts
+            </a>
           </div>
         )}
       </Providers>

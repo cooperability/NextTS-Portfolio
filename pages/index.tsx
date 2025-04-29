@@ -2,9 +2,9 @@
 import Head from "next/head";
 import Layout, { siteTitle } from "../components/layout";
 import styles from "../styles/utils.module.css";
+import { ArrowPathIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import { useState } from "react";
-
 
 const name = "Cooper Reed";
 const quotes = [
@@ -65,14 +65,14 @@ export default function Home() {
           <br />
           <br />
         </p>
-        <div className="flex justify-between">
+        <div className={styles.socialIconRow}>
           <b>A random quote that speaks to me:</b>
           <span>&nbsp;&nbsp;</span>
           <button
-            className="py-1 px-1 rounded flex text-lg border"
+            className={styles.themeToggleBtn}
             onClick={() => setQuote(quotes[Math.floor(Math.random() * quotes.length)])}
           >
-            Randomize
+            <ArrowPathIcon />
           </button>
         </div>
         <span suppressHydrationWarning>

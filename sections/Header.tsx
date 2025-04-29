@@ -1,9 +1,8 @@
 "use client"
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import { SunIcon, MoonIcon, MenuIcon, XIcon } from "@heroicons/react/solid"; // Import MenuIcon and XIcon
+import { SunIcon, MoonIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import styles from "../styles/utils.module.css";
-import Link from "next/link";
 import Sidebar from "./Sidebar";
 import ActiveLink from "../components/activeLink";
 
@@ -29,20 +28,25 @@ const Header = () => {
 
   const navigator = () => {
     if (isMobile) {
-      return (
-        <div suppressHydrationWarning={true}>
+      if (isSidebarOpen) {
+        return (
           <button
+            className={styles.themeToggleBtn}
             onClick={toggleSidebar}
-            aria-label="Toggle Menu"
           >
-            {isSidebarOpen ? (
-              <XIcon className="w-7 h-7" />
-            ) : (
-              <MenuIcon className="w-7 h-7" />
-            )}
+            <XMarkIcon />
           </button>
-        </div>
-      );
+        );
+      } else {
+        return (
+          <button
+            className={styles.themeToggleBtn}
+            onClick={toggleSidebar}
+          >
+            <Bars3Icon />
+          </button>
+        );
+      }
     } else {
       return (
         <div className="flex flex-row space-between">
@@ -67,20 +71,19 @@ const Header = () => {
     if (currentTheme === "dark") {
       return (
         <button
-          className="bg-slate-100 hover:bg-slate-300 text-black font-bold py-1 px-1 rounded flex"
+          className={`${styles.themeToggleBtn} ${styles.themeToggleDark}`}
           onClick={() => setTheme("light")}
         >
-          <SunIcon className="w-7 h-7 text-yellow-500 " role="button" />
+          <SunIcon />
         </button>
       );
     } else {
       return (
         <button
-          className="bg-slate-400 border-black-50 hover:bg-slate-500 text-white font-bold py-1 px-1 rounded flex"
+          className={`${styles.themeToggleBtn} ${styles.themeToggleLight}`}
           onClick={() => setTheme("dark")}
         >
-          <MoonIcon className="w-7 h-7 text-gray-900 " role="button" />
-
+          <MoonIcon />
         </button>
       );
     }
