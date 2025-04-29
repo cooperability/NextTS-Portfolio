@@ -3,6 +3,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { ThemeProvider } from "next-themes";
 import type { AppProps } from 'next/app'
 import type { NextPage } from 'next';
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Layout from '@/components/layout';
 
 export type NextPageWithLayout = NextPage & {
@@ -19,6 +20,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
     <ThemeProvider enableSystem={true} attribute="class">
       {getLayout(<Component {...pageProps} />)}
       <Analytics />
+      <SpeedInsights />
     </ThemeProvider>
 
   );
