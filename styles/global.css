@@ -13,23 +13,9 @@ body {
   box-sizing: border-box;
 }
 
-a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
 img {
   max-width: 100%;
   display: block;
-}
-
-button {
-  color: #0070f3;
-  text-decoration: underline;
 }
 
 @tailwind base;
@@ -52,6 +38,10 @@ button {
     }
   }
 
+  a {
+    @apply text-inherit;
+  }
+
   ::selection {
     @apply text-white bg-indigo-500;
   }
@@ -63,5 +53,23 @@ button {
 }
 
 @layer components {
-  
+  /* Class for social/skill icon images */
+  .icon-link-image {
+    @apply inline-block opacity-80 hover:opacity-100 hover:cursor-pointer;
+  }
+
+  /* Class for Footer icon container */
+  .footer-icon-container {
+    @apply flex flex-row justify-between items-center gap-x-4;
+  }
+
+  /* Class for Skills icon row container */
+  .skills-icon-row {
+    @apply flex flex-row justify-evenly items-center mb-2 gap-x-4;
+  }
+
+  /* Class for paired Skills icons container */
+  .skills-icon-pair {
+    @apply flex items-center gap-x-2;
+  }
 }

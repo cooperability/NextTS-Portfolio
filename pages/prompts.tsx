@@ -41,9 +41,9 @@ export default function Prompts({ allPostsData }: PromptsProps) {
                         ?.sort((a, b) => b.date.localeCompare(a.date))
                         .map(({ id, date, title }: PostData) => (
                             <li className={utilStyles.listItem} key={id}>
-                                <Link legacyBehavior href={`/posts/${id}`}>
-                                    <a>{title}</a>
-                                </Link>
+                                <a href={`/posts/${id}`}>
+                                    {title}
+                                </a>
                                 <span> </span>
                                 <small className={utilStyles.lightText}>
                                     <Date dateString={date} />
