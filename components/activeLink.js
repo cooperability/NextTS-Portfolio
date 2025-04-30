@@ -1,39 +1,50 @@
 import { useRouter } from "next/router";
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
 import Link from "next/link";
-import React, { Children } from "react";
+import React from "react";
 
-const ActiveLink = ({ children, activeClassName, ...props }) => {
+const ActiveLink = ({
+  children,           // The content of the link (e.g., "Home")
+  activeClassName,    // Class to add when active (e.g., styles.boldLink)
+  className,          // Base class for the link (e.g., styles.navLink)
+  href,               // Link destination
+  ...props            // Any other props to pass to the underlying <a> tag
+}) => {
   const { asPath } = useRouter();
-  const child = Children.only(children);
-  
-  const originalChildProps = child.props;
-  const originalClassName = originalChildProps.className || "";
-  const content = originalChildProps.children;
 
-  const isActive = asPath === props.href || asPath === props.as;
+  // Check if the current path matches the link's href
+  const isExactlyActive = asPath === href;
 
-  const finalClassName = isActive
-    ? `${originalClassName} ${activeClassName}`.trim()
-    : originalClassName;
-
-  const { 
-    activeClassName: _acn,
-    children: _c,
-    ...linkProps
-  } = props;
+  // Combine the base className with the activeClassName if the link is active
+  const combinedClassName = isExactlyActive
+    ? `${className || ""} ${activeClassName}`.trim()
+    : className || "";
 
   return (
-    <Link {...linkProps} className={finalClassName || null}>
-      {content}
+    // Use Next.js Link component for client-side navigation.
+    // It automatically renders an <a> tag.
+    // Pass the calculated className and other props directly to Link.
+    <Link 
+      href={href} 
+      className={combinedClassName || undefined} 
+      {...props}
+    >
+      {children}
     </Link>
   );
 };
 
+// Define prop types for the component
 ActiveLink.propTypes = {
-  activeClassName: propTypes.string.isRequired,
-  children: propTypes.element.isRequired,
-  href: propTypes.string.isRequired,
-  as: propTypes.string,
+  children: PropTypes.node.isRequired,
+  activeClassName: PropTypes.string.isRequired,
+  className: PropTypes.string, // Optional base class name
+  href: PropTypes.string.isRequired,
 };
+
+// Set default props
+ActiveLink.defaultProps = {
+  className: "",
+};
+
 export default ActiveLink;

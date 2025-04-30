@@ -16,14 +16,14 @@ const Sidebar = ({
                 Close
             </button>
             <nav className={styles.sidebarNav}>
-                <ActiveLink activeClassName="active" href="/">
-                    <a className={styles.navLink}>| Home |</a>
+                <ActiveLink className={styles.navLink} activeClassName={styles.boldLink} href="/">
+                    | Home |
                 </ActiveLink>
-                <ActiveLink activeClassName="active" href="/skills">
-                    <a className={styles.navLink}>| Skills |</a>
+                <ActiveLink className={styles.navLink} activeClassName={styles.boldLink} href="/skills">
+                    | Skills |
                 </ActiveLink>
-                <ActiveLink activeClassName="active" href="/prompts">
-                    <a className={styles.navLink}>| Prompts |</a>
+                <ActiveLink className={styles.navLink} activeClassName={styles.boldLink} href="/prompts">
+                    | Prompts |
                 </ActiveLink>
             </nav>
         </div>

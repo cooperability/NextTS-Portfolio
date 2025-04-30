@@ -168,7 +168,6 @@
 
 .navLink {
   text-decoration: none;
-  font-weight: 700;
 }
 
 .activeNavLink {
@@ -227,3 +226,28 @@
   color: #0070f3;
   /* Change to your preferred link hover color */
 }
+
+/* Base style for header navigation links */
+.navLink {
+  /* Inherit color from parent to respect light/dark mode */
+  color: inherit; 
+  text-decoration: none; /* Remove default underline */
+  padding: 0 0.5rem; /* Add some spacing */
+  margin: 0 0.25rem; /* Add some spacing */
+}
+
+/* Remove browser default visited link color */
+.navLink:visited {
+ color: inherit; 
+}
+
+/* Style for the active navigation link */
+.boldLink {
+  font-weight: bold;
+}
+
+/* Optional: Add a subtle hover effect */
+.navLink:hover {
+  /* Example: slightly change opacity or add underline */
+   text-decoration: underline;
+} 
