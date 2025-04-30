@@ -50,14 +50,14 @@ const Header = () => {
     } else {
       return (
         <div className="flex flex-row space-between">
-          <ActiveLink activeClassName="active" href="/">
-            <a className={styles.navLink}>| Home |</a>
+          <ActiveLink className={styles.navLink} href="/" activeClassName={styles.boldLink}>
+            | Home |
           </ActiveLink>
-          <ActiveLink activeClassName="active" href="/skills">
-            <a className={styles.navLink}>| Skills |</a>
+          <ActiveLink className={styles.navLink} href="/skills" activeClassName={styles.boldLink}>
+            | Skills |
           </ActiveLink>
-          <ActiveLink activeClassName="active" href="/prompts">
-            <a className={styles.navLink}>| Prompts |</a>
+          <ActiveLink className={styles.navLink} href="/prompts" activeClassName={styles.boldLink}>
+            | Prompts |
           </ActiveLink>
         </div>
       );
