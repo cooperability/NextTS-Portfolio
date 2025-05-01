@@ -12,18 +12,15 @@ const Sidebar = ({
 }) => {
     return (
         <div className={`${styles.sidebar} ${isOpen ? styles.open : ""}`}>
-            <button className={styles.closeButton} onClick={onClose}>
-                Close
-            </button>
             <nav className={styles.sidebarNav}>
                 <ActiveLink className={styles.navLink} activeClassName={styles.boldLink} href="/">
                     | Home |
                 </ActiveLink>
-                <ActiveLink className={styles.navLink} activeClassName={styles.boldLink} href="/skills">
-                    | Skills |
+                <ActiveLink className={styles.navLink} activeClassName={styles.boldLink} href="/demos">
+                    | Demos |
                 </ActiveLink>
-                <ActiveLink className={styles.navLink} activeClassName={styles.boldLink} href="/prompts">
-                    | Prompts |
+                <ActiveLink className={styles.navLink} activeClassName={styles.boldLink} href="/resources">
+                    | Resources |
                 </ActiveLink>
             </nav>
         </div>

@@ -15,25 +15,24 @@ interface PostData {
   title: string;
 }
 
-interface PromptsProps {
+interface DemosProps {
   allPostsData: PostData[];
 }
 
-export default function Prompts({ allPostsData }: PromptsProps) {
+export default function Demos({ allPostsData }: DemosProps) {
     return (
         <Layout home>
             <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
                 <p>
-                  <b>Key:</b>
+                  <b>Key: </b>&nbsp;
+                  📝=LLM Prompt&nbsp;&nbsp;&nbsp;&nbsp;
+                  🏦=Archive/Resource
                 </p>
                 <p>
-                  📝 = Text Manipulation
+                  
                 </p>
                 <p>
-                  🧱 = Template
-                </p>
-                <p>
-                  🏦 = Archive / Resource
+                  
                 </p>
                 <div className={styles.horizLine}></div>
                 <ul className={utilStyles.list}>

@@ -40,8 +40,8 @@ export default function Layout({
         <main>{children}</main>
         {!home && (
           <div className={styles.backToHome}>
-            <a href="/prompts">
-              ← Back to Prompts
+            <a href="/resources">
+              ← Back to Resources
             </a>
           </div>
         )}

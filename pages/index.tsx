@@ -63,7 +63,6 @@ export default function Home() {
           work and learning as resources for others. My interviews 
           follow this theme.
           <br />
-          <br />
         </p>
         <div className={styles.socialIconRow}>
           <b>A random quote that speaks to me:</b>

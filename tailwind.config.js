@@ -10,6 +10,6 @@ module.exports = {
     extend: {},
   },
   plugins: [
-    // require('@tailwindcss/typography') // Temporarily commented out
+    //require('@tailwindcss/typography')
   ],
 };
