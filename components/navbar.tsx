@@ -1,12 +1,11 @@
 import Link from 'next/link';
-import styles from "../styles/utils.module.css";
 
 const Navbar: React.FC = () => {
   return (
-    <nav className={styles.navbar}>
-      <a className={styles.navLink} href="/">Home</a>
-      <a className={styles.navLink} href="/skills">Skills</a>
-      <a className={styles.navLink} href="/prompts">Prompts</a>
+    <nav className="flex justify-between bg-transparent text-xl leading-normal z-10">
+      <a className="text-inherit no-underline px-2 mx-1 hover:underline" href="/">Home</a>
+      <a className="text-inherit no-underline px-2 mx-1 hover:underline" href="/demos">Demos</a>
+      <a className="text-inherit no-underline px-2 mx-1 hover:underline" href="/resources">Resources</a>
     </nav>
   );
 };

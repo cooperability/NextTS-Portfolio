@@ -53,11 +53,11 @@ const Header = () => {
           <ActiveLink className={styles.navLink} href="/" activeClassName={styles.boldLink}>
             | Home |
           </ActiveLink>
-          <ActiveLink className={styles.navLink} href="/skills" activeClassName={styles.boldLink}>
-            | Skills |
+          <ActiveLink className={styles.navLink} href="/demos" activeClassName={styles.boldLink}>
+            | Demos |
           </ActiveLink>
-          <ActiveLink className={styles.navLink} href="/prompts" activeClassName={styles.boldLink}>
-            | Prompts |
+          <ActiveLink className={styles.navLink} href="/resources" activeClassName={styles.boldLink}>
+            | Resources |
           </ActiveLink>
         </div>
       );

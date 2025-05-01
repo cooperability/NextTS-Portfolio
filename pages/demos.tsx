@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from "next/image";
 import styles from "../styles/utils.module.css";
 
-const Skills: React.FC = () => {
+const Demos: React.FC = () => {
   return (
     <Layout home>
       <section className={styles.headingMd}>
@@ -135,4 +135,4 @@ const Skills: React.FC = () => {
   );
 };
 
-export default Skills;
+export default Demos;

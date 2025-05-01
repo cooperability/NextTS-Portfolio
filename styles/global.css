@@ -24,18 +24,8 @@ img {
 
 @layer base {
   body {
-    /* @apply bg-gray-50 text-gray-900 dark:bg-black dark:text-gray-100; */
-    /* @apply min-h-screen; */
-
-    body {
-      color: #000;
-      background-color: #fff;
-    }
-
-    [data-theme="dark"] body {
-      color: #fff;
-      background-color: black;
-    }
+    @apply bg-gray-50 text-gray-900 dark:bg-black dark:text-gray-100;
+    @apply min-h-screen;
   }
 
   a {
@@ -49,27 +39,5 @@ img {
 
   .btn {
     @apply inline-block px-5 py-3 rounded-lg hover: bg-indigo-600 transition duration-300 shadow-lg bg-indigo-500 text-white capitalize tracking-wider font-semibold text-sm sm:text-xl focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50 whitespace-nowrap
-  }
-}
-
-@layer components {
-  /* Class for social/skill icon images */
-  .icon-link-image {
-    @apply inline-block opacity-80 hover:opacity-100 hover:cursor-pointer;
-  }
-
-  /* Class for Footer icon container */
-  .footer-icon-container {
-    @apply flex flex-row justify-between items-center gap-x-4;
-  }
-
-  /* Class for Skills icon row container */
-  .skills-icon-row {
-    @apply flex flex-row justify-evenly items-center mb-2 gap-x-4;
-  }
-
-  /* Class for paired Skills icons container */
-  .skills-icon-pair {
-    @apply flex items-center gap-x-2;
   }
 }
