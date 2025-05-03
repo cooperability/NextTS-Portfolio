@@ -65,23 +65,10 @@ export default function Home() {
         </div>
         <p>
           Hi, I&apos;m <b>Cooper!</b> I&nbsp;
-          <u>
-            <b>
-              <a href="https://github.com/cooperability">code</a>
-            </b>
-          </u>
+          <a href="https://github.com/cooperability">code</a>
           ,&nbsp;
-          <u>
-            <b>
-              <a href="https://cooperability.substack.com/">write</a>
-            </b>
-          </u>
-          , and&nbsp;
-          <u>
-            <b>
-              <a href="https://www.youtube.com/@cooperability">interview</a>
-            </b>
-          </u>
+          <a href="https://cooperability.substack.com/">write</a>, and&nbsp;
+          <a href="https://www.youtube.com/@cooperability">interview</a>
           .&nbsp;
           <br /> <br />
           To me, <b>Co-Operability</b> means long-term synergy between my

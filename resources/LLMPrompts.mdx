@@ -1,0 +1,88 @@
+---
+title: "📝 LLM Prompts"
+date: "2025-05-03"
+---
+import ToggleDropdown from '../../components/ToggleDropdown';
+
+<ToggleDropdown title="Generate Product-Market Research">
+*“Act as a product manager, browse the web, and perform market research in the [enter your niche] niche as well as the specific [vertical] vertical.”*
+
+**Give me:**
+- *Global market size and growth projections*
+- *Key players and their market share*
+- *Industry trends and technologies*
+- *SWOT analysis*
+- *Customer needs and pain points*
+- *Competitive advantages and USPs*
+- *Market segmentation and target audience*
+- *Marketing and sales strategies*
+- *Regulatory and legal considerations*
+- *A score for how easy it is to enter the market, plus rationale*
+- *A list of potential MVPs, with a pseudo-PRD for each*
+
+</ToggleDropdown>
+
+<ToggleDropdown title="Compose Cover Letter from Source Documents">
+**(Requires a job description🟢, resume🔴, and previous cover letter🔵)**
+
+I have attached documents 🟢, 🔴, and 🔵(names of documents). Write a cover letter for the job in attachment 🟢, using the contents of resume 🔴 and the writing style of cover letter🔵. Don't add any experience that isn't specifically included in 🔴. Use a long-short-short-short-long-short-long-short-short sentence structure. Please don't be yappy, but maintain professionalism and emphasize parts of my profile that would be especially valuable to this company.
+
+</ToggleDropdown>
+
+<ToggleDropdown title="Compose PRD from Source Codebase">
+Based on the code/details here, compose a PRD for this project:
+
+1. The application's purpose, broadly, and how each component contributes. One paragraph summary; bullet points for components.
+2. The entire tech stack. Bullet points. Outlined & cleanly indented to demonstrate frontend, backend, database components. One bullet point/sentence per library, framework or piece of tech.
+3. The application's complete data schema, including nested projects, database models, and inherited types. If possible, include flowcharts for common user actions and the data processes they initiate (user clicks button → data processed → response returned, etc)
+4. CI/CD and process flow, procedure/protocol details for things like making migrations and migrating.
+
+This PRD should have both broad topic coverage and extreme specificity where possible, as I will use it as a jumping-off point for countless new chats.
+</ToggleDropdown>
+
+<ToggleDropdown title="Summarize this chat as a new prompt">
+Distill the insights from this chat into a condensed, organized and informative summary which could be seamlessly appended to this project's documentation🟢. A data point from this chat should be prioritized for the summary when it is:
+
+A) An insight uncovered through this chat which would be difficult to uncover WITHOUT repeating this chat.
+B) Prior-posterior beliefs about the system which have changed over the course of this chat, yielding a new understanding than when we began.
+C) (optional) Changes made to the code within this chat, as well as a short explanation for why each change was made.
+
+Do NOT include anything already included in the Documentation🟢. Again, your goal is to harvest insights that are HIGHLY UNIQUE, USEFUL, SPECIFIC, and DIFFICULT TO UNCOVER and leave all else behind.
+</ToggleDropdown>
+
+<ToggleDropdown title="Summarize a Book">
+**Summarize Book (best with self-help, advice, or knowledge-based books)**
+
+I have uploaded [XY Author]'s [XY Text]. I need an extracted summary from you containing all actionable advice/knowledge within this text.
+I will never read the source text, but I want to enjoy 100% of the academic, social, and experiential benefits the text confers.
+Preserve the tone of the original work as much as possible; do not impose your own tone of any kind.
+At the end of your output, estimate the time required for a human to 1)read the book, 2)take notes on it and 3)complete any actionable projects within WITHOUT chatGPT and WITH chatGPT.
+Your output should be in markdown, which should be readable by Anki, GitHub, Next.js posts, etc. Format should be maximally universal where possible.
+
+The following are tags for the summary:
+**PS** = Paraphrased Summary by LLM
+**DQ**  = Direct Quotes, VERBATIM excerpts WITH PAGE NUMBER
+**CS/IE** = Case Study or Illustrative Example: a story or narrative the text provides which is intended to evidence a certain argument or point therein. These should typically be paraphrased and marked with a page number for further investigation, but occasionally there are **CS/IE**s which can be entirely contained in a DQ of a few sentences. In these cases DQ is preferable.
+
+Your summary should have the following 4-part structure:
+- **Five-paragraph overall summary (PS)**
+    -- 1 paragraph: intro + roadmap, structure of the text and arguments
+    -- 3 paragraphs: three major movements from the work demonstrating its segues between major arguments, & important subpoints in each argument
+    -- conclusion, distilled review of overall argument
+- **Ten central case studies (CS/IE)s. (PS)**
+    -- Include less than five sentences per **CS/IE** explaining its structure/narrative, showing context in the work, and highlight whether it's referenced multiple times.
+    -- Connect CS/IEs to actionable advice by subpoint if possible
+- **Ten bottom-line pieces of concise, actionable advice (DQ preffered, PS ok)**
+    -- whether through author's direct recommendation or implicit illustration e.g. "successful/unsuccessful examples have typically included THIS course of action: ..."
+    -- Include sub-bullet **CS/IE** here WHENEVER available
+- **Ten of the book's best quotes (DQ), selected on the criteria**:
+    -- 1. communicates a central point of the text concisely
+    -- 2. is dramatic, well-written and/or memorable
+    -- 3. illustrates author's unique perspective/experience well
+
+A few final ABSOLUTE RULES:
+    1. CLEARLY mark what is (**DQ),** (**PS) and (CS/IE[either DQ or PS])** for all bullet points of the summary so as to make the summary properly attributable.
+    2. If uncertain about any part of the reduction/summarization process, ask me about specific implementations instead of assuming any particular behavior. This includes what content/themes/chapters to focus the summary on.
+    3. Points which are already too nuanced/concise to be effectively summarized should be marked with page numbers so that I can peruse the book.
+    4. After you complete this first response, give a few options for drilldown prompts which would allow me to further investigate the depth of the text using your (the LLM's) help.
+</ToggleDropdown> 
