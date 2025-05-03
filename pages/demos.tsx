@@ -54,31 +54,19 @@ const Demos: React.FC = () => {
             href="/opioid-converter/"
             className="text-indigo-600 hover:text-indigo-900"
           >
-            <u>
-              <b>Opioid Converter</b>
-            </u>
-            (TypeScript + CSS)[💻📱]
+            Opioid Converter (TypeScript + CSS)[💻📱]
           </Link>
           <br />
           <a href="https://github.com/cooperability/NextTS-Portfolio">
-            <u>
-              <b>cooperability.com</b>
-            </u>
-            (NextJS, TS, Tailwind, Vercel)[💻📱]
+            cooperability.com (NextJS, TS, Tailwind, Vercel)[💻📱]
           </a>
           <br />
           <a href="https://drive.google.com/file/d/1oDYsEytMWbKWmyotBZDIMBzoL5DM1tDV/view?usp=sharing">
-            <u>
-              <b>Edstruments Personnel Portal</b>
-            </u>
-            (TS, Tailwind, Redux)[📽️]
+            Edstruments Personnel Portal (TS, Tailwind, Redux)[📽️]
           </a>
           <br />
           <a href="https://lindabrettler.com">
-            <u>
-              <b>Lindabrettler.com</b>
-            </u>
-            (Squarespace)[💻📱]
+            Lindabrettler.com (Squarespace)[💻📱]
           </a>
         </div>
         <div className={styles.horizLine}></div>
@@ -116,17 +104,12 @@ const Demos: React.FC = () => {
         </div>
         <div>
           <a href="https://github.com/cooperability/nlp_ipynb/">
-            <u>
-              <b>NLP_ipynb</b>
-            </u>
-            (Python + SpaCy/NLTK/pd etc)[💻📱]
+            NLP_ipynb (Python + SpaCy/NLTK/pd etc)[💻📱]
           </a>
         </div>
         <div className={styles.horizLine}></div>
         <div className={styles.linkRow}>
-          <p>
-            <b>Database:</b>
-          </p>
+          <b>Database:</b>
           <a href="https://www.postgresql.org/">
             <Image
               src="/images/postgresql.png"
@@ -158,9 +141,7 @@ const Demos: React.FC = () => {
         <div>
           WIP:{' '}
           <a href="https://github.com/cooperability/BMX-bookmark-extractor">
-            <u>
-              <b>BMX, the BookMark eXtractor</b>
-            </u>
+            BMX, the BookMark eXtractor
           </a>
           , a user-friendly pipeline for organizing and ingesting web data into
           AI models.

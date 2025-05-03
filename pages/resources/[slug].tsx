@@ -40,7 +40,7 @@ export default function PostPage({ source, frontMatter }: Props) {
   )
 }
 
-const POSTS_PATH = path.join(process.cwd(), 'posts')
+const POSTS_PATH = path.join(process.cwd(), 'resources')
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = fs

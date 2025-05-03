@@ -32,7 +32,6 @@
     "components/layout.tsx", 
     "components/providers.js", 
     "pages/quote.tsx", 
-    "pages/posts/[id].js", 
     "postcss.config.js", 
     "tailwind.config.js", 
     "components/date.js", 
