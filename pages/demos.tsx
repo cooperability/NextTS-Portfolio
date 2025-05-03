@@ -1,7 +1,8 @@
-import Layout from "../components/layout";
-import Link from "next/link";
-import Image from "next/image";
-import styles from "../styles/utils.module.css";
+import Layout from '../components/layout'
+import Link from 'next/link'
+import Image from 'next/image'
+import styles from '../styles/utils.module.css'
+import Head from 'next/head'
 
 const Demos: React.FC = () => {
   return (
@@ -49,12 +50,15 @@ const Demos: React.FC = () => {
           </a>
         </div>
         <div>
-          <a href="/opioid-converter">
+          <Link
+            href="/opioid-converter/"
+            className="text-indigo-600 hover:text-indigo-900"
+          >
             <u>
               <b>Opioid Converter</b>
             </u>
             (TypeScript + CSS)[💻📱]
-          </a>
+          </Link>
           <br />
           <a href="https://github.com/cooperability/NextTS-Portfolio">
             <u>
@@ -152,7 +156,7 @@ const Demos: React.FC = () => {
           </a>
         </div>
         <div>
-          WIP:{" "}
+          WIP:{' '}
           <a href="https://github.com/cooperability/BMX-bookmark-extractor">
             <u>
               <b>BMX, the BookMark eXtractor</b>
@@ -163,7 +167,7 @@ const Demos: React.FC = () => {
         </div>
       </section>
     </Layout>
-  );
-};
+  )
+}
 
-export default Demos;
+export default Demos
