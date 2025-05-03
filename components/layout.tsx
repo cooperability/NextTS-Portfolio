@@ -1,21 +1,21 @@
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/utils.module.css";
-import Link from "next/link";
-import bg from "../public/images/parkslope.jpg";
-import Providers from "./providers";
-import Header from "../sections/Header"
-import Footer from "../sections/Footer"
+import Head from 'next/head'
+import Image from 'next/image'
+import styles from '../styles/utils.module.css'
+import Link from 'next/link'
+import bg from '../public/images/parkslope.jpg'
+import Providers from './providers'
+import Header from '../sections/Header'
+import Footer from '../sections/Footer'
 
-const name = "Cooper Reed";
-export const siteTitle = "Co-Operability";
+const name = 'Cooper Reed'
+export const siteTitle = 'Co-Operability'
 
-export default function Layout({ 
+export default function Layout({
   children,
-  home 
-}: { 
-  children: React.ReactNode;
-  home?: boolean;  // optional prop marked with ?
+  home,
+}: {
+  children: React.ReactNode
+  home?: boolean // optional prop marked with ?
 }) {
   return (
     <div className={styles.container}>
@@ -39,13 +39,11 @@ export default function Layout({
         <main>{children}</main>
         {!home && (
           <div className={styles.backToHome}>
-            <a href="/resources">
-              ← Back to Resources
-            </a>
+            <Link href="/">← Back to home</Link>
           </div>
         )}
       </Providers>
       <Footer />
     </div>
-  );
+  )
 }

@@ -1,13 +1,28 @@
-import Link from 'next/link';
+import Link from 'next/link'
 
-const Navbar: React.FC = () => {
+export default function Navbar() {
   return (
-    <nav className="flex justify-between bg-transparent text-xl leading-normal z-10">
-      <a className="text-inherit no-underline px-2 mx-1 hover:underline" href="/">Home</a>
-      <a className="text-inherit no-underline px-2 mx-1 hover:underline" href="/demos">Demos</a>
-      <a className="text-inherit no-underline px-2 mx-1 hover:underline" href="/resources">Resources</a>
+    <nav className="flex justify-between items-center p-4 bg-gray-100 dark:bg-gray-800">
+      <div className="space-x-4">
+        <Link
+          href="/"
+          className="text-blue-600 dark:text-blue-300 hover:underline"
+        >
+          Home
+        </Link>
+        <Link
+          href="/demos/"
+          className="text-blue-600 dark:text-blue-300 hover:underline"
+        >
+          Demos
+        </Link>
+        <Link
+          href="/resources/"
+          className="text-blue-600 dark:text-blue-300 hover:underline"
+        >
+          Resources
+        </Link>
+      </div>
     </nav>
-  );
-};
-
-export default Navbar;
+  )
+}
