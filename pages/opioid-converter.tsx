@@ -1,17 +1,20 @@
-import OpioidConverter from '@/components/opioid-converter/OpioidConverter';
-import OpioidConverterLayout from '@/components/opioid-converter/OpioidConverterLayout';
-import type { NextPageWithLayout } from './_app';
-import Head from 'next/head';
-import { useCallback } from 'react';
-import { useRouter } from 'next/router';
+import OpioidConverter from "@/components/opioid-converter/OpioidConverter";
+import OpioidConverterLayout from "@/components/opioid-converter/OpioidConverterLayout";
+import type { NextPageWithLayout } from "./_app";
+import Head from "next/head";
+import { useCallback } from "react";
+import { useRouter } from "next/router";
 
 const OpioidConverterPage: NextPageWithLayout = () => {
   const router = useRouter();
 
-  const handleError = useCallback((error: Error) => {
-    console.error('Opioid Converter Error:', error);
-    router.push('/500');
-  }, [router]);
+  const handleError = useCallback(
+    (error: Error) => {
+      console.error("Opioid Converter Error:", error);
+      router.push("/500");
+    },
+    [router]
+  );
 
   return (
     <OpioidConverterLayout>
