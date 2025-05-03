@@ -19,8 +19,8 @@ export default function Layout({
 }) {
   return (
     <div className={styles.container}>
+      <Header />
       <Providers>
-        <Header />
         <Head>
           <link rel="icon" type="image/ico" href="/icon.ico" />
           <meta
@@ -36,7 +36,6 @@ export default function Layout({
           <meta name="og:title" content={siteTitle} />
           <meta name="twitter:card" content="summary_large_image" />
         </Head>
-        <header className={styles.header} />
         <main>{children}</main>
         {!home && (
           <div className={styles.backToHome}>

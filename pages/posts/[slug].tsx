@@ -8,10 +8,16 @@ import Layout from "../../components/layout";
 import Head from "next/head";
 import Date from "../../components/date";
 import utilStyles from "../../styles/utils.module.css";
+import ToggleDropdown from "../../components/ToggleDropdown";
 
 type Props = {
   source: MDXRemoteSerializeResult;
   frontMatter: { [key: string]: any };
+};
+
+// Define the components mapping
+const components = {
+  ToggleDropdown,
 };
 
 export default function PostPage({ source, frontMatter }: Props) {
@@ -26,7 +32,7 @@ export default function PostPage({ source, frontMatter }: Props) {
           <Date dateString={frontMatter.date} />
         </div>
         {source ? (
-          <MDXRemote {...source} />
+          <MDXRemote {...source} components={components} />
         ) : (
           <div dangerouslySetInnerHTML={{ __html: frontMatter.contentHtml }} />
         )}

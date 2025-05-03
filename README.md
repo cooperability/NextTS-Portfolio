@@ -22,3 +22,6 @@ When implementing date-based sorting for posts, we discovered that simpler is be
 ## Next Steps:
 - Nlp_ipynb and course completion; JupyterLite
 - anki decks shareable
+- Add "other stack components I've worked on" section
+- Configure linting pipeline
+- lt+shift+f automatically runs prettier or whatever linter is configured

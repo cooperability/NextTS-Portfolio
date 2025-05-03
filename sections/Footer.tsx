@@ -54,10 +54,9 @@ const Footer = () => {
             />
           </a>
         </div>
-        <div className={styles.linkRow}>
-            {" "}
-            <a href="https://docs.google.com/document/d/15wtKG9juJMYQOI793LvNYMfmeu7hyErO4xWixkTrSHI/edit?usp=sharing">Resume</a>&nbsp;&nbsp;&nbsp;
-            <a href ="/posts/linktree">All Links</a>
+        <div className={styles.footerLinks}>
+            <a href="https://docs.google.com/document/d/15wtKG9juJMYQOI793LvNYMfmeu7hyErO4xWixkTrSHI/edit?usp=sharing">Resume</a>
+            <a href="/posts/linktree">All Links</a>
         </div>
         <div className={styles.footerText}>
             {" "}

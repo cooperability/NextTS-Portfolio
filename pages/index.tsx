@@ -5,6 +5,8 @@ import styles from "../styles/utils.module.css";
 import { ArrowPathIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import { useState } from "react";
+import { ReactElement } from 'react';
+import React from 'react';
 
 const name = "Cooper Reed";
 const quotes = [
@@ -37,7 +39,7 @@ const quotes = [
 export default function Home() {
   const [quote, setQuote] = useState(quotes[Math.floor(Math.random() * quotes.length)])
   return (
-    <Layout home>
+    <React.Fragment>
       <Head>
         <title>{siteTitle}</title>
       </Head>
@@ -54,13 +56,13 @@ export default function Home() {
         </div>
         <p>
           Hi, I'm <b>Cooper!</b> I&nbsp;
-          <u><b><a href ="https://github.com/cooperability">code</a></b></u>,&nbsp;
-          <u><b><a href ="https://cooperability.substack.com/">write</a></b></u>, and&nbsp;
-          <u><b><a href ="https://www.youtube.com/@cooperability">interview</a></b></u>.&nbsp;
+          <u><b><a href="https://github.com/cooperability">code</a></b></u>,&nbsp;
+          <u><b><a href="https://cooperability.substack.com/">write</a></b></u>, and&nbsp;
+          <u><b><a href="https://www.youtube.com/@cooperability">interview</a></b></u>.&nbsp;
           <br /> <br />
           To me, <b>Co-Operability</b> means long-term synergy
-          between my ambitions and morals. I open-source my 
-          work and learning as resources for others. My interviews 
+          between my ambitions and morals. I open-source my
+          work and learning as resources for others. My interviews
           follow this theme.
           <br />
         </p>
@@ -78,6 +80,14 @@ export default function Home() {
           {quote}
         </span>
       </section>
-    </Layout>
+    </React.Fragment>
   );
 }
+
+Home.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <Layout home>
+      {page}
+    </Layout>
+  );
+};
