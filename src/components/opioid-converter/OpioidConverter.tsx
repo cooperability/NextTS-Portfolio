@@ -4,7 +4,6 @@ import { MedicationItem } from './types'
 import Image from 'next/image'
 import { Button } from '../Button'
 
-// Define medication array directly in component for now
 const MEDICATION_ARRAY: MedicationItem[] = [
   {
     display: 'Butrans',
