@@ -3,7 +3,11 @@ import React from 'react'
 import styles from '../styles/utils.module.css'
 import ActiveLink from '../components/activeLink'
 
-const Sidebar = ({ isOpen }: { isOpen: boolean }) => {
+interface SidebarProps {
+  isOpen: boolean
+}
+
+const Sidebar = ({ isOpen }: SidebarProps) => {
   return (
     <div className={`${styles.sidebar} ${isOpen ? styles.open : ''}`}>
       <nav className={styles.sidebarNav}>

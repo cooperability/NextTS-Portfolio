@@ -107,7 +107,7 @@ const Header = () => {
   return (
     <div suppressHydrationWarning>
       <div className={styles.Header} suppressHydrationWarning>
-        <Sidebar isOpen={isSidebarOpen} onClose={toggleSidebar} />
+        <Sidebar isOpen={isSidebarOpen} />
         <nav className={styles.navbar} suppressHydrationWarning>
           {navigator()}
         </nav>
