@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 'use client'
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
@@ -7,8 +8,6 @@ import Image from 'next/image'
 import { useState } from 'react'
 import { ReactElement } from 'react'
 import React from 'react'
-
-const name = 'Cooper Reed'
 
 const quotes = [
   `"You cannot teach a man anything, you can only help him to find it within himself." \n -Galileo`,
@@ -25,7 +24,7 @@ const quotes = [
   '"At the end of the day, we have an economy that works for the rich by cheating the poor, and unequal schools are the result of that, not the cause." -Aaron Swartz',
   '"Humor as a system of communications, and as a probe of our environment - of what\'s really going on - affords us our most appealing anti-environmental tool. It does not deal in theory but in immediate experience, and is often the best guide in changing perceptions." -Marshall McLuhan, "The Medium is the Message" ',
   "\"I always say it's algebra, comedy. It's not art, it's science. If I wear this, and I say this, they will laugh. It's provable.\" -Eric Idle",
-  "\"I've come up with a set of rules that describe our reactions to technologies: \n Anything that is in the world when you\’re born is normal and ordinary and is just a natural part of the way the world works. \n Anything that's invented between when you’re fifteen and thirty-five is new and exciting and revolutionary and you can probably get a career in it. \n Anything invented after you're thirty-five is against the natural order of things.\" -Douglas Adams",
+  "\"I've come up with a set of rules that describe our reactions to technologies: \n Anything that is in the world when you\’re born is normal and ordinary and is just a natural part of the way the world works. \n Anything that's invented between when you're fifteen and thirty-five is new and exciting and revolutionary and you can probably get a career in it. \n Anything invented after you're thirty-five is against the natural order of things.\" -Douglas Adams",
   '"We are what we pretend to be, so we must be careful about what we pretend to be." -Kurt Vonnegut',
   '"The only way to deal with the future is to be really present." -Alan Watts',
   '“There are decades where nothing happens; and there are weeks where decades happen.” – Vladimir Ilyich Lenin',
@@ -60,7 +59,7 @@ export default function Home() {
             className={styles.borderCircle}
             height={150}
             width={150}
-            alt={name}
+            alt="Cooper Reed"
           />
         </div>
         <p>
@@ -78,7 +77,6 @@ export default function Home() {
         </p>
         <div className={styles.socialIconRow}>
           <b>A random quote that speaks to me:</b>
-          <span>&nbsp;&nbsp;</span>
           <button
             className={styles.themeToggleBtn}
             onClick={() =>
