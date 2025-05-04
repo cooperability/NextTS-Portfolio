@@ -106,11 +106,7 @@ const MEDICATION_ARRAY: MedicationItem[] = [
   },
 ]
 
-interface Props {
-  onError?: (error: Error) => void
-}
-
-const OpioidConverter: React.FC<Props> = ({ onError }) => {
+const OpioidConverter = () => {
   const [medications, setMedications] =
     useState<MedicationItem[]>(MEDICATION_ARRAY)
   const [morphineEq, setMorphineEq] = useState(0)

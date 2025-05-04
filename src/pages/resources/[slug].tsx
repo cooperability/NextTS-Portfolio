@@ -10,9 +10,17 @@ import Date from '../../components/date'
 import utilStyles from '../../styles/utils.module.css'
 import ToggleDropdown from '../../components/ToggleDropdown'
 
+// Define a more specific interface for front matter data
+interface MdxFrontMatterData {
+  title: string
+  date: string
+  contentHtml?: string // Optional based on usage
+  [key: string]: unknown // Allow other fields safely
+}
+
 type Props = {
   source: MDXRemoteSerializeResult
-  frontMatter: { [key: string]: any }
+  frontMatter: MdxFrontMatterData // Use the specific interface
 }
 
 const components = {
@@ -33,7 +41,9 @@ export default function PostPage({ source, frontMatter }: Props) {
         {source ? (
           <MDXRemote {...source} components={components} />
         ) : (
-          <div dangerouslySetInnerHTML={{ __html: frontMatter.contentHtml }} />
+          <div
+            dangerouslySetInnerHTML={{ __html: frontMatter.contentHtml ?? '' }}
+          />
         )}
       </article>
     </Layout>

@@ -1,24 +1,26 @@
 ---
-title: "📝 LLM Prompts"
-date: "2025-05-03"
+title: '📝 LLM Prompts'
+date: '2025-05-03'
 ---
-import ToggleDropdown from '../../components/ToggleDropdown';
+
+import ToggleDropdown from '../../components/ToggleDropdown'
 
 <ToggleDropdown title="Generate Product-Market Research">
 *“Act as a product manager, browse the web, and perform market research in the [enter your niche] niche as well as the specific [vertical] vertical.”*
 
 **Give me:**
-- *Global market size and growth projections*
-- *Key players and their market share*
-- *Industry trends and technologies*
-- *SWOT analysis*
-- *Customer needs and pain points*
-- *Competitive advantages and USPs*
-- *Market segmentation and target audience*
-- *Marketing and sales strategies*
-- *Regulatory and legal considerations*
-- *A score for how easy it is to enter the market, plus rationale*
-- *A list of potential MVPs, with a pseudo-PRD for each*
+
+- _Global market size and growth projections_
+- _Key players and their market share_
+- _Industry trends and technologies_
+- _SWOT analysis_
+- _Customer needs and pain points_
+- _Competitive advantages and USPs_
+- _Market segmentation and target audience_
+- _Marketing and sales strategies_
+- _Regulatory and legal considerations_
+- _A score for how easy it is to enter the market, plus rationale_
+- _A list of potential MVPs, with a pseudo-PRD for each_
 
 </ToggleDropdown>
 
@@ -38,6 +40,7 @@ Based on the code/details here, compose a PRD for this project:
 4. CI/CD and process flow, procedure/protocol details for things like making migrations and migrating.
 
 This PRD should have both broad topic coverage and extreme specificity where possible, as I will use it as a jumping-off point for countless new chats.
+
 </ToggleDropdown>
 
 <ToggleDropdown title="Summarize this chat as a new prompt">
@@ -48,6 +51,7 @@ B) Prior-posterior beliefs about the system which have changed over the course o
 C) (optional) Changes made to the code within this chat, as well as a short explanation for why each change was made.
 
 Do NOT include anything already included in the Documentation🟢. Again, your goal is to harvest insights that are HIGHLY UNIQUE, USEFUL, SPECIFIC, and DIFFICULT TO UNCOVER and leave all else behind.
+
 </ToggleDropdown>
 
 <ToggleDropdown title="Summarize a Book">
@@ -61,28 +65,26 @@ Your output should be in markdown, which should be readable by Anki, GitHub, Nex
 
 The following are tags for the summary:
 **PS** = Paraphrased Summary by LLM
-**DQ**  = Direct Quotes, VERBATIM excerpts WITH PAGE NUMBER
+**DQ** = Direct Quotes, VERBATIM excerpts WITH PAGE NUMBER
 **CS/IE** = Case Study or Illustrative Example: a story or narrative the text provides which is intended to evidence a certain argument or point therein. These should typically be paraphrased and marked with a page number for further investigation, but occasionally there are **CS/IE**s which can be entirely contained in a DQ of a few sentences. In these cases DQ is preferable.
 
 Your summary should have the following 4-part structure:
-- **Five-paragraph overall summary (PS)**
-    -- 1 paragraph: intro + roadmap, structure of the text and arguments
-    -- 3 paragraphs: three major movements from the work demonstrating its segues between major arguments, & important subpoints in each argument
-    -- conclusion, distilled review of overall argument
-- **Ten central case studies (CS/IE)s. (PS)**
-    -- Include less than five sentences per **CS/IE** explaining its structure/narrative, showing context in the work, and highlight whether it's referenced multiple times.
-    -- Connect CS/IEs to actionable advice by subpoint if possible
-- **Ten bottom-line pieces of concise, actionable advice (DQ preffered, PS ok)**
-    -- whether through author's direct recommendation or implicit illustration e.g. "successful/unsuccessful examples have typically included THIS course of action: ..."
-    -- Include sub-bullet **CS/IE** here WHENEVER available
-- **Ten of the book's best quotes (DQ), selected on the criteria**:
-    -- 1. communicates a central point of the text concisely
-    -- 2. is dramatic, well-written and/or memorable
-    -- 3. illustrates author's unique perspective/experience well
 
-A few final ABSOLUTE RULES:
-    1. CLEARLY mark what is (**DQ),** (**PS) and (CS/IE[either DQ or PS])** for all bullet points of the summary so as to make the summary properly attributable.
-    2. If uncertain about any part of the reduction/summarization process, ask me about specific implementations instead of assuming any particular behavior. This includes what content/themes/chapters to focus the summary on.
-    3. Points which are already too nuanced/concise to be effectively summarized should be marked with page numbers so that I can peruse the book.
-    4. After you complete this first response, give a few options for drilldown prompts which would allow me to further investigate the depth of the text using your (the LLM's) help.
-</ToggleDropdown> 
+- **Five-paragraph overall summary (PS)**
+  -- 1 paragraph: intro + roadmap, structure of the text and arguments
+  -- 3 paragraphs: three major movements from the work demonstrating its segues between major arguments, & important subpoints in each argument
+  -- conclusion, distilled review of overall argument
+- **Ten central case studies (CS/IE)s. (PS)**
+  -- Include less than five sentences per **CS/IE** explaining its structure/narrative, showing context in the work, and highlight whether it's referenced multiple times.
+  -- Connect CS/IEs to actionable advice by subpoint if possible
+- **Ten bottom-line pieces of concise, actionable advice (DQ preffered, PS ok)**
+  -- whether through author's direct recommendation or implicit illustration e.g. "successful/unsuccessful examples have typically included THIS course of action: ..."
+  -- Include sub-bullet **CS/IE** here WHENEVER available
+- **Ten of the book's best quotes (DQ), selected on the criteria**:
+  -- 1. communicates a central point of the text concisely
+  -- 2. is dramatic, well-written and/or memorable
+  -- 3. illustrates author's unique perspective/experience well
+
+A few final ABSOLUTE RULES: 1. CLEARLY mark what is (**DQ),** (**PS) and (CS/IE[either DQ or PS])** for all bullet points of the summary so as to make the summary properly attributable. 2. If uncertain about any part of the reduction/summarization process, ask me about specific implementations instead of assuming any particular behavior. This includes what content/themes/chapters to focus the summary on. 3. Points which are already too nuanced/concise to be effectively summarized should be marked with page numbers so that I can peruse the book. 4. After you complete this first response, give a few options for drilldown prompts which would allow me to further investigate the depth of the text using your (the LLM's) help.
+
+</ToggleDropdown>

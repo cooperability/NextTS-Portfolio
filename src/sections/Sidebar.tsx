@@ -1,15 +1,9 @@
 import React from 'react'
-import Link from 'next/link'
+// import Link from 'next/link'
 import styles from '../styles/utils.module.css'
 import ActiveLink from '../components/activeLink'
 
-const Sidebar = ({
-  isOpen,
-  onClose,
-}: {
-  isOpen: boolean
-  onClose: () => void
-}) => {
+const Sidebar = ({ isOpen }: { isOpen: boolean }) => {
   return (
     <div className={`${styles.sidebar} ${isOpen ? styles.open : ''}`}>
       <nav className={styles.sidebarNav}>

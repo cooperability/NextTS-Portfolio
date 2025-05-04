@@ -31,6 +31,9 @@
     "sharp": "^0.34.1"
   },
   "devDependencies": {
+    "@eslint/compat": "^1.2.9",
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.26.0",
     "@types/node": "22.15.3",
     "@types/react": "19.1.2",
     "autoprefixer": "^10.4.21",
@@ -44,12 +47,13 @@
     "postcss-import": "^16.1.0",
     "prettier": "^3.5.3",
     "tailwindcss": "^4.1.4",
-    "typescript": "5.8.3"
+    "typescript": "5.8.3",
+    "typescript-eslint": "^8.31.1"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "prettier --write",
-      "cross-env ESLINT_USE_FLAT_CONFIG=false eslint --fix"
+      "eslint --fix"
     ]
   }
 }
