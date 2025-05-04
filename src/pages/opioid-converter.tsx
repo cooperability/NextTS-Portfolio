@@ -1,5 +1,5 @@
-import OpioidConverter from '@/components/opioid-converter/OpioidConverter'
-import OpioidConverterLayout from '@/components/opioid-converter/OpioidConverterLayout'
+import OpioidConverter from '@/src/components/opioid-converter/OpioidConverter'
+import OpioidConverterLayout from '@/src/components/opioid-converter/OpioidConverterLayout'
 import type { NextPageWithLayout } from './_app'
 import Head from 'next/head'
 import { useCallback } from 'react'
