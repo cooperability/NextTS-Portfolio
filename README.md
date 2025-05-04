@@ -23,8 +23,7 @@ When implementing date-based sorting for posts, we discovered that simpler is be
 - Nlp_ipynb and course completion; JupyterLite
 - anki decks shareable
 - Add "other stack components I've worked on" section
-- Configure linting pipeline
-- lt+shift+f automatically runs prettier or whatever linter is configured
+- alt+shift+f automatically runs prettier or whatever linter is configured
 
 ## Key Learnings from Recent Development (MDX, Theming, Layouts)
 

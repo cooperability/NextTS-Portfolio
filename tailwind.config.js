@@ -1,15 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-    "./sections/**/*.{js,ts,jsx,tsx}",
+    './src/pages/**/*.{js,ts,jsx,tsx}',
+    './src/components/**/*.{js,ts,jsx,tsx}',
+    './src/sections/**/*.{js,ts,jsx,tsx}',
   ],
-  darkMode: "class",
+  darkMode: 'class',
   theme: {
     extend: {},
   },
   plugins: [
     //require('@tailwindcss/typography')
   ],
-};
+}
