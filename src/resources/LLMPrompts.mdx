@@ -44,13 +44,16 @@ This PRD should have both broad topic coverage and extreme specificity where pos
 </ToggleDropdown>
 
 <ToggleDropdown title="Summarize this chat as a new prompt">
-Distill the insights from this chat into a condensed, organized and informative summary which could be seamlessly appended to this project's documentation🟢. A data point from this chat should be prioritized for the summary when it is:
+Distill the insights from this chat into a condensed, organized and informative summary which could be seamlessly appended to this project's documentation🟢, or used as a new prompt. 
+I want to close out this chat without losing time on the errors, technicalities and details we uncovered here with great time and effort.
+A data point from this chat should be prioritized for the summary when it is:
 
-A) An insight uncovered through this chat which would be difficult to uncover WITHOUT repeating this chat.
-B) Prior-posterior beliefs about the system which have changed over the course of this chat, yielding a new understanding than when we began.
-C) (optional) Changes made to the code within this chat, as well as a short explanation for why each change was made.
+1. An insight uncovered through this chat which would be difficult to uncover WITHOUT repeating this chat. <br />
+2. Prior-posterior beliefs about the system which have changed over the course of this chat, yielding a new understanding than when we began. <br />
+3. (optional) Changes made to the code within this chat, as well as a short explanation for why each change was made. <br />
 
-Do NOT include anything already included in the Documentation🟢. Again, your goal is to harvest insights that are HIGHLY UNIQUE, USEFUL, SPECIFIC, and DIFFICULT TO UNCOVER and leave all else behind.
+Do NOT include anything already included in the Documentation🟢.
+Again, your goal is to harvest & append insights that are HIGHLY UNIQUE, USEFUL, SPECIFIC, and DIFFICULT TO UNCOVER and leave all else behind.
 
 </ToggleDropdown>
 
@@ -58,33 +61,41 @@ Do NOT include anything already included in the Documentation🟢. Again, your g
 **Summarize Book (best with self-help, advice, or knowledge-based books)**
 
 I have uploaded [XY Author]'s [XY Text]. I need an extracted summary from you containing all actionable advice/knowledge within this text.
-I will never read the source text, but I want to enjoy 100% of the academic, social, and experiential benefits the text confers.
+I will never read the source text, but I want to enjoy 100% of the academic and experiential benefits that reading the text confers.
 Preserve the tone of the original work as much as possible; do not impose your own tone of any kind.
-At the end of your output, estimate the time required for a human to 1)read the book, 2)take notes on it and 3)complete any actionable projects within WITHOUT chatGPT and WITH chatGPT.
+Estimate the time required for a human to: <br />
+1)read the book, <br />
+2)take notes on it and, <br />
+3)if applicable, complete any actionable projects within WITHOUT chatGPT and WITH chatGPT.<br />
 Your output should be in markdown, which should be readable by Anki, GitHub, Next.js posts, etc. Format should be maximally universal where possible.
 
-The following are tags for the summary:
-**PS** = Paraphrased Summary by LLM
-**DQ** = Direct Quotes, VERBATIM excerpts WITH PAGE NUMBER
-**CS/IE** = Case Study or Illustrative Example: a story or narrative the text provides which is intended to evidence a certain argument or point therein. These should typically be paraphrased and marked with a page number for further investigation, but occasionally there are **CS/IE**s which can be entirely contained in a DQ of a few sentences. In these cases DQ is preferable.
+The following are tags for the summary:<br />
+**PS** = Paraphrased Summary by LLM<br />
+**DQ** = Direct Quotes, VERBATIM excerpts WITH PAGE NUMBER<br />
+**CS/IE** = Case Study or Illustrative Example: a story or narrative the text provides which is intended to evidence a certain argument or point therein. These should typically be paraphrased and marked with a page number for further investigation, but occasionally there are **CS/IE**s which can be entirely contained in a DQ of a few sentences. In these cases DQ is preferable.<br />
 
 Your summary should have the following 4-part structure:
 
-- **Five-paragraph overall summary (PS)**
-  -- 1 paragraph: intro + roadmap, structure of the text and arguments
-  -- 3 paragraphs: three major movements from the work demonstrating its segues between major arguments, & important subpoints in each argument
-  -- conclusion, distilled review of overall argument
-- **Ten central case studies (CS/IE)s. (PS)**
-  -- Include less than five sentences per **CS/IE** explaining its structure/narrative, showing context in the work, and highlight whether it's referenced multiple times.
-  -- Connect CS/IEs to actionable advice by subpoint if possible
-- **Ten bottom-line pieces of concise, actionable advice (DQ preffered, PS ok)**
-  -- whether through author's direct recommendation or implicit illustration e.g. "successful/unsuccessful examples have typically included THIS course of action: ..."
-  -- Include sub-bullet **CS/IE** here WHENEVER available
+- **Five-paragraph overall summary (PS)**<br />
+  - 1 paragraph: intro + roadmap, structure of the text and arguments<br />
+  - 3 paragraphs: three major movements from the work demonstrating its segues between major arguments, & important subpoints in each argument<br />
+  - conclusion, distilled review of overall argument<br />
+- **Ten central case studies (CS/IE)s. (PS)**<br />
+  - Include less than five sentences per **CS/IE** explaining its structure/narrative, showing context in the work, and highlight whether it's referenced multiple times.<br />
+  - Connect CS/IEs to actionable advice by subpoint if possible<br />
+- **Ten bottom-line pieces of concise, actionable advice (DQ preffered, PS ok)**<br />
+  - whether through author's direct recommendation or implicit illustration e.g. "successful/unsuccessful examples have typically included THIS course of action: ..."<br />
+  - Include sub-bullet **CS/IE** here WHENEVER available<br />
 - **Ten of the book's best quotes (DQ), selected on the criteria**:
-  -- 1. communicates a central point of the text concisely
-  -- 2. is dramatic, well-written and/or memorable
-  -- 3. illustrates author's unique perspective/experience well
+  - 1. communicates a central point of the text concisely<br />
+  - 2. is dramatic, well-written and/or memorable<br />
+  - 3. illustrates author's unique perspective/experience well<br />
 
-A few final ABSOLUTE RULES: 1. CLEARLY mark what is (**DQ),** (**PS) and (CS/IE[either DQ or PS])** for all bullet points of the summary so as to make the summary properly attributable. 2. If uncertain about any part of the reduction/summarization process, ask me about specific implementations instead of assuming any particular behavior. This includes what content/themes/chapters to focus the summary on. 3. Points which are already too nuanced/concise to be effectively summarized should be marked with page numbers so that I can peruse the book. 4. After you complete this first response, give a few options for drilldown prompts which would allow me to further investigate the depth of the text using your (the LLM's) help.
+A few final ABSOLUTE RULES:
+
+1. CLEARLY mark what is (**DQ),** (**PS) and (CS/IE[either DQ or PS])** for all bullet points of the summary so as to make the summary properly attributable.<br />
+2. If uncertain about any part of the reduction/summarization process, ask me about specifics instead of assuming any particular behavior.<br />
+3. Points which are already too nuanced/concise to be effectively summarized should be marked with page numbers so that I can peruse the book. <br />
+4. After you complete this first response, give a few options for drilldown prompts which would allow me to further investigate the depth of the text using your (the LLM's) help.<br />
 
 </ToggleDropdown>

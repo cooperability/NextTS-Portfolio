@@ -12,7 +12,7 @@ const Footer = () => {
             <Image
               src="/images/Linkedin.png"
               alt="LinkedIn"
-              className={`icon-link-image ${styles.socialsLink}`}
+              className={`${styles.socialsLink}`}
               width="50"
               height="50"
             />
@@ -20,7 +20,7 @@ const Footer = () => {
           <a href="https://github.com/cooperability">
             <Image
               src="/images/Github.png"
-              className={`icon-link-image ${styles.socialsLink}`}
+              className={`${styles.socialsLink}`}
               alt="GitHub"
               width="50"
               height="50"
@@ -30,7 +30,7 @@ const Footer = () => {
             <Image
               src="/images/bluesky.png"
               alt="Bluesky"
-              className={`icon-link-image ${styles.socialsLink}`}
+              className={`${styles.socialsLink}`}
               width="50"
               height="50"
             />

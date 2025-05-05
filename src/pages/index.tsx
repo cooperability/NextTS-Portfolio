@@ -24,7 +24,7 @@ const quotes = [
   '"At the end of the day, we have an economy that works for the rich by cheating the poor, and unequal schools are the result of that, not the cause." -Aaron Swartz',
   '"Humor as a system of communications, and as a probe of our environment - of what\'s really going on - affords us our most appealing anti-environmental tool. It does not deal in theory but in immediate experience, and is often the best guide in changing perceptions." -Marshall McLuhan, "The Medium is the Message" ',
   "\"I always say it's algebra, comedy. It's not art, it's science. If I wear this, and I say this, they will laugh. It's provable.\" -Eric Idle",
-  "\"I've come up with a set of rules that describe our reactions to technologies: \n Anything that is in the world when you\’re born is normal and ordinary and is just a natural part of the way the world works. \n Anything that's invented between when you're fifteen and thirty-five is new and exciting and revolutionary and you can probably get a career in it. \n Anything invented after you're thirty-five is against the natural order of things.\" -Douglas Adams",
+  "\"I've come up with a set of rules that describe our reactions to technologies: \n Anything that is in the world when you're born is normal and ordinary and is just a natural part of the way the world works. \n Anything that's invented between when you're fifteen and thirty-five is new and exciting and revolutionary and you can probably get a career in it. \n Anything invented after you're thirty-five is against the natural order of things.\" -Douglas Adams",
   '"We are what we pretend to be, so we must be careful about what we pretend to be." -Kurt Vonnegut',
   '"The only way to deal with the future is to be really present." -Alan Watts',
   '“There are decades where nothing happens; and there are weeks where decades happen.” – Vladimir Ilyich Lenin',
@@ -68,8 +68,8 @@ export default function Home() {
           ,&nbsp;
           <a href="https://cooperability.substack.com/">write</a>, and&nbsp;
           <a href="https://www.youtube.com/@cooperability">interview</a>
-          .&nbsp;
-          <br /> <br />
+          .
+          <br />
           To me, <b>Co-Operability</b> means long-term synergy between my
           ambitions and morals. I open-source my work and learning as resources
           for others. My interviews follow this theme.

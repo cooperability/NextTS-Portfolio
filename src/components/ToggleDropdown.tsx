@@ -40,7 +40,7 @@ const ToggleDropdown: React.FC<ToggleDropdownProps> = ({
         className={`${styles.toggleButton} ${buttonThemeClass}`}
       >
         {title}
-        <span className={isOpen ? styles.arrowUp : styles.arrowDown}>▼</span>
+        <span className={isOpen ? styles.arrowDown : styles.arrowRight}>►</span>
       </button>
       {isOpen && (
         <div className={`${styles.content} ${contentThemeClass}`}>
