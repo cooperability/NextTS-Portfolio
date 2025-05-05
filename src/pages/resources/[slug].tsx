@@ -10,7 +10,6 @@ import Date from '../../components/date'
 import utilStyles from '../../styles/utils.module.css'
 import ToggleDropdown from '../../components/ToggleDropdown'
 
-// Define a more specific interface for front matter data
 interface MdxFrontMatterData {
   title: string
   date: string
@@ -20,7 +19,7 @@ interface MdxFrontMatterData {
 
 type Props = {
   source: MDXRemoteSerializeResult
-  frontMatter: MdxFrontMatterData // Use the specific interface
+  frontMatter: MdxFrontMatterData
 }
 
 const components = {
