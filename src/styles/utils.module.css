@@ -279,12 +279,12 @@
 }
 
 /* Arrow styles (remain theme-agnostic) */
-.arrowDown,
-.arrowUp {
+.arrowRight,
+.arrowDown {
   transition: transform 0.2s ease-in-out;
 }
 
-.arrowUp {
-  transform: rotate(180deg);
+.arrowDown {
+  transform: rotate(90deg);
 }
 /* End ToggleDropdown Styles */
