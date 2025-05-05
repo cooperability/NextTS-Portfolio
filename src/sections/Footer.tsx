@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import styles from '../styles/utils.module.css'
+import ActiveIcon from '../components/ActiveIcon'
 
 const Footer = () => {
   return (
@@ -8,51 +8,31 @@ const Footer = () => {
       <section className={styles.headingMd}>
         <div className={styles.horizLine} />
         <div className={styles.socialIconRow}>
-          <a href="https://www.linkedin.com/in/cooper-reed/">
-            <Image
-              src="/images/Linkedin.png"
-              alt="LinkedIn"
-              className={`${styles.socialsLink}`}
-              width="50"
-              height="50"
-            />
-          </a>
-          <a href="https://github.com/cooperability">
-            <Image
-              src="/images/Github.png"
-              className={`${styles.socialsLink}`}
-              alt="GitHub"
-              width="50"
-              height="50"
-            />
-          </a>
-          <a href="https://bsky.app/profile/cooperability.com">
-            <Image
-              src="/images/bluesky.png"
-              alt="Bluesky"
-              className={`${styles.socialsLink}`}
-              width="50"
-              height="50"
-            />
-          </a>
-          <a href="https://cooperability.substack.com/">
-            <Image
-              src="/images/substack.png"
-              alt="Substack"
-              className={`icon-link-image ${styles.socialsLink}`}
-              width="50"
-              height="50"
-            />
-          </a>
-          <a href="https://www.youtube.com/@cooperability">
-            <Image
-              src="/images/Youtube.png"
-              className={`icon-link-image ${styles.socialsLink}`}
-              alt="Youtube"
-              width="50"
-              height="50"
-            />
-          </a>
+          <ActiveIcon
+            href="https://www.linkedin.com/in/cooper-reed/"
+            imgSrc="/images/Linkedin.png"
+            variant="social"
+          />
+          <ActiveIcon
+            href="https://github.com/cooperability"
+            imgSrc="/images/Github.png"
+            variant="social"
+          />
+          <ActiveIcon
+            href="https://bsky.app/profile/cooperability.com"
+            imgSrc="/images/bluesky.png"
+            variant="social"
+          />
+          <ActiveIcon
+            href="https://cooperability.substack.com/"
+            imgSrc="/images/substack.png"
+            variant="social"
+          />
+          <ActiveIcon
+            href="https://www.youtube.com/@cooperability"
+            imgSrc="/images/Youtube.png"
+            variant="social"
+          />
         </div>
         <div className={styles.footerLinks}>
           <a href="https://docs.google.com/document/d/15wtKG9juJMYQOI793LvNYMfmeu7hyErO4xWixkTrSHI/edit?usp=sharing">
