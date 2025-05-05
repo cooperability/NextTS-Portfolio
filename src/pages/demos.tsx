@@ -90,8 +90,8 @@ const Demos: React.FC = () => {
           <a href="https://github.com/cooperability/BMX-bookmark-extractor">
             BookMark eXtractor
           </a>
-          (In Progress)(FastAPI, Docker, Neo4j, Python Cross-OGM project), a
-          knowledge-tracking tool for your information diet.
+          (Python Hybrid OGM project), a knowledge-tracking tool for your
+          information diet. (Ongoing)
         </div>
         <div className={styles.horizLine}></div>
         <ToggleDropdown title="Other Stack Elements I've Worked With">
