@@ -7,6 +7,7 @@ import globals from 'globals'
 import pluginJs from '@eslint/js'
 import tseslint from 'typescript-eslint'
 import eslintConfigPrettier from 'eslint-config-prettier'
+import * as mdx from 'eslint-plugin-mdx'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -24,5 +25,23 @@ export default defineConfig([
   eslintConfigPrettier,
   {
     extends: compat.extends('next/core-web-vitals', 'prettier'),
+  },
+  {
+    ...mdx.flat,
+    processor: mdx.createRemarkProcessor({
+      lintCodeBlocks: true,
+      languageMapper: {},
+    }),
+    rules: {
+      'react/no-unescaped-entities': 'off',
+    },
+  },
+  {
+    ...mdx.flatCodeBlocks,
+    rules: {
+      ...mdx.flatCodeBlocks.rules,
+      'no-var': 'error',
+      'prefer-const': 'error',
+    },
   },
 ])
