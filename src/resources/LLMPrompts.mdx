@@ -5,41 +5,73 @@ date: '2025-05-03'
 
 import ToggleDropdown from '../../components/ToggleDropdown'
 
+<ToggleDropdown title="Synthesize Report from Youtube Corpus">
+These are full transcripts of long educational lectures on YouTube. Please condense them into a single document as you see fit, prioritizing:
+
+1. A concise summary which synthesizes the corpus' main arguments and rhetorical
+   flow. One paragraph per major argument. Central themes and arguments should
+   be included; include direct quotes that directly reinforce.
+2. Bullet points, as many as you see fit, to enumerate the sub-points of each
+   major argument. Also list any "big number" talking points verbatim; stats and
+   percentages are useful. Actionable advice or resources referenced should be
+   included verbatim among these bullet points, with links if applicable.<br />
+
+- i. Actionable, broadly applicable advice the speaker gives, either explicitly
+  or implicitly. If the speaker recommends a course of action, I want to know
+  exactly what it is and why it was recommended. <br />
+- ii. Include ALL external resources that the speaker references in the summary.
+  If the speaker recommends a tool, I want to know exactly what it is and why it
+  was recommended.
+</ToggleDropdown>
+
 <ToggleDropdown title="Generate Product-Market Research">
-*“Act as a product manager, browse the web, and perform market research in the [enter your niche] niche as well as the specific [vertical] vertical.”*
+Act as a product manager, browse the web, and perform market research in the [enter your niche] niche as well as the specific [vertical] vertical.
 
 **Give me:**
 
-- _Global market size and growth projections_
-- _Key players and their market share_
-- _Industry trends and technologies_
-- _SWOT analysis_
-- _Customer needs and pain points_
-- _Competitive advantages and USPs_
-- _Market segmentation and target audience_
-- _Marketing and sales strategies_
-- _Regulatory and legal considerations_
-- _A score for how easy it is to enter the market, plus rationale_
-- _A list of potential MVPs, with a pseudo-PRD for each_
-
+- Global market size and growth projections
+- Key players and their market share
+- Industry trends and technologies
+- SWOT analysis
+- Customer needs and pain points
+- Competitive advantages and USPs
+- Market segmentation and target audience
+- Marketing and sales strategies
+- Regulatory and legal considerations
+- A score for how easy it is to enter the market, plus rationale
+- A list of potential MVPs, with a pseudo-PRD for each
 </ToggleDropdown>
 
 <ToggleDropdown title="Compose Cover Letter from Source Documents">
 **(Requires a job description🟢, resume🔴, and previous cover letter🔵)**
 
-I have attached documents 🟢, 🔴, and 🔵(names of documents). Write a cover letter for the job in attachment 🟢, using the contents of resume 🔴 and the writing style of cover letter🔵. Don't add any experience that isn't specifically included in 🔴. Use a long-short-short-short-long-short-long-short-short sentence structure. Please don't be yappy, but maintain professionalism and emphasize parts of my profile that would be especially valuable to this company.
+I have attached documents 🟢, 🔴, and 🔵(names of documents). Write a cover
+letter for the job in attachment 🟢, using the contents of resume 🔴 and the
+writing style of cover letter🔵. Don't add any experience that isn't
+specifically included in 🔴. Use a
+long-short-short-short-long-short-long-short-short sentence structure. Don't be
+yappy, but maintain professionalism and emphasize parts of my profile that would
+be especially valuable to this company.
 
 </ToggleDropdown>
 
 <ToggleDropdown title="Compose PRD from Source Codebase">
 Based on the code/details here, compose a PRD for this project:
 
-1. The application's purpose, broadly, and how each component contributes. One paragraph summary; bullet points for components.
-2. The entire tech stack. Bullet points. Outlined & cleanly indented to demonstrate frontend, backend, database components. One bullet point/sentence per library, framework or piece of tech.
-3. The application's complete data schema, including nested projects, database models, and inherited types. If possible, include flowcharts for common user actions and the data processes they initiate (user clicks button → data processed → response returned, etc)
-4. CI/CD and process flow, procedure/protocol details for things like making migrations and migrating.
+1. The application's purpose, broadly, and how each component contributes. One
+   paragraph summary; bullet points for components.
+2. The entire tech stack. Bullet points. Outlined & cleanly indented to
+   demonstrate frontend, backend, database components. One bullet point/sentence
+   per library, framework or piece of tech.
+3. The application's complete data schema, including nested projects, database
+   models, and inherited types. If possible, include flowcharts for common user
+   actions and the data processes they initiate (user clicks button → data
+   processed → response returned, etc)
+4. CI/CD and process flow, procedure/protocol details for things like making
+   migrations and migrating.
 
-This PRD should have both broad topic coverage and extreme specificity where possible, as I will use it as a jumping-off point for countless new chats.
+This PRD should have both broad topic coverage and extreme specificity where
+possible, as I will use it as a jumping-off point for countless new chats.
 
 </ToggleDropdown>
 
@@ -48,43 +80,58 @@ Distill the insights from this chat into a condensed, organized and informative 
 I want to close out this chat without losing time on the errors, technicalities and details we uncovered here with great time and effort.
 A data point from this chat should be prioritized for the summary when it is:
 
-1. An insight uncovered through this chat which would be difficult to uncover WITHOUT repeating this chat. <br />
-2. Prior-posterior beliefs about the system which have changed over the course of this chat, yielding a new understanding than when we began. <br />
-3. (optional) Changes made to the code within this chat, as well as a short explanation for why each change was made. <br />
+1. An insight uncovered through this chat which would be difficult to uncover
+   WITHOUT repeating this chat. <br />
+2. Prior-posterior beliefs about the system which have changed over the course
+   of this chat, yielding a new understanding than when we began. <br />
+3. (optional) Changes made to the code within this chat, as well as a short
+   explanation for why each change was made. <br />
 
-Do NOT include anything already included in the Documentation🟢.
-Again, your goal is to harvest & append insights that are HIGHLY UNIQUE, USEFUL, SPECIFIC, and DIFFICULT TO UNCOVER and leave all else behind.
+Do NOT include anything already included in the Documentation🟢. Again, your
+goal is to harvest & append insights that are HIGHLY UNIQUE, USEFUL, SPECIFIC,
+and DIFFICULT TO UNCOVER and leave all else behind.
 
 </ToggleDropdown>
 
 <ToggleDropdown title="Summarize a Book">
 **Summarize Book (best with self-help, advice, or knowledge-based books)**
 
-I have uploaded [XY Author]'s [XY Text]. I need an extracted summary from you containing all actionable advice/knowledge within this text.
-I will never read the source text, but I want to enjoy 100% of the academic and experiential benefits that reading the text confers.
-Preserve the tone of the original work as much as possible; do not impose your own tone of any kind.
-Estimate the time required for a human to: <br />
-1)read the book, <br />
-2)take notes on it and, <br />
-3)if applicable, complete any actionable projects within WITHOUT chatGPT and WITH chatGPT.<br />
-Your output should be in markdown, which should be readable by Anki, GitHub, Next.js posts, etc. Format should be maximally universal where possible.
+I have uploaded [XY Author]'s [XY Text]. I need an extracted summary from you
+containing all actionable advice/knowledge within this text. I will never read
+the source text, but I want to enjoy 100% of the academic and experiential
+benefits that reading the text confers. Preserve the tone of the original work
+as much as possible; do not impose your own tone of any kind. Estimate the time
+required for a human to: <br /> 1)read the book, <br /> 2)take notes on it and,
+<br /> 3)if applicable, complete any actionable projects within WITHOUT chatGPT
+and WITH chatGPT.<br /> Your output should be in markdown, which should be
+readable by Anki, GitHub, Next.js posts, etc. Format should be maximally
+universal where possible.
 
-The following are tags for the summary:<br />
-**PS** = Paraphrased Summary by LLM<br />
-**DQ** = Direct Quotes, VERBATIM excerpts WITH PAGE NUMBER<br />
-**CS/IE** = Case Study or Illustrative Example: a story or narrative the text provides which is intended to evidence a certain argument or point therein. These should typically be paraphrased and marked with a page number for further investigation, but occasionally there are **CS/IE**s which can be entirely contained in a DQ of a few sentences. In these cases DQ is preferable.<br />
+The following are tags for the summary:<br /> **PS** = Paraphrased Summary by
+LLM<br /> **DQ** = Direct Quotes, VERBATIM excerpts WITH PAGE NUMBER<br />
+**CS/IE** = Case Study or Illustrative Example: a story or narrative the text
+provides which is intended to evidence a certain argument or point therein.
+These should typically be paraphrased and marked with a page number for further
+investigation, but occasionally there are **CS/IE**s which can be entirely
+contained in a DQ of a few sentences. In these cases DQ is preferable.<br />
 
 Your summary should have the following 4-part structure:
 
 - **Five-paragraph overall summary (PS)**<br />
   - 1 paragraph: intro + roadmap, structure of the text and arguments<br />
-  - 3 paragraphs: three major movements from the work demonstrating its segues between major arguments, & important subpoints in each argument<br />
+  - 3 paragraphs: three major movements from the work demonstrating its segues
+    between major arguments, & important subpoints in each argument<br />
   - conclusion, distilled review of overall argument<br />
 - **Ten central case studies (CS/IE)s. (PS)**<br />
-  - Include less than five sentences per **CS/IE** explaining its structure/narrative, showing context in the work, and highlight whether it's referenced multiple times.<br />
+  - Include less than five sentences per **CS/IE** explaining its
+    structure/narrative, showing context in the work, and highlight whether it's
+    referenced multiple times.<br />
   - Connect CS/IEs to actionable advice by subpoint if possible<br />
-- **Ten bottom-line pieces of concise, actionable advice (DQ preffered, PS ok)**<br />
-  - whether through author's direct recommendation or implicit illustration e.g. "successful/unsuccessful examples have typically included THIS course of action: ..."<br />
+- **Ten bottom-line pieces of concise, actionable advice (DQ preffered, PS
+  ok)**<br />
+  - whether through author's direct recommendation or implicit illustration e.g.
+    "successful/unsuccessful examples have typically included THIS course of
+    action: ..."<br />
   - Include sub-bullet **CS/IE** here WHENEVER available<br />
 - **Ten of the book's best quotes (DQ), selected on the criteria**:
   - 1. communicates a central point of the text concisely<br />
@@ -93,9 +140,15 @@ Your summary should have the following 4-part structure:
 
 A few final ABSOLUTE RULES:
 
-1. CLEARLY mark what is (**DQ),** (**PS) and (CS/IE[either DQ or PS])** for all bullet points of the summary so as to make the summary properly attributable.<br />
-2. If uncertain about any part of the reduction/summarization process, ask me about specifics instead of assuming any particular behavior.<br />
-3. Points which are already too nuanced/concise to be effectively summarized should be marked with page numbers so that I can peruse the book. <br />
-4. After you complete this first response, give a few options for drilldown prompts which would allow me to further investigate the depth of the text using your (the LLM's) help.<br />
+1. CLEARLY mark what is (**DQ),** (**PS) and (CS/IE[either DQ or PS])** for all
+   bullet points of the summary so as to make the summary properly
+   attributable.<br />
+2. If uncertain about any part of the reduction/summarization process, ask me
+   about specifics instead of assuming any particular behavior.<br />
+3. Points which are already too nuanced/concise to be effectively summarized
+   should be marked with page numbers so that I can peruse the book. <br />
+4. After you complete this first response, give a few options for drilldown
+   prompts which would allow me to further investigate the depth of the text
+   using your (the LLM's) help.<br />
 
 </ToggleDropdown>
