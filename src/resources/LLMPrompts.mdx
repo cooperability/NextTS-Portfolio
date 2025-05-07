@@ -5,8 +5,9 @@ date: '2025-05-03'
 
 import ToggleDropdown from '../../components/ToggleDropdown'
 
-<ToggleDropdown title="Synthesize Report from Youtube Corpus">
-These are full transcripts of long educational lectures on YouTube. Please condense them into a single document as you see fit, prioritizing:
+<ToggleDropdown title="Synthesize Report from Long Transcript">
+These are full transcripts of a long lecture. 
+Please condense and summarize them into a single document with the following structure:
 
 1. A concise summary which synthesizes the corpus' main arguments and rhetorical
    flow. One paragraph per major argument. Central themes and arguments should
@@ -16,16 +17,24 @@ These are full transcripts of long educational lectures on YouTube. Please conde
    percentages are useful. Actionable advice or resources referenced should be
    included verbatim among these bullet points, with links if applicable.<br />
 
-- i. Actionable, broadly applicable advice the speaker gives, either explicitly
-  or implicitly. If the speaker recommends a course of action, I want to know
-  exactly what it is and why it was recommended. <br />
-- ii. Include ALL external resources that the speaker references in the summary.
-  If the speaker recommends a tool, I want to know exactly what it is and why it
-  was recommended.
+The summary can be composed at your discretion in order to capture both its main
+arguments and rhetorical flow, but must include verbatim quotes from the
+transcript when the transcript mentions:
+
+- i. Actionable, applicable advice the speaker gives, explicitly or implicitly.
+  If the speaker recommends a course of action, I want to know exactly what and
+  why. <br />
+- ii. ANY external resource or tool that the speaker references or recommends,
+  and rationale for why it was recommended.<br />
+- iii. Some of this course material will be old, so if your training set
+  includes more recent material, you should use that instead.
+
 </ToggleDropdown>
 
 <ToggleDropdown title="Generate Product-Market Research">
-Act as a product manager, browse the web, and perform market research in the [enter your niche] niche as well as the specific [vertical] vertical.
+
+Act as a product manager, browse the web, and perform market research in the
+[enter your niche] niche as well as the specific [vertical] vertical.
 
 **Give me:**
 
@@ -40,6 +49,7 @@ Act as a product manager, browse the web, and perform market research in the [en
 - Regulatory and legal considerations
 - A score for how easy it is to enter the market, plus rationale
 - A list of potential MVPs, with a pseudo-PRD for each
+
 </ToggleDropdown>
 
 <ToggleDropdown title="Compose Cover Letter from Source Documents">
@@ -76,8 +86,11 @@ possible, as I will use it as a jumping-off point for countless new chats.
 </ToggleDropdown>
 
 <ToggleDropdown title="Summarize this chat as a new prompt">
-Distill the insights from this chat into a condensed, organized and informative summary which could be seamlessly appended to this project's documentation🟢, or used as a new prompt. 
-I want to close out this chat without losing time on the errors, technicalities and details we uncovered here with great time and effort.
+
+Distill the insights from this chat into a condensed, organized and informative
+summary which could be seamlessly appended to this project's documentation🟢, or
+used as a new prompt. I want to close out this chat without losing time on the
+errors, technicalities and details we uncovered here with great time and effort.
 A data point from this chat should be prioritized for the summary when it is:
 
 1. An insight uncovered through this chat which would be difficult to uncover
@@ -101,10 +114,10 @@ containing all actionable advice/knowledge within this text. I will never read
 the source text, but I want to enjoy 100% of the academic and experiential
 benefits that reading the text confers. Preserve the tone of the original work
 as much as possible; do not impose your own tone of any kind. Estimate the time
-required for a human to: <br /> 1)read the book, <br /> 2)take notes on it and,
-<br /> 3)if applicable, complete any actionable projects within WITHOUT chatGPT
-and WITH chatGPT.<br /> Your output should be in markdown, which should be
-readable by Anki, GitHub, Next.js posts, etc. Format should be maximally
+required for a human to: <br /> 1)read the book, <br /> 2)take notes on it
+and,<br /> 3)if applicable, complete any actionable projects within WITHOUT
+chatGPT and WITH chatGPT.<br /> Your output should be in markdown, which should
+be readable by Anki, GitHub, Next.js posts, etc. Format should be maximally
 universal where possible.
 
 The following are tags for the summary:<br /> **PS** = Paraphrased Summary by

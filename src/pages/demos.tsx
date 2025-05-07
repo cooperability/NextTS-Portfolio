@@ -35,12 +35,6 @@ const Demos: React.FC = () => {
             for Stanford Hospitals)
           </div>
           <div>
-            <a href="https://lindabrettler.com">
-              Lindabrettler.com (Squarespace)[💻📱]
-            </a>{' '}
-            (2022 for a friend)
-          </div>
-          <div>
             <a href="https://drive.google.com/file/d/1oDYsEytMWbKWmyotBZDIMBzoL5DM1tDV/view?usp=sharing">
               Personnel Portal (TS, Tailwind, Redux)[📽️]
             </a>
