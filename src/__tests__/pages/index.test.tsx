@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react'
-import Home from './index'
+import Home from '../../pages/index' // Adjusted import path
 
 // Store the original Math.random and restore it after tests
 const originalMathRandom = global.Math.random
