@@ -1,71 +1,74 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <title>Cooper Reed</title>
     <meta name="description" content="Cooper's IPFS Portfolio Site" />
     <meta name="author" content="The IPFS Docs team, and Cooper." />
     <style>
-        body {
-            margin: 10px auto;
-            max-width: 75%;
-            line-height: 1.2;
-            font-family: sans-serif;
-            color: rgb(255, 125, 4);
-            background: rgb(100, 100, 100);
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        h1 {
-            font-size: 5rem;
-            font-weight: bolder;
-            color:rgb(255, 125, 4);
-            margin-top: -10px;
-            margin-bottom: -15px;
-        }
+      body {
+        margin: 10px auto;
+        max-width: 75%;
+        line-height: 1.2;
+        font-family: sans-serif;
+        color: rgb(255, 125, 4);
+        background: rgb(100, 100, 100);
+        flex-direction: column;
+        justify-content: center;
+      }
 
-        h2 {
-            font-size: 2rem;
-            color:white
-        }
+      h1 {
+        font-size: 5rem;
+        font-weight: bolder;
+        color: rgb(255, 125, 4);
+        margin-top: -10px;
+        margin-bottom: -15px;
+      }
 
-        a {
-            color: yellowgreen;
-        }
+      h2 {
+        font-size: 2rem;
+        color: white;
+      }
 
-        img {
-            border-radius: 30px;
-            width: 30%;
-            justify-content: center;
-        }
+      a {
+        color: yellowgreen;
+      }
 
-        p {
-            font-size: 1.7rem;
-        }
+      img {
+        border-radius: 30px;
+        width: 30%;
+        justify-content: center;
+      }
 
+      p {
+        font-size: 1.7rem;
+      }
     </style>
-</head>
+  </head>
 
-<body onload="main()">
+  <body onload="main()">
     <h1>Cooper Reed</h1>
     <h2>
-        <a href="https://www.linkedin.com/in/cooper-reed/">Linkedin</a>
-        ||
-        <a href="https://github.com/cooperability">GitHub</a>
-        ||
-        <a href="https://twitter.com/Cooperability">Twitter</a>
-        ||
-        <a href="https://mirror.xyz/0xAd7f62080c882D575DCd6F5eb29cB9C09B0d4B0D">Mirror</a>
-        ||
-        <a href="https://www.youtube.com/channel/UCFVGgrZZ80P1DN4nIot6TDg">YouTube</a>
+      <a href="https://www.linkedin.com/in/cooper-reed/">Linkedin</a>
+      ||
+      <a href="https://github.com/cooperability">GitHub</a>
+      ||
+      <a href="https://twitter.com/Cooperability">Twitter</a>
+      ||
+      <a href="https://mirror.xyz/0xAd7f62080c882D575DCd6F5eb29cB9C09B0d4B0D"
+        >Mirror</a
+      >
+      ||
+      <a href="https://www.youtube.com/channel/UCFVGgrZZ80P1DN4nIot6TDg"
+        >YouTube</a
+      >
     </h2>
 
     <img src="images/headshot.jpg" />
     <h2>
-        This website runs on <a href="https://ipfs.io/">InterPlanetary File System</a>,
-        a decentralized peer-to-peer file sharing network powered by blockchain. Work in progress!
+      This website runs on
+      <a href="https://ipfs.io/">InterPlanetary File System</a>, a decentralized
+      peer-to-peer file sharing network powered by blockchain. Work in progress!
     </h2>
     <p id="output_p"></p>
     <script>
@@ -78,12 +81,11 @@
           '"To me, fun is any time I feel like I really display or I really reach my full potential.When the glass ceiling breaks.That&#8217;s f****** fun for me." \n -Miley Cyrus',
           '"If you can create different experiences that manifest different desires, then it&#8217;s possible that those will lead to the production of different worlds.” \n -Moxie Marlinspike',
           '"The fact is that no man is a datum which is passively suffered; the rejection of existence is still another way of existing; nobody can know the peace of the tomb while he is alive." -Simone de Beauvoir',
-          '"Honestly, I just kind of wing it" -Sun Tzu'
+          '"Honestly, I just kind of wing it" -Sun Tzu',
         ]
         document.querySelector('#output_p').innerHTML =
           facts[Math.floor(Math.random() * facts.length)]
       }
     </script>
-</body>
-
+  </body>
 </html>

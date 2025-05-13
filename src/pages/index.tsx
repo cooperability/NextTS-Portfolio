@@ -35,6 +35,7 @@ const quotes = [
   '"We judge ourselves by what we feel capable of doing, while others judge us by what we have already done." -Henry Wadsworth Longfellow',
   '"In a world where the big fish eat small fish and the small fish eat shrimps, Singapore must become a poisonous shrimp." -Lee Kuan Yew',
   '"No matter how far you have gone down a wrong road, turn back." -Turkish Proverb',
+  '"It is impossible for a man to learn what he thinks he already knows." -Epictetus',
 ]
 
 export default function Home() {
