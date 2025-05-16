@@ -98,6 +98,7 @@
 
 .boldLink {
   font-weight: bold;
+  text-decoration: underline;
 }
 
 .footerLinks {
@@ -175,7 +176,7 @@
 
 .projectStatus {
   font-size: 0.9em;
-  color: #aaa;
+  color: #767676;
   margin-left: 0.5rem;
 }
 

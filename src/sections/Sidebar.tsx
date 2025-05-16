@@ -17,7 +17,7 @@ const Sidebar = ({ isOpen }: SidebarProps) => {
     <div
       className={`${styles.sidebar} ${isOpen ? styles.open : ''} ${sidebarThemeClass}`}
     >
-      <nav className={styles.sidebarNav}>
+      <nav className={styles.sidebarNav} aria-label="Sidebar navigation">
         <ActiveLink
           className={styles.navLink}
           activeClassName={styles.boldLink}

@@ -16,6 +16,8 @@ My Next.js portfolio website, running on Vercel. I'm parting with IPFS because i
 - `yarn lint`: Runs **ESLint** (See `eslint.config.mjs`), extending `next/core-web-vitals`, checking for Next.js errors and style issues.
 - `yarn format`: Runs **Prettier** (See `.prettierrc.json`) to automatically format all project files. Integrated with ESLint via `eslint-config-prettier` to avoid conflicting rules.
 - `yarn test`: Runs **Jest** to automatically test; Jest also automatically tests during the pre-commit hook.
+- `yarn analyze`: Runs `cross-env ANALYZE=true next build` to build the project and open an interactive bundle analyzer to inspect bundle sizes.
+- `yarn run access`: Starts the development server, then runs a series of accessibility checks: ESLint for static analysis, Axe-core for runtime WCAG checks, and Lighthouse for an accessibility audit. Reports are saved to the `./accessibility-reports/` directory. You should review these reports and update the `src/resources/AccessibilityStatement.mdx` file accordingly.
 
 ## Project Dependencies
 

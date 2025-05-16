@@ -17,6 +17,8 @@ export default function Layout({
       <Header />
       <Providers>
         <Head>
+          <html lang="en" />
+          <title>Co-Operability</title>
           <link rel="icon" type="image/ico" href="/icon.ico" />
           <meta name="og:title" content={siteTitle} />
           <meta name="description" content="Cooper's portfolio website" />
