@@ -161,9 +161,49 @@
 
 .projectItem {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: space-between;
   flex-wrap: wrap;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #444;
+}
+
+.projectInfo {
+  margin-right: 1rem;
+}
+
+.projectStatus {
+  font-size: 0.9em;
+  color: #aaa;
+  margin-left: 0.5rem;
+}
+
+.techStackIcons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* For mobile screens */
+@media (max-width: 570px) {
+  .projectItem {
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: 1px solid #333;
+  }
+
+  .projectInfo {
+    margin-right: 0;
+  }
+
+  .projectInfo a {
+  }
+
+  .techStackIcons {
+    margin-left: 0;
+    margin-top: 0.75rem;
+  }
 }
 
 /* Component: Header */
@@ -191,10 +231,21 @@
   /* Start off-screen */
   width: 300px;
   height: 100%;
-  background-color: gray;
   box-shadow: -5px 0 10px rgba(0, 0, 0, 0.7);
   transition: right 0.3s ease-in-out;
   z-index: 1000;
+}
+
+.sidebarLight {
+  background-color: #fafafa; /* Light background */
+  color: #333; /* Dark text */
+  border-left: 1px solid #333; /* Dark border */
+}
+
+.sidebarDark {
+  background-color: #222; /* Dark background */
+  color: #eee; /* Light text */
+  border-left: 1px solid #eee; /* Light border */
 }
 
 .open {

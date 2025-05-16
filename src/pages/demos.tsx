@@ -10,127 +10,167 @@ const Demos: React.FC = () => {
       <section className={styles.headingMd}>
         <div>
           <div className={styles.projectItem}>
-            <a href="https://github.com/cooperability/NextTS-Portfolio">
-              cooperability.com[💻📱]
-            </a>{' '}
-            (You are here){' '}
-            <ActiveIcon
-              href="https://react.dev/"
-              imgSrc="/images/react.png"
-              size="small"
-            />
-            <ActiveIcon
-              href="https://nextjs.org/"
-              imgSrc="/images/nextjs.png"
-              size="small"
-            />
-            <ActiveIcon
-              href="https://tailwindcss.com/"
-              imgSrc="/images/tailwind.png"
-              size="small"
-            />
-            <ActiveIcon
-              href="https://nodejs.org/en"
-              imgSrc="/images/njs.png"
-              size="small"
-            />
-            {/* Add TypeScript icon here when available: <ActiveIcon href="https://www.typescriptlang.org/" imgSrc="/images/typescript.png" size="small" /> */}
-          </div>
-          <div>
-            <Link href="/opioid-converter/">Opioid Converter[💻📱]</Link> (2021
-            @Stanford Hospitals){' '}
-            <ActiveIcon
-              href="https://react.dev/"
-              imgSrc="/images/react.png"
-              size="small"
-            />
-            <ActiveIcon
-              href="https://tailwindcss.com/"
-              imgSrc="/images/tailwind.png"
-              size="small"
-            />
-            <ActiveIcon
-              href="https://nodejs.org/en"
-              imgSrc="/images/njs.png"
-              size="small"
-            />
-            {/* Add TypeScript icon here when available: <ActiveIcon href="https://www.typescriptlang.org/" imgSrc="/images/typescript.png" size="small" /> */}
+            <div className={styles.projectInfo}>
+              <a href="https://github.com/cooperability/NextTS-Portfolio">
+                cooperability.com[💻📱]
+              </a>
+              <span className={styles.projectStatus}>(Ongoing)</span>
+            </div>
+            <div className={styles.techStackIcons}>
+              <ActiveIcon
+                href="https://www.typescriptlang.org/"
+                imgSrc="/images/typescript.png"
+                size="small"
+              />
+              <ActiveIcon
+                href="https://nextjs.org/"
+                imgSrc="/images/nextjs.png"
+                size="small"
+              />
+              <ActiveIcon
+                href="https://tailwindcss.com/"
+                imgSrc="/images/tailwind.png"
+                size="small"
+                height={25}
+                width={40}
+              />
+              <ActiveIcon
+                href="https://nodejs.org/en"
+                imgSrc="/images/njs.png"
+                size="small"
+              />
+              <ActiveIcon
+                href="https://vercel.com/"
+                imgSrc="/images/vercel.png"
+                size="small"
+              />
+            </div>
           </div>
           <div className={styles.projectItem}>
-            <a href="https://drive.google.com/file/d/1oDYsEytMWbKWmyotBZDIMBzoL5DM1tDV/view?usp=sharing">
-              Personnel Portal[📽️]
-            </a>
-            (2021 @Edstruments){' '}
-            <ActiveIcon
-              href="https://react.dev/"
-              imgSrc="/images/react.png"
-              size="small"
-            />
-            <ActiveIcon
-              href="https://tailwindcss.com/"
-              imgSrc="/images/tailwind.png"
-              size="small"
-            />
-            <ActiveIcon
-              href="https://nodejs.org/en"
-              imgSrc="/images/njs.png"
-              size="small"
-            />
-            {/* Add Redux icon if available and desired */}
+            <div className={styles.projectInfo}>
+              <a href="https://github.com/cooperability/BMX-bookmark-extractor">
+                BookMark eXtractor
+              </a>
+              <span className={styles.projectStatus}>(Ongoing)</span>
+            </div>
+            <div className={styles.techStackIcons}>
+              <ActiveIcon
+                href="https://www.docker.com/"
+                imgSrc="/images/docker.png"
+                size="small"
+                width={31.7}
+                height={25}
+              />
+              <ActiveIcon
+                href="https://www.python.org/"
+                imgSrc="/images/python.png"
+                size="small"
+              />
+              <ActiveIcon
+                href="https://python-poetry.org/"
+                imgSrc="/images/poetry.png"
+                size="small"
+              />
+              <ActiveIcon
+                href="https://www.djangoproject.com/"
+                imgSrc="/images/django.png"
+                size="small"
+              />
+              <ActiveIcon
+                href="https://www.postgresql.org/"
+                imgSrc="/images/postgresql.png"
+                size="small"
+              />
+              <ActiveIcon
+                href="https://nodejs.org/en"
+                imgSrc="/images/njs.png"
+                size="small"
+              />
+            </div>
           </div>
-        </div>
-        <div>
           <div className={styles.projectItem}>
-            <a href="https://github.com/cooperability/nlp_ipynb/">NLP_ipynb</a>{' '}
-            (Ongoing){' '}
-            <ActiveIcon
-              href="https://www.python.org/"
-              imgSrc="/images/python.png"
-              size="small"
-            />
+            <div className={styles.projectInfo}>
+              <a href="https://github.com/cooperability/nlp_ipynb/">
+                NLP_ipynb
+              </a>
+              <span className={styles.projectStatus}>(Ongoing)</span>
+            </div>
+            <div className={styles.techStackIcons}>
+              <ActiveIcon
+                href="https://www.python.org/"
+                imgSrc="/images/python.png"
+                size="small"
+              />
+              <ActiveIcon
+                href="https://python-poetry.org/"
+                imgSrc="/images/poetry.png"
+                size="small"
+              />
+            </div>
           </div>
-        </div>
-        <div className={styles.projectItem}>
-          <a href="https://github.com/cooperability/BMX-bookmark-extractor">
-            BookMark eXtractor
-          </a>
-          (Ongoing){' '}
-          <ActiveIcon
-            href="https://www.python.org/"
-            imgSrc="/images/python.png"
-            size="small"
-          />
-          <ActiveIcon
-            href="https://www.djangoproject.com/"
-            imgSrc="/images/django.png"
-            size="small"
-          />
-          <ActiveIcon
-            href="https://www.postgresql.org/"
-            imgSrc="/images/postgresql.png"
-            size="small"
-          />
-          <ActiveIcon
-            href="https://www.mongodb.com/"
-            imgSrc="/images/mongodb.png"
-            size="small"
-          />
-          <ActiveIcon
-            href="https://firebase.google.com/"
-            imgSrc="/images/firebase.png"
-            size="small"
-          />
-          <ActiveIcon
-            href="https://nodejs.org/en"
-            imgSrc="/images/njs.png"
-            size="small"
-          />
+          <div className={styles.projectItem}>
+            <div className={styles.projectInfo}>
+              <Link href="/opioid-converter/">Opioid Converter[💻📱]</Link>
+              <span className={styles.projectStatus}>(2021)</span>
+            </div>
+            <div className={styles.techStackIcons}>
+              <ActiveIcon
+                href="https://www.typescriptlang.org/"
+                imgSrc="/images/typescript.png"
+                size="small"
+              />
+              <ActiveIcon
+                href="https://tailwindcss.com/"
+                imgSrc="/images/tailwind.png"
+                size="small"
+                height={25}
+                width={40}
+              />
+              <ActiveIcon
+                href="https://nodejs.org/en"
+                imgSrc="/images/njs.png"
+                size="small"
+              />
+            </div>
+          </div>
+          <div className={styles.projectItem}>
+            <div className={styles.projectInfo}>
+              <a href="https://drive.google.com/file/d/1oDYsEytMWbKWmyotBZDIMBzoL5DM1tDV/view?usp=sharing">
+                Personnel Portal[📽️]
+              </a>
+              <span className={styles.projectStatus}>(2020)</span>
+            </div>
+            <div className={styles.techStackIcons}>
+              <ActiveIcon
+                href="https://react.dev/"
+                imgSrc="/images/react.png"
+                size="small"
+              />
+              <ActiveIcon
+                href="https://tailwindcss.com/"
+                imgSrc="/images/tailwind.png"
+                size="small"
+                height={25}
+                width={40}
+              />
+              <ActiveIcon
+                href="https://nodejs.org/en"
+                imgSrc="/images/njs.png"
+                size="small"
+              />
+              <ActiveIcon
+                href="https://redux.js.org/"
+                imgSrc="/images/redux.png"
+                size="small"
+              />
+            </div>
+          </div>
         </div>
         <ToggleDropdown title="Other Stack Elements I've Worked With">
           <p>
             <b>Lang:</b>
             <br />
-            C++, Rust, Redis, TypeScript, Redux, Neo4j
+            C++, Rust, Redis, Neo4j
             <br />
             <b>Web3:</b>
             <br />
@@ -138,12 +178,12 @@ const Demos: React.FC = () => {
             <br />
             <b>Data Sci, ML/AI:</b>
             <br />
-            Poetry, TensorFlow, PyTorch, Keras, NumPy, Pandas, Scikit-learn,
-            LangChain, SpaCy, NLTK
+            TensorFlow, PyTorch, Keras, NumPy, Pandas, Scikit-learn, LangChain,
+            SpaCy, NLTK
             <br />
             <b>DevOps:</b>
             <br />
-            Kubernetes, Docker, Heroku, CircleCI, GitLab CI, Linear, Vercel
+            Kubernetes, Heroku, CircleCI, GitLab CI, Linear
           </p>
         </ToggleDropdown>
       </section>
