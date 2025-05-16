@@ -3,10 +3,15 @@ import Link from 'next/link'
 import styles from '../styles/utils.module.css'
 import ToggleDropdown from '../components/ToggleDropdown'
 import ActiveIcon from '../components/ActiveIcon'
+import Head from 'next/head'
 
 const Demos: React.FC = () => {
   return (
-    <Layout home>
+    <Layout home={false}>
+      <Head>
+        <title>Demos - Co-Operability</title>
+      </Head>
+      <h1 className="visually-hidden">Demos</h1>
       <section className={styles.headingMd}>
         <div>
           <div className={styles.projectItem}>

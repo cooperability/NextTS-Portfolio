@@ -3,6 +3,7 @@ import Layout from '../components/layout'
 import { GetStaticProps } from 'next'
 import styles from '../styles/utils.module.css'
 import { getAllResourcesData, ResourceData } from '../lib/resources'
+import Head from 'next/head'
 
 interface ResourcesProps {
   allPostsData: ResourceData[]
@@ -10,7 +11,11 @@ interface ResourcesProps {
 
 export default function Resources({ allPostsData }: ResourcesProps) {
   return (
-    <Layout home>
+    <Layout home={false}>
+      <Head>
+        <title>Resources - Co-Operability</title>
+      </Head>
+      <h1 className="visually-hidden">Resources</h1>
       <section className={`${styles.headingMd} ${styles.padding1px}`}>
         <ul className={styles.list}>
           {allPostsData

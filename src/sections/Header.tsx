@@ -84,6 +84,7 @@ const Header = () => {
         <button
           className={`${styles.themeToggleBtn} ${styles.themeToggleDark}`}
           onClick={() => setTheme('light')}
+          aria-label="Toggle light theme"
         >
           <SunIcon />
         </button>
@@ -93,6 +94,7 @@ const Header = () => {
         <button
           className={`${styles.themeToggleBtn} ${styles.themeToggleLight}`}
           onClick={() => setTheme('dark')}
+          aria-label="Toggle dark theme"
         >
           <MoonIcon />
         </button>
@@ -108,7 +110,11 @@ const Header = () => {
     <div suppressHydrationWarning>
       <div className={styles.Header} suppressHydrationWarning>
         <Sidebar isOpen={isSidebarOpen} />
-        <nav className={styles.navbar} suppressHydrationWarning>
+        <nav
+          className={styles.navbar}
+          aria-label="Main navigation"
+          suppressHydrationWarning
+        >
           {navigator()}
         </nav>
         {renderThemeChanger()}

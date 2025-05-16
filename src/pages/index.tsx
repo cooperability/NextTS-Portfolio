@@ -47,6 +47,7 @@ export default function Home() {
       <Head>
         <title>{siteTitle}</title>
       </Head>
+      <h1 className="visually-hidden">Cooper Reed - Portfolio Home</h1>
       <section className={styles.headingMd}>
         <div
           style={{

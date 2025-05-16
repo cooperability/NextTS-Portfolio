@@ -2,7 +2,10 @@ import Link from 'next/link'
 
 export default function Navbar() {
   return (
-    <nav className="flex justify-between items-center p-4 bg-gray-100 dark:bg-gray-800">
+    <nav
+      className="flex justify-between items-center p-4 bg-gray-100 dark:bg-gray-800"
+      aria-label="Main navigation"
+    >
       <div className="space-x-4">
         <Link
           href="/"

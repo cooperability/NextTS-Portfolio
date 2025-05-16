@@ -38,8 +38,20 @@ img {
     @apply min-h-screen;
   }
 
+  /* Default link style, assuming color will be specified by theme or inherited */
   a {
-    @apply text-inherit;
+    color: inherit; /* Let parent (body) dictate color initially */
+    @apply hover:underline;
+  }
+
+  /* Theme-specific link colors */
+  html.light a {
+    color: #1d4ed8; /* Tailwind's blue-700 for light mode */
+  }
+
+  html.dark a {
+    /* Uncommented for actual dark mode */
+    color: #93c5fd; /* Tailwind's blue-300 for dark mode */
   }
 
   ::selection {
@@ -49,4 +61,16 @@ img {
   .btn {
     @apply inline-block px-5 py-3 rounded-lg hover: bg-indigo-600 transition duration-300 shadow-lg bg-indigo-500 text-white capitalize tracking-wider font-semibold text-sm sm:text-xl focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50 whitespace-nowrap;
   }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
