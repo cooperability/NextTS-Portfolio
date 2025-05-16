@@ -6,6 +6,8 @@ interface ActiveIconProps {
   imgSrc: string
   variant?: 'default' | 'social'
   size?: 'default' | 'small'
+  width?: number
+  height?: number
 }
 
 const ActiveIcon: React.FC<ActiveIconProps> = ({
@@ -13,6 +15,8 @@ const ActiveIcon: React.FC<ActiveIconProps> = ({
   imgSrc,
   variant = 'default',
   size = 'default',
+  width,
+  height,
 }) => {
   // Extract filename from imgSrc for alt text
   const altText = imgSrc.substring(imgSrc.lastIndexOf('/') + 1)
@@ -22,18 +26,17 @@ const ActiveIcon: React.FC<ActiveIconProps> = ({
   let imageWidth = 50
   let imageHeight = 50
 
-  // Add socialsLink class if variant is social
-  if (variant === 'social') {
-    imageClassName = `${imageClassName} ${styles.socialsLink}`
+  if (width && height) {
+    imageWidth = width
+    imageHeight = height
+  } else if (size === 'small') {
+    imageWidth = 25
+    imageHeight = 25
+    imageClassName = styles.inlineIcon
   }
 
-  // Adjust size and styles for 'small' variant
-  if (size === 'small') {
-    imageWidth = 20
-    imageHeight = 20
-    // Optionally, use a different class or modify existing for small icons
-    // For now, we'll just adjust size. We can add specific small icon styles later if needed.
-    imageClassName = styles.inlineIcon // Assuming you might want a different style, or just remove hover
+  if (variant === 'social') {
+    imageClassName = `${imageClassName} ${styles.socialsLink}`
   }
 
   return (
@@ -41,9 +44,9 @@ const ActiveIcon: React.FC<ActiveIconProps> = ({
       <Image
         src={imgSrc}
         alt={altText}
-        className={imageClassName} // Apply combined class names
-        width={imageWidth} // Use dynamic width
-        height={imageHeight} // Use dynamic height
+        className={imageClassName}
+        width={imageWidth}
+        height={imageHeight}
       />
     </a>
   )
