@@ -146,6 +146,26 @@
   cursor: pointer;
 }
 
+.inlineIcon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  opacity: 0.9;
+}
+
+.inlineIcon:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.projectItem {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
 /* Component: Header */
 .Header {
   width: 100%;
