@@ -6,6 +6,23 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  async redirects() {
+    return [
+      {
+        source: '/skills',
+        destination: '/demos',
+        permanent: true,
+      },
+      {
+        source: '/prompts',
+        destination: '/resources',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports

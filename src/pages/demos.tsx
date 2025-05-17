@@ -9,7 +9,7 @@ const Demos: React.FC = () => {
   return (
     <Layout home={false}>
       <Head>
-        <title>Demos - Co-Operability</title>
+        <title>Demos | Co-Operability</title>
       </Head>
       <h1 className="visually-hidden">Demos</h1>
       <section className={styles.headingMd}>
@@ -147,6 +147,11 @@ const Demos: React.FC = () => {
             </div>
             <div className={styles.techStackIcons}>
               <ActiveIcon
+                href="https://redux.js.org/"
+                imgSrc="/images/redux.png"
+                size="small"
+              />
+              <ActiveIcon
                 href="https://react.dev/"
                 imgSrc="/images/react.png"
                 size="small"
@@ -161,11 +166,6 @@ const Demos: React.FC = () => {
               <ActiveIcon
                 href="https://nodejs.org/en"
                 imgSrc="/images/njs.png"
-                size="small"
-              />
-              <ActiveIcon
-                href="https://redux.js.org/"
-                imgSrc="/images/redux.png"
                 size="small"
               />
             </div>

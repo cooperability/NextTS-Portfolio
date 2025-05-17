@@ -13,7 +13,7 @@ export default function Resources({ allPostsData }: ResourcesProps) {
   return (
     <Layout home={false}>
       <Head>
-        <title>Resources - Co-Operability</title>
+        <title>Resources | Co-Operability</title>
       </Head>
       <h1 className="visually-hidden">Resources</h1>
       <section className={`${styles.headingMd} ${styles.padding1px}`}>
