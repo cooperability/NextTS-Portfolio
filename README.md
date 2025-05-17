@@ -2,11 +2,14 @@
 
 My Next.js portfolio website, running on Vercel. I'm parting with IPFS because it's too expensive to keep a responsive page there, although my original ultralight IPFS site will continue running.
 
-## Next Steps:
+## TODO:
 
 - Nlp_ipynb and course completion; JupyterLite
 - anki decks shareable
 - Add papers whose tech I've contributed to
+- OC input fields block numbers but should pop up numpad on mobile
+- Delete //
+- SEO; site:cooperability.com
 
 ## Linting, Formatting, and Testing
 
@@ -18,6 +21,11 @@ My Next.js portfolio website, running on Vercel. I'm parting with IPFS because i
 - `yarn test`: Runs **Jest** to automatically test; Jest also automatically tests during the pre-commit hook.
 - `yarn analyze`: Runs `cross-env ANALYZE=true next build` to build the project and open an interactive bundle analyzer to inspect bundle sizes.
 - `yarn run access`: Starts the development server, then runs a series of accessibility checks: ESLint for static analysis, Axe-core for runtime WCAG checks, and Lighthouse for an accessibility audit. Reports are saved to the `./accessibility-reports/` directory. You should review these reports and update the `src/resources/AccessibilityStatement.mdx` file accordingly.
+
+## Privacy Policy, SEO, Analytics
+
+- **Privacy**: Privacy-forward Next Analytics is used instead of Google Analytics for better anonymization.
+- **SEO**: Invisible h1 headers
 
 ## Project Dependencies
 
