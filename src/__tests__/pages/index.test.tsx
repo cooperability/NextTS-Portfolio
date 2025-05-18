@@ -36,7 +36,7 @@ describe('Home', () => {
     // and it has suppressHydrationWarning. A more robust selector might be needed if text is too generic.
     // Let's assume the quote is the only direct text node in a <span> that's a child of the section.
     const quoteSection = screen
-      .getByText(/A random quote that speaks to me:/i)
+      .getByText(/This spoke to me:/i)
       .closest('section')
     expect(quoteSection).not.toBeNull()
     // Find the span that holds the quote. It's the last span in its direct parent div.

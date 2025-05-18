@@ -1,7 +1,8 @@
 /* eslint-disable no-useless-escape */
 'use client'
 import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout'
+import Link from 'next/link'
+import Layout from '../components/layout'
 import styles from '../styles/utils.module.css'
 import { ArrowPathIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
@@ -45,9 +46,15 @@ export default function Home() {
   return (
     <React.Fragment>
       <Head>
-        <title>{siteTitle}</title>
+        <title>Cooper Reed | Co-Operability</title>
+        <meta
+          name="description"
+          content="Cooper Reed's (Co-Operability) portfolio: Explore full-stack projects, writings, and interviews."
+        />
       </Head>
-      <h1 className="visually-hidden">Co-Operability</h1>
+      <h1 className="visually-hidden">
+        Cooper Reed - Full Stack Developer Portfolio | Co-Operability
+      </h1>
       <section className={styles.headingMd}>
         <div
           style={{
@@ -74,12 +81,12 @@ export default function Home() {
           .
           <br />
           To me, <b>Co-Operability</b> means long-term synergy between my
-          ambitions and morals. I open-source my work and learning as resources
-          for others. My interviews follow this theme.
-          <br />
+          ambitions and morals. I open-source my <Link href="/demos">work</Link>{' '}
+          and <Link href="/resources">learning</Link> as resources for others.
+          My interviews follow this theme.
         </p>
         <div className={styles.socialIconRow}>
-          <b>A random quote that speaks to me:</b>
+          <b>This spoke to me:</b>
           <button
             className={styles.themeToggleBtn}
             onClick={() =>

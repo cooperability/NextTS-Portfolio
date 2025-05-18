@@ -9,7 +9,11 @@ const Demos: React.FC = () => {
   return (
     <Layout home={false}>
       <Head>
-        <title>Demos | Co-Operability</title>
+        <title>Demos | Cooper Reed | Co-Operability</title>
+        <meta
+          name="description"
+          content="Cooper Reed's (Co-Operability) coding projects and tech demos."
+        />
       </Head>
       <h1 className="visually-hidden">Demos</h1>
       <section className={styles.headingMd}>
@@ -25,16 +29,19 @@ const Demos: React.FC = () => {
               <ActiveIcon
                 href="https://www.typescriptlang.org/"
                 imgSrc="/images/typescript.png"
+                alt="TypeScript logo"
                 size="small"
               />
               <ActiveIcon
                 href="https://nextjs.org/"
                 imgSrc="/images/nextjs.png"
+                alt="Next.js logo"
                 size="small"
               />
               <ActiveIcon
                 href="https://tailwindcss.com/"
                 imgSrc="/images/tailwind.png"
+                alt="Tailwind CSS logo"
                 size="small"
                 height={25}
                 width={40}
@@ -42,11 +49,13 @@ const Demos: React.FC = () => {
               <ActiveIcon
                 href="https://nodejs.org/en"
                 imgSrc="/images/njs.png"
+                alt="Node.js logo"
                 size="small"
               />
               <ActiveIcon
                 href="https://vercel.com/"
                 imgSrc="/images/vercel.png"
+                alt="Vercel logo"
                 size="small"
               />
             </div>
@@ -62,6 +71,7 @@ const Demos: React.FC = () => {
               <ActiveIcon
                 href="https://www.docker.com/"
                 imgSrc="/images/docker.png"
+                alt="Docker logo"
                 size="small"
                 width={31.7}
                 height={25}
@@ -69,26 +79,31 @@ const Demos: React.FC = () => {
               <ActiveIcon
                 href="https://www.python.org/"
                 imgSrc="/images/python.png"
+                alt="Python logo"
                 size="small"
               />
               <ActiveIcon
                 href="https://python-poetry.org/"
                 imgSrc="/images/poetry.png"
+                alt="Poetry logo"
                 size="small"
               />
               <ActiveIcon
                 href="https://www.djangoproject.com/"
                 imgSrc="/images/django.png"
+                alt="Django logo"
                 size="small"
               />
               <ActiveIcon
                 href="https://www.postgresql.org/"
                 imgSrc="/images/postgresql.png"
+                alt="PostgreSQL logo"
                 size="small"
               />
               <ActiveIcon
                 href="https://nodejs.org/en"
                 imgSrc="/images/njs.png"
+                alt="Node.js logo"
                 size="small"
               />
             </div>
@@ -104,11 +119,13 @@ const Demos: React.FC = () => {
               <ActiveIcon
                 href="https://www.python.org/"
                 imgSrc="/images/python.png"
+                alt="Python logo"
                 size="small"
               />
               <ActiveIcon
                 href="https://python-poetry.org/"
                 imgSrc="/images/poetry.png"
+                alt="Poetry logo"
                 size="small"
               />
             </div>
@@ -122,11 +139,13 @@ const Demos: React.FC = () => {
               <ActiveIcon
                 href="https://www.typescriptlang.org/"
                 imgSrc="/images/typescript.png"
+                alt="TypeScript logo"
                 size="small"
               />
               <ActiveIcon
                 href="https://tailwindcss.com/"
                 imgSrc="/images/tailwind.png"
+                alt="Tailwind CSS logo"
                 size="small"
                 height={25}
                 width={40}
@@ -134,6 +153,7 @@ const Demos: React.FC = () => {
               <ActiveIcon
                 href="https://nodejs.org/en"
                 imgSrc="/images/njs.png"
+                alt="Node.js logo"
                 size="small"
               />
             </div>
@@ -149,16 +169,19 @@ const Demos: React.FC = () => {
               <ActiveIcon
                 href="https://redux.js.org/"
                 imgSrc="/images/redux.png"
+                alt="Redux logo"
                 size="small"
               />
               <ActiveIcon
                 href="https://react.dev/"
                 imgSrc="/images/react.png"
+                alt="React logo"
                 size="small"
               />
               <ActiveIcon
                 href="https://tailwindcss.com/"
                 imgSrc="/images/tailwind.png"
+                alt="Tailwind CSS logo"
                 size="small"
                 height={25}
                 width={40}
@@ -166,6 +189,7 @@ const Demos: React.FC = () => {
               <ActiveIcon
                 href="https://nodejs.org/en"
                 imgSrc="/images/njs.png"
+                alt="Node.js logo"
                 size="small"
               />
             </div>

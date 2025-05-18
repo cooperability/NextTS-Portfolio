@@ -173,7 +173,7 @@ const OpioidConverter = () => {
         <Image
           src="/images/CHOIR.png"
           alt="CHOIR Provider Logo"
-          width={200}
+          width={220}
           height={50}
         />
         <h1 className={styles.title}>Opioid Converter</h1>

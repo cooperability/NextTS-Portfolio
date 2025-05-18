@@ -1,6 +1,6 @@
 ---
 title: 👓Accessibility Statement
-date: '2025-05-16'
+date: '2025-05-18'
 description:
   My commitment to accessibility and information about Co-Operability.com's
   conformance.
@@ -8,56 +8,55 @@ description:
 
 # Accessibility Statement for Co-Operability.com
 
-**Last Updated: 2025-05-16**
+**Last Updated: 2025-05-18**
 
-Co-Operability.com is committed to ensuring digital accessibility for people
-with disabilities. I am continually improving the user experience for everyone
-and applying the relevant accessibility standards. My goal is to conform with
-the **Web Content Accessibility Guidelines (WCAG) 2.1 level AA**.
+I am committed to ensuring digital accessibility for people with disabilities
+and am continually improving the user experience for everyone by applying
+relevant accessibility standards. My goal is to conform with the **Web Content
+Accessibility Guidelines (WCAG) 2.1 level AA**.
 
 ## My Approach to Accessibility
 
 I believe accessibility is an ongoing effort and have integrated the following
-practices:
+practices into my development process:
 
 - **Semantic HTML**: I strive to use correct HTML5 elements to ensure a good
   structural baseline.
 - **Keyboard Navigation**: All interactive elements are intended to be navigable
   and operable via keyboard.
 - **ARIA Attributes**: Where appropriate, ARIA (Accessible Rich Internet
-  Applications) attributes are used to enhance the user experience for assistive
-  technologies. For example, navigation regions are labeled for clarity.
+  Applications) attributes enhance the user experience for assistive
+  technologies, e.g. navigation elements are labeled for clarity.
 - **Responsive Design**: The site is designed to be responsive and usable across
   various screen sizes and devices.
 - **Color Contrast**: I aim for sufficient color contrast for text and
   interactive elements in both light and dark themes.
 - **Automated Testing**: I utilize a suite of tools to help identify potential
   issues:
-  - `eslint-plugin-jsx-a11y`: For static analysis of React components during
+  - `eslint-plugin-jsx-a11y`: For static analysis of my React components during
     development.
   - `axe-core`: Run via CLI to test against WCAG standards.
   - `Lighthouse`: For broader accessibility, performance, and best practices
     audits.
-  - These automated checks are bundled into a `yarn access` command within my
+  - These automated checks are bundled into a `yarn access` command within the
     project.
-- **Manual Testing**: I supplement automated tests with manual checks, including
-  using browser-based accessibility inspection tools (like Axe DevTools) and
-  testing keyboard navigation.
+- **Manual Testing**: I also check personally, including using browser-based
+  accessibility inspection tools (Axe DevTools) and testing keyboard navigation.
 
 ## Current Conformance Status & Findings
 
 Based on my latest assessments (as of the "Last Updated" date):
 
-- **Language Identification**: The primary language of the site is correctly
-  identified as English (`lang="en"`).
-- **Page Titles**: Each page should have a descriptive title for browser tabs
-  and assistive technology. (Ongoing review)
+- **Language Identification**: The primary language of the site is identified as
+  English (`lang="en"`).
+- **Page Titles**: Each page has a descriptive title for browser tabs and
+  assistive technology.
 - **Headings**: I aim for a logical heading structure on each page, including a
-  unique main heading (H1). (Ongoing review)
+  unique main heading (H1).
 - **Color Contrast**:
   - Manual testing with browser developer tools (Axe DevTools) indicates that
     text elements, including links, generally meet WCAG AA contrast requirements
-    in both light and dark themes, due to my theming system (`next-themes`).
+    in both light and dark themes, due to the theming system (`next-themes`).
   - My automated CLI tool (`axe-core-cli`) has shown inconsistencies in
     detecting colors for dynamically themed content, sometimes reporting
     contrast issues for links that appear correct in a live browser. I
@@ -70,27 +69,17 @@ Based on my latest assessments (as of the "Last Updated" date):
 
 I am actively working to address any identified shortcomings and improve overall
 accessibility. The detailed reports from my automated tools (Axe and Lighthouse
-JSON/HTML reports) are saved in the `/accessibility-reports/` directory of my
+JSON/HTML reports) are saved in the `/accessibility-reports/` directory of the
 project repository after running `yarn access`.
 
 ## Feedback
 
-I welcome your feedback on the accessibility of Co-Operability.com. Please let
-me know if you encounter accessibility barriers:
-
-- **E-mail**: cooperability@gmail.com
-
-I try to respond to feedback within a reasonable timeframe.
+I welcome your feedback. Please email me (resume) if you encounter accessibility
+barriers.
 
 ## Future Enhancements
 
-I am committed to maintaining and improving the accessibility of my website.
-Future plans include:
-
-- Regularly running the `yarn access` script and reviewing all generated reports
-  (Axe and Lighthouse).
-- Continuously incorporating feedback from users and developers.
-- Staying updated on new accessibility best practices and WCAG updates.
-- Exploring more advanced automated testing setups (e.g., using browser
-  automation like Playwright with Axe-core JS) to more accurately test themed
-  states in CI.
+I am committed to maintaining and improving the accessibility of this website by
+continuously incorporating feedback from users and developers. TODO: Exploring
+more advanced automated testing setups (e.g., using browser automation like
+Playwright with Axe-core JS) to more accurately test themed states in CI.
