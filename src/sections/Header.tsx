@@ -10,38 +10,43 @@ import {
 import styles from '../styles/utils.module.css'
 import Sidebar from './Sidebar'
 import ActiveLink from '../components/activeLink'
+import { useResponsive } from '../hooks/useResponsive'
+
+const resumeUrl =
+  'https://docs.google.com/document/d/15wtKG9juJMYQOI793LvNYMfmeu7hyErO4xWixkTrSHI/edit?usp=sharing'
+const allLinksUrl = '/resources/linktree'
+const privacyStatementUrl = '/resources/PrivacyStatement'
+const accessibilityStatementUrl = '/resources/AccessibilityStatement'
 
 const Header = () => {
   const { systemTheme, theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const { isMobile } = useResponsive()
 
   useEffect(() => {
     setMounted(true)
-    if (window) {
-      const checkWindowSize = () => {
-        setIsMobile(window.innerWidth <= 500)
-      }
-      checkWindowSize()
-      window.addEventListener('resize', checkWindowSize)
-      return () => {
-        window.removeEventListener('resize', checkWindowSize)
-      }
-    }
   }, [])
 
   const navigator = () => {
     if (isMobile) {
       if (isSidebarOpen) {
         return (
-          <button className={styles.themeToggleBtn} onClick={toggleSidebar}>
+          <button
+            className={styles.themeToggleBtn}
+            onClick={toggleSidebar}
+            aria-label="Close menu"
+          >
             <XMarkIcon />
           </button>
         )
       } else {
         return (
-          <button className={styles.themeToggleBtn} onClick={toggleSidebar}>
+          <button
+            className={styles.themeToggleBtn}
+            onClick={toggleSidebar}
+            aria-label="Open menu"
+          >
             <Bars3Icon />
           </button>
         )
@@ -109,7 +114,15 @@ const Header = () => {
   return (
     <div suppressHydrationWarning>
       <div className={styles.Header} suppressHydrationWarning>
-        <Sidebar isOpen={isSidebarOpen} />
+        <Sidebar
+          isOpen={isSidebarOpen}
+          resumeUrl={isMobile ? resumeUrl : undefined}
+          allLinksUrl={isMobile ? allLinksUrl : undefined}
+          privacyStatementUrl={isMobile ? privacyStatementUrl : undefined}
+          accessibilityStatementUrl={
+            isMobile ? accessibilityStatementUrl : undefined
+          }
+        />
         <nav
           className={styles.navbar}
           aria-label="Main navigation"

@@ -13,7 +13,8 @@ import ToggleDropdown from '../../components/ToggleDropdown'
 interface MdxFrontMatterData {
   title: string
   date: string
-  contentHtml?: string // Optional based on usage
+  description?: string
+  contentHtml?: string
   [key: string]: unknown // Allow other fields safely
 }
 
@@ -30,7 +31,10 @@ export default function PostPage({ source, frontMatter }: Props) {
   return (
     <Layout home>
       <Head>
-        <title>{frontMatter.title}</title>
+        <title>{`${frontMatter.title} | Cooper Reed | Co-Operability`}</title>
+        {frontMatter.description && (
+          <meta name="description" content={frontMatter.description} />
+        )}
       </Head>
       <article>
         <h1 className={utilStyles.headingXl}>{frontMatter.title}</h1>

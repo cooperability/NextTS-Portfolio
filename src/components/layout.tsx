@@ -4,7 +4,7 @@ import Providers from './providers'
 import Header from '../sections/Header'
 import Footer from '../sections/Footer'
 
-export const siteTitle = 'Co-Operability'
+export const siteTitle = 'Cooper Reed | Co-Operability'
 
 export default function Layout({
   children,
@@ -18,7 +18,7 @@ export default function Layout({
       <Providers>
         <Head>
           <html lang="en" />
-          <title>Co-Operability</title>
+          <title>Cooper Reed | Co-Operability</title>
           <link rel="icon" type="image/ico" href="/icon.ico" />
           <meta name="og:title" content={siteTitle} />
           <meta name="description" content="Cooper's portfolio website" />

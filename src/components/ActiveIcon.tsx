@@ -1,9 +1,10 @@
 import Image from 'next/image'
 import styles from '../styles/utils.module.css'
 
-interface ActiveIconProps {
+export interface ActiveIconProps {
   href: string
   imgSrc: string
+  alt?: string
   variant?: 'default' | 'social'
   size?: 'default' | 'small'
   width?: number
@@ -13,13 +14,16 @@ interface ActiveIconProps {
 const ActiveIcon: React.FC<ActiveIconProps> = ({
   href,
   imgSrc,
+  alt,
   variant = 'default',
   size = 'default',
   width,
   height,
 }) => {
-  // Extract filename from imgSrc for alt text
-  const altText = imgSrc.substring(imgSrc.lastIndexOf('/') + 1)
+  // Determine alt text
+  const descriptiveAltText = alt
+    ? alt
+    : `Logo for ${imgSrc.substring(imgSrc.lastIndexOf('/') + 1).replace(/\.[^/.]+$/, '')}`
 
   // Base class is always hoverImage
   let imageClassName = styles.hoverImage
@@ -43,7 +47,7 @@ const ActiveIcon: React.FC<ActiveIconProps> = ({
     <a href={href} target="_blank" rel="noopener noreferrer">
       <Image
         src={imgSrc}
-        alt={altText}
+        alt={descriptiveAltText}
         className={imageClassName}
         width={imageWidth}
         height={imageHeight}
