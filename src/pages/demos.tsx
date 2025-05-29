@@ -4,6 +4,7 @@ import styles from '../styles/utils.module.css'
 import ToggleDropdown from '../components/ToggleDropdown'
 import ActiveIcon from '../components/ActiveIcon'
 import Head from 'next/head'
+import { GetStaticProps } from 'next'
 
 const Demos: React.FC = () => {
   return (
@@ -75,6 +76,12 @@ const Demos: React.FC = () => {
                 size="small"
                 width={31.7}
                 height={25}
+              />
+              <ActiveIcon
+                href="https://svelte.dev/"
+                imgSrc="/images/svelte.png"
+                alt="Svelte logo"
+                size="small"
               />
               <ActiveIcon
                 href="https://www.python.org/"
@@ -195,6 +202,21 @@ const Demos: React.FC = () => {
             </div>
           </div>
         </div>
+        <ToggleDropdown title="Academic Papers to which I contributed Software">
+          <p>
+            <a href="https://www.nber.org/papers/w33662">
+              Measuring Human Leadership Skills with AI Agents
+            </a>
+            <span className={styles.projectStatus}>(2025)</span>
+          </p>
+          <p>
+            <a href="https://purl.stanford.edu/fh631qn1220">
+              One Face, Many Names: An Investigation into Fake NGOs and Media
+              Outlets Linked to Harouna Douamba on and off Facebook
+            </a>
+            <span className={styles.projectStatus}>(2022)</span>
+          </p>
+        </ToggleDropdown>
         <ToggleDropdown title="Other Stack Elements I've Worked With">
           <p>
             <b>Lang:</b>
@@ -218,6 +240,13 @@ const Demos: React.FC = () => {
       </section>
     </Layout>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: {},
+    revalidate: 86400, // Revalidate once per day
+  }
 }
 
 export default Demos
