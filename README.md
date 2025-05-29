@@ -1,14 +1,10 @@
 # [Co-Operability.com](https://www.cooperability.com)
 
-My Next.js portfolio website, running on Vercel. I'm parting with IPFS because it's too expensive to keep a responsive page there, although my original ultralight IPFS site will continue running.
+My Next.js portfolio website, running on Vercel. I'm parting with IPFS because it's too expensive to keep a responsive page there.
 
 ## TODO:
 
-- Nlp_ipynb and course completion; JupyterLite
-- anki decks shareable
-- Add papers whose tech I've contributed to
 - OC input fields block numbers but should pop up numpad on mobile
-- Delete //
 - SEO; site:cooperability.com
 
 ## Linting, Formatting, and Testing
