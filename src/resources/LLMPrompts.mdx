@@ -5,6 +5,76 @@ date: '2025-05-03'
 
 import ToggleDropdown from '../../components/ToggleDropdown'
 
+<ToggleDropdown title="Format output for Google Docs">
+**Objective:** Generate a response formatted as a clean, hierarchical outline, optimized for direct copy-pasting into Google Docs. The ENTIRE response containing the outline must be delivered within a single, unstyled, copyable text block.
+
+**Formatting Guidelines (within the copyable text block):**
+
+1.  **Structure & Headings:**
+
+    - Employ a clear hierarchical outline structure.
+    - **Major Section Headings (e.g., "I. Main Section", "II. Another Main
+      Section"):**
+      - These should NOT be bullet-pointed.
+      - They should sit at the actual left margin of the text block.
+      - Use bold text for these main headings.
+    - **Sub-Section Headings (e.g., "A. Subsection", "B. Subsection"):**
+      - These should also NOT be bullet-pointed.
+      - They should be indented one level from the Major Section Headings.
+      - Use standard weight text (not bold) for these.
+
+2.  **Bullet Points:**
+
+    - All content under Sub-Section Headings (or directly under Major Section
+      Headings if there are no sub-sections for that point) should be bullet
+      points.
+    - Use a single, consistent bullet character (e.g., a hyphen `-` or an
+      asterisk `*`) for all bullet points.
+    - Indent bullet points appropriately based on their level in the hierarchy
+      (e.g., first-level bullets indented under Sub-Section Headings,
+      second-level bullets further indented under first-level bullets).
+    - **Crucially for wrapping:** When a bullet point's text wraps to a new
+      line, that new line should visually align with the _start of the text_ of
+      the bullet point on the line above, NOT with the bullet character itself
+      or the far-left margin of the document. (Achieve this by ensuring the LLM
+      continues the paragraph naturally with appropriate indentation for the
+      list level).
+
+3.  **Text Styling (Minimalist Approach - within the copyable block):**
+
+    - **NO Markdown Syntax:** Avoid all markdown-specific syntax (e.g., `#` for
+      headers, `_` for italics, `---` for horizontal rules, backticks for inline
+      code).
+    - **NO Text Decoration, Coloring, or Highlighting.** The text block should
+      be plain.
+    - **Bold:** Use bold text _only_ for the Major Section Headings as specified
+      above.
+
+4.  **Spacing and Readability (within the copyable text block):**
+    - Use single, clean line breaks between headings, sub-headings, and list
+      items.
+    - Avoid excessive blank lines.
+
+**Output Requirement:**
+
+- The entire outline must be contained within one single copyable text block.
+- The text within this block must adhere strictly to the formatting guidelines
+  above. The visual structure should make it easy to apply Google Docs' own
+  heading and list styles manually if desired after pasting.
+
+**Example of Desired Output Structure (Conceptual for wrapping):**
+
+**I. Main Section Heading One** A. Sub-Section Heading - This is a first-level
+bullet point. If this bullet point is long enough to wrap onto a second line,
+this second line should align here, under the 'T' of 'This'. - Another
+first-level bullet point. - This is a nested, second-level bullet. Its wrapped
+lines should align under the 'T' of 'This' in its own first line.
+
+**II. Main Section Heading Two** B. Another Sub-Section Heading - A bullet point
+here.
+
+</ToggleDropdown>
+
 <ToggleDropdown title="Synthesize Report from Long Transcript">
 These are full transcripts of a long lecture. 
 Please condense and summarize them into a single document with the following structure:

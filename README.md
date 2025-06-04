@@ -142,3 +142,124 @@ Setting up Jest with Next.js, TypeScript, and ESLint involved several key insigh
     - `--bail`: Exits on the first test failure.
     - `--findRelatedTests`: Runs tests related to changed files.
     - `--passWithNoTests`: Prevents an error if no tests are found for the staged files, which is crucial for `lint-staged`.
+
+## Bundle Analysis & Optimization
+
+### How to Interpret Bundle Analyzer Results
+
+Run `yarn analyze` to generate bundle visualization reports in `.next/analyze/`:
+
+- **nodejs.html**: Server-side bundle analysis
+- **edge.html**: Edge runtime bundle analysis
+
+#### What to Look For:
+
+**🟢 Good Signs:**
+
+- Balanced rectangle sizes (no single massive dependencies)
+- Clear separation between vendor code and application code
+- Efficient code splitting across routes
+
+**🟡 Monitor These:**
+
+- **Large Dependencies**:
+  - `date-fns`: Ensure tree-shaking with specific imports: `import { format } from 'date-fns'`
+  - `@heroicons/react`: Should only include used icons
+  - MDX processing libraries: Necessary but watch for bloat
+
+**🔴 Red Flags:**
+
+- Duplicate dependencies across bundles
+- Disproportionately large rectangles
+- Unused code from large libraries
+
+#### Bundle Optimization Checklist:
+
+- [ ] **Import Optimization**: Use specific imports instead of entire libraries
+- [ ] **Dynamic Imports**: Use `React.lazy()` or `next/dynamic` for code splitting
+- [ ] **Image Optimization**: Leverage Next.js `Image` component (already using)
+- [ ] **Dependency Audit**: Regular review of bundle impact before adding new dependencies
+- [ ] **Tree Shaking**: Verify webpack is eliminating unused code
+
+#### Current Bundle Health Status:
+
+- ✅ **Lean Runtime Dependencies**: Well-curated dependency list
+- ✅ **Modern Stack**: React 19 + Next.js 15 optimizations
+- ✅ **Tree-Shakable Libraries**: Most dependencies support tree-shaking
+- ⚠️ **Monitor**: MDX stack and date-fns usage patterns
+
+### Performance Monitoring
+
+Combined with Vercel Analytics and Speed Insights, use bundle analysis to:
+
+1. **Identify bottlenecks** before they impact users
+2. **Track bundle size over time** as features are added
+3. **Optimize critical paths** for better Core Web Vitals
+
+## SEO Strategy & Implementation
+
+### Completed SEO Tasks
+
+- **✅ Google Search Console (GSC) Integration:** Monitoring search performance and indexing
+- **✅ Meta Descriptions:** Compelling descriptions for search results
+- **✅ Header Tags:** Hierarchical structure with accessible H1 tags
+- **✅ Image Alt Text:** Descriptive text for accessibility and SEO
+- **✅ Technical SEO:**
+  - HTTPS security (standard with Vercel)
+  - Mobile-responsive design
+  - Site speed optimization (monitored via Vercel Speed Insights)
+  - 301 redirects implemented in `next.config.js` for old URLs (`/skills` → `/demos`, `/prompts` → `/resources`)
+- **✅ Internal Linking:** Strategic cross-page linking for navigation and SEO
+- **✅ Sitemap Submission:** Up-to-date XML sitemap submitted to GSC
+
+### SEO Maintenance Tasks
+
+- **[ ] Content Strategy:** Continue incorporating "Cooper Reed" and "cooperability.com" naturally in content
+- **[ ] Regular GSC Audits:** Monitor for indexing issues and optimization opportunities
+- **[ ] Content Freshness:** Keep content updated and relevant
+
+### Quick Guide: Google Search Console Setup
+
+1. **Access GSC:** [Google Search Console](https://search.google.com/search-console)
+2. **Add Property:** Select "Domain" property type, enter `cooperability.com`
+3. **DNS Verification:** Add TXT record from GSC to domain registrar DNS settings
+4. **Submit Sitemap:** Add `sitemap.xml` in GSC Sitemaps section
+5. **Monitor:** Review performance and indexing status regularly
+
+### Addressing Search Result Issues
+
+Historical "Untitled" listings and old paths (`/skills`, `/prompts`) have been resolved with:
+
+- Proper `<title>` tags on all pages
+- 301 redirects in `next.config.js`
+- Updated sitemap submission
+- GSC monitoring for re-indexing progress
+
+## Accessibility Implementation & Testing
+
+### Completed Accessibility Features
+
+- **✅ Semantic HTML5:** Proper structural elements and heading hierarchy
+- **✅ Keyboard Navigation:** All interactive elements accessible via keyboard
+- **✅ ARIA Attributes:** Enhanced screen reader support for navigation
+- **✅ Responsive Design:** Tested across devices and screen sizes
+- **✅ Color Contrast:** WCAG AA compliance in light and dark themes
+- **✅ Automated Testing Suite:**
+  - `eslint-plugin-jsx-a11y`: Static analysis during development
+  - `axe-core-cli`: Runtime WCAG testing
+  - Lighthouse: Comprehensive accessibility audits
+  - Combined in `yarn access` command with reports saved to `./accessibility-reports/`
+- **✅ Manual Testing:** Browser dev tools (Axe DevTools) and keyboard navigation testing
+
+### Accessibility Maintenance Tasks
+
+- **[ ] Advanced Testing:** Explore Playwright + Axe-core for CI-integrated theme testing
+- **[ ] Button Enhancement:** Ensure all iconic buttons have discernible screen reader text
+- **[ ] User Feedback Integration:** Process accessibility feedback for continuous improvement
+- **[ ] WCAG Compliance Review:** Regular audits against WCAG 2.1 AA standards
+
+### Known Testing Limitations
+
+- Axe CLI sometimes reports false positives for contrast on dynamically themed content
+- Pre-hydration testing doesn't always capture themed states accurately
+- Manual browser testing remains the most reliable method for theme-specific accessibility
