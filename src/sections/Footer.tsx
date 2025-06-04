@@ -22,12 +22,12 @@ const Footer = () => {
         <div className={styles.socialIconRow}>
           <ActiveIcon
             href="https://www.linkedin.com/in/cooper-reed/"
-            imgSrc="/images/Linkedin.png"
+            imgSrc="/images/linkedin.png"
             variant="social"
           />
           <ActiveIcon
             href="https://github.com/cooperability"
-            imgSrc="/images/Github.png"
+            imgSrc="/images/github.png"
             variant="social"
           />
           <ActiveIcon
@@ -42,7 +42,7 @@ const Footer = () => {
           />
           <ActiveIcon
             href="https://www.youtube.com/@cooperability"
-            imgSrc="/images/Youtube.png"
+            imgSrc="/images/youtube.png"
             variant="social"
           />
         </div>
