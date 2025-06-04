@@ -107,6 +107,12 @@ My Next.js portfolio website, running on Vercel. I'm parting with IPFS because i
    - Integrated the standalone `OpioidConverter` by creating `/opioid-converter` with a custom `OpioidConverterLayout` (bypassing the default layout via `Page.getLayout` and `_app.tsx` checking `Component.getLayout`; required exporting `NextPageWithLayout`). Refactored the component to use React hooks (`useState`, `useCallback`, `useEffect`) and styled with CSS Modules (using `clamp()` for responsive sizing).
    - Extensive mobile refinement for the data-dense table was required beyond standard responsive techniques, involving adjustments to CSS Grid (`grid-template-columns`), input `min-width`, header text wrapping (`white-space: normal`), and element `gap`.
 
+6. **Case Sensitivity in File Names (Windows vs. Linux Deployment):**
+   - **Problem**: Images and assets may work locally on Windows (case-insensitive file system) but fail in production on Vercel/Linux (case-sensitive file system).
+   - **Symptoms**: Files load correctly in local development but return 404 errors in production deployment.
+   - **Solution**: Use `git mv oldName.png newName.png` to rename files in git to match the exact case used in code references. For example, if code references `linkedin.png` but git tracks `Linkedin.png`, use `git mv public/images/Linkedin.png public/images/linkedin.png`.
+   - **Prevention**: Always use consistent lowercase naming for assets, or ensure file names in git exactly match their references in code.
+
 ### Advanced Jest Setup and TypeScript Learnings
 
 Setting up Jest with Next.js, TypeScript, and ESLint involved several key insights, particularly for ensuring correct type checking for test utilities and robustly testing dynamic components:
