@@ -1,157 +1,31 @@
 ---
-title: 'Privacy Statement & SEO Approach'
+title: 'Privacy Statement'
 date: '2025-05-18'
 ---
 
-# Privacy Statement & SEO Approach
+# Privacy Statement
 
-I use Vercel Analytics to understand website traffic and improve user
-experience. Vercel Analytics is privacy-forward. It focuses on aggregated,
-anonymous data (page views, unique visitors, top pages, referrers, performance
-metrics) and does not use cookies by default to track individual users or build
-detailed user profiles across sites. Its aim is to provide valuable insights
-without the more invasive tracking methods that trigger stricter consent
-requirements under laws like GDPR.
+I believe in transparent, responsible data handling. This website uses Vercel
+Analytics to understand traffic patterns and improve user experience—it's
+privacy-forward by design, focusing on aggregated, anonymous data without
+cookies or cross-site tracking. I also use Google Search Console to monitor
+search performance and optimize content visibility, though it doesn't place any
+tracking scripts on this site.
 
-I use Google Search Console to understand how my site performs in Google search
-results, identify indexing issues, and optimize my content for better
-visibility. Google Search Console does not place tracking scripts on this
-website; it uses Google's own search data.
+This approach gives me the insights I need to maintain and improve the website
+while respecting your privacy. I've intentionally chosen tools that don't build
+detailed user profiles or require complex consent mechanisms. If you're browsing
+with Safari's Advanced Tracking Protection and see a warning message, that's
+just Safari being extra cautious—the analytics here are genuinely non-invasive.
 
-This dual approach allows me to gather essential performance and SEO data while
-prioritizing your privacy. I believe in transparency and responsible data
-handling.
+**What I've implemented:**
 
-## My SEO & Content Strategy: A Checklist
+- Privacy-forward Vercel Analytics (no cookies, anonymized data)
+- Google Search Console integration for search performance
+- HTTPS security and mobile-responsive design
+- 301 redirects from old URLs to maintain SEO without broken links
+- Current XML sitemap submission
 
-My primary SEO goal is to ensure `cooperability.com` and content related to
-"Cooper Reed" ranks effectively for relevant searches. I follow these practices:
-
-- **[ ] Google Search Console (GSC) Integration:**
-  - Set up GSC to monitor search performance and indexing.
-  - Submit an XML sitemap to GSC (see guide below).
-- **Meta Descriptions:** Crafting compelling meta descriptions for search
-  results.
-- **Header Tags (`<h1>`, `<h2>`, etc.):** Using header tags hierarchically to
-  structure content. `<h1>` tags are present on main pages, sometimes visually
-  hidden for a cleaner design while remaining accessible to screen readers and
-  search engines.
-- **Image Alt Text:** Describing images accurately for accessibility and SEO.
-- **[✓] Technical SEO:**
-  - **HTTPS:** Site served securely over HTTPS (standard with Vercel).
-  - **Mobile-Friendliness:** Ensuring a responsive design for all devices.
-  - **Site Speed:** Optimizing load times (monitored via Vercel Speed Insights &
-    GSC).
-  - **301 Redirects for Old URLs:** Implemented permanent redirects (301s) in
-    `next.config.js` to guide search engines from old paths (like `/skills` and
-    `/prompts`) to their new locations (`/demos` and `/resources`). This
-    resolves outdated links appearing in search results and consolidates SEO
-    value.
-- **[ ] Content Strategy for Target Keywords:**
-  - Naturally incorporating "Cooper Reed" and "cooperability.com" in relevant
-    site content, especially the homepage, about sections, and contact
-    information.
-  - Creating content that aligns with user search intent for these terms.
-- **[ ] Internal Linking:**
-  - Strategically linking between relevant pages on the site to improve
-    navigation and distribute link equity.
-- **[ ] Regular Audits & Updates:**
-  - Periodically reviewing GSC data for issues and opportunities.
-  - Keeping content fresh and up-to-date.
-
-_(This checklist will be updated as tasks are completed.)_
-
-## Addressing Outdated Search Result Listings
-
-You might have previously seen pages from this site listed in Google search
-results with "Untitled" as their title, or under old paths like `/skills` or
-`/prompts`. This occurred because:
-
-1.  The `<title>` tags on those pages were not optimally set when Google first
-    indexed them.
-2.  The site structure was updated, and pages moved (e.g., from `/skills` to
-    `/demos`).
-
-**Solution Implemented:**
-
-- **Correct Page Titles:** All current pages now have accurate and descriptive
-  `<title>` tags.
-- **Permanent Redirects (301s):** I've configured 301 redirects in the site's
-  `next.config.js`. This tells search engines that the old URLs have permanently
-  moved to the new ones. For example, requests to `/skills` are now
-  automatically and permanently redirected to `/demos`.
-- **Sitemap & Google Search Console:** An up-to-date sitemap has been generated
-  and submitted to Google Search Console, listing only the correct, current
-  URLs.
-
-It will take some time for Google to recrawl the site and fully update its index
-to reflect these changes. This is a standard part of website maintenance and
-SEO.
-
-## Quick Guide: Setting Up Google Search Console (GSC)
-
-For future reference, or if I need to re-verify, here's a condensed guide:
-
-1.  **Access GSC:** Go to
-    [Google Search Console](https://search.google.com/search-console) and sign
-    in with your Google account.
-2.  **Add Property:**
-    - Click "Add property" (usually top-left dropdown).
-    - Select "Domain" property type (recommended).
-    - Enter `cooperability.com` and click "Continue".
-3.  **Verify Ownership (DNS TXT Record):**
-    - GSC will provide a TXT record value (e.g.,
-      `google-site-verification=...`).
-    - Copy this value.
-    - Log in to your domain registrar (where you bought `cooperability.com`).
-    - Navigate to DNS management settings for `cooperability.com`.
-    - Add a new TXT record: Host/Name: `@` (or leave blank, depending on
-      registrar), Value/Content: Paste the TXT record from GSC.
-    - Save the DNS record. DNS changes can take time to propagate (minutes to
-      hours).
-    - Return to GSC and click "Verify". If it fails, wait a bit longer for DNS
-      propagation and try again.
-4.  **Submit Sitemap:**
-    - Once verified, select your property in GSC.
-    - Go to "Sitemaps" (left menu).
-    - Under "Add a new sitemap," enter `sitemap.xml` (GSC will prefix it with
-      your domain).
-    - Click "Submit".
-    - Monitor the status in GSC over the next few days.
-
-## Why This Approach?
-
-My strategy is to build a strong organic search presence through best practices
-in content creation and technical SEO, while respecting user privacy. By using
-Vercel Analytics and Google Search Console, I gain the insights needed to
-improve and grow, without resorting to more intrusive user tracking methods that
-would necessitate complex consent mechanisms. This means a better, safer
-experience for users, and a focused, effective strategy for my site.
-
-## A Note on Safari's Advanced Tracking Protection
-
-Users browsing with Safari on certain Apple devices (particularly iPhones) with
-"Advanced Tracking and Fingerprinting Protection" enabled might occasionally see
-a browser-generated message stating: _"If this page is not displaying as
-expected, you can reduce advanced privacy protections which may resolve
-issues."_
-
-This is a generic warning from Safari due to its highly sensitive heuristics for
-detecting any form of data transmission that _could potentially_ be used for
-tracking, even if the analytics employed are designed to be privacy-respecting.
-
-**cooperability.com uses Vercel Analytics and Vercel Speed Insights, which are
-privacy-focused:**
-
-- They **do not use cookies** for tracking.
-- User data is **anonymized** and aggregated.
-- Individual users are **not tracked** across different websites or
-  applications.
-- Visitor identifiers are temporary (hashed from the incoming request and
-  discarded after 24 hours).
-
-I believe this Safari warning, when it appears on this site, is a result of
-these strict browser-level heuristics rather than an indication of intrusive
-tracking by cooperability.com. I am committed to user privacy and have chosen my
-analytics tools accordingly. If you have any concerns, please feel free to
-review the details in this Privacy Statement or contact me.
+Safari users may occasionally see privacy warnings due to the browser's strict
+heuristics, but this reflects Safari's sensitivity rather than invasive tracking
+on my part.
