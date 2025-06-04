@@ -38,6 +38,8 @@ const ToggleDropdown: React.FC<ToggleDropdownProps> = ({
       <button
         onClick={toggleOpen}
         className={`${styles.toggleButton} ${buttonThemeClass}`}
+        aria-label={`${isOpen ? 'Collapse' : 'Expand'} ${title} section`}
+        aria-expanded={isOpen}
       >
         {title}
         <span className={isOpen ? styles.arrowDown : styles.arrowRight}>►</span>

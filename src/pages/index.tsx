@@ -68,6 +68,7 @@ export default function Home({ initialQuote }: HomeProps) {
             onClick={() =>
               setQuote(quotes[Math.floor(Math.random() * quotes.length)])
             }
+            aria-label="Get new random quote"
           >
             <ArrowPathIcon />
           </button>

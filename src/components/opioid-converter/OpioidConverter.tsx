@@ -224,6 +224,7 @@ const OpioidConverter = () => {
                   disabled={med.dailyDose < med.increment}
                   onClick={() => handleIncrement(index, false)}
                   className={styles.button}
+                  aria-label={`Decrease ${med.display} dose by ${med.increment} ${med.unit}`}
                 >
                   <b>-</b>
                 </Button>
@@ -232,6 +233,7 @@ const OpioidConverter = () => {
                   variant="dark"
                   onClick={() => handleIncrement(index, true)}
                   className={styles.button}
+                  aria-label={`Increase ${med.display} dose by ${med.increment} ${med.unit}`}
                 >
                   <b>+</b>
                 </Button>
