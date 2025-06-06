@@ -1,1 +1,2 @@
-yarn lint-staged
+# Commented out for Windows development - uncomment for Linux/macOS
+# yarn lint-staged

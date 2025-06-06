@@ -23,7 +23,7 @@ export default function Home({ initialQuote }: HomeProps) {
         <title>Cooper Reed | Co-Operability</title>
         <meta
           name="description"
-          content="Cooper Reed's (Co-Operability) portfolio: Explore full-stack projects, writings, and interviews."
+          content="Cooper Reed's portfolio (Co-Operability) - Full Stack Developer  "
         />
       </Head>
       <h1 className="visually-hidden">
