@@ -1,15 +1,10 @@
 'use client'
-import { useState, useEffect } from 'react'
-import { useTheme } from 'next-themes'
-import {
-  SunIcon,
-  MoonIcon,
-  Bars3Icon,
-  XMarkIcon,
-} from '@heroicons/react/24/solid'
+import { useState } from 'react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
 import styles from '../styles/utils.module.css'
 import Sidebar from './Sidebar'
 import ActiveLink from '../components/activeLink'
+import ThemeSwitch from '../components/ThemeSwitch'
 import { useResponsive } from '../hooks/useResponsive'
 
 const resumeUrl =
@@ -19,14 +14,8 @@ const privacyStatementUrl = '/resources/PrivacyStatement'
 const accessibilityStatementUrl = '/resources/AccessibilityStatement'
 
 const Header = () => {
-  const { systemTheme, theme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const { isMobile } = useResponsive()
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
 
   const navigator = () => {
     if (isMobile) {
@@ -81,30 +70,7 @@ const Header = () => {
   }
 
   const renderThemeChanger = () => {
-    if (!mounted) return null
-    const currentTheme = theme === 'system' ? systemTheme : theme
-
-    if (currentTheme === 'dark') {
-      return (
-        <button
-          className={`${styles.themeToggleBtn} ${styles.themeToggleDark}`}
-          onClick={() => setTheme('light')}
-          aria-label="Toggle light theme"
-        >
-          <SunIcon />
-        </button>
-      )
-    } else {
-      return (
-        <button
-          className={`${styles.themeToggleBtn} ${styles.themeToggleLight}`}
-          onClick={() => setTheme('dark')}
-          aria-label="Toggle dark theme"
-        >
-          <MoonIcon />
-        </button>
-      )
-    }
+    return <ThemeSwitch />
   }
 
   const toggleSidebar = () => {

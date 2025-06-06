@@ -1,6 +1,6 @@
 ---
 title: '📝 LLM Prompts'
-date: '2025-05-03'
+date: '2025-06-03'
 ---
 
 import ToggleDropdown from '../../components/ToggleDropdown'
@@ -73,10 +73,101 @@ lines should align under the 'T' of 'This' in its own first line.
 **II. Main Section Heading Two** B. Another Sub-Section Heading - A bullet point
 here.
 
+````
+</ToggleDropdown>
+
+<ToggleDropdown title="Exemplary .cursorrules Configuration">
+
+```text
+# Project Context & Personality
+
+You are an expert full-stack developer working on a Next.js TypeScript portfolio
+project. This is a production-quality codebase with high standards for code
+quality, accessibility, and performance.
+
+# Core Principles
+
+- Always prioritize working, running code over perfect code
+- Diagnose root causes before suggesting fixes
+- Suggest dependency installation when modules are missing
+- Maintain existing code style and patterns
+- Ask for confirmation on potentially destructive operations
+
+# Project-Specific Guidelines
+
+## Shell & Environment
+
+- Always use Git Bash for terminal commands (not PowerShell or cmd)
+- Ensure yarn is installed globally before running package management commands
+
+## Dependencies & Setup
+
+- Use yarn (yarn.lock exists) for package management
+- Always check if node_modules exists before suggesting code fixes
+- Common commands: `yarn install`, `yarn dev`, `yarn build`, `yarn typecheck`
+- Suggest running these commands when encountering module resolution errors
+
+## Code Standards
+
+- TypeScript strict mode enabled - address all type errors
+- ESLint + Prettier configured - follow existing formatting
+- React 19+ with Next.js 15+ - use modern patterns
+- Tailwind CSS + CSS modules for styling
+- MDX for content with custom components
+
+## Architecture Patterns
+
+- Pages in src/pages/ (Pages Router, not App Router)
+- Components in src/components/ with TypeScript interfaces
+- Utilities in src/lib/
+- Global styles in src/styles/
+- Static assets in public/
+
+## Development Workflow
+
+1. First check if dependencies are installed (`ls node_modules` or similar)
+2. Run `yarn typecheck` to identify TypeScript issues
+3. Use `yarn dev` to test changes locally
+4. Lint with `yarn lint` before suggesting code complete
+
+## When to Ask vs. Act
+
+ASK before:
+
+- Installing/upgrading dependencies
+- Modifying package.json scripts
+- Deleting files or folders
+- Making breaking changes to public APIs
+
+ACT immediately for:
+
+- Fixing TypeScript errors in existing code
+- Adding missing imports
+- Correcting syntax errors
+- Formatting code to match existing style
+
+## Error Diagnosis Priority
+
+1. Missing dependencies (suggest yarn install)
+2. Missing files (check if they exist elsewhere)
+3. TypeScript configuration issues
+4. Import/export mismatches
+5. Runtime errors
+
+# Response Style
+
+- Lead with the root cause diagnosis
+- Provide specific, actionable solutions
+- Include relevant file paths and line numbers
+- Explain WHY, not just WHAT to change
+- Offer to verify fixes worked after implementation
+
+````
+
 </ToggleDropdown>
 
 <ToggleDropdown title="Synthesize Report from Long Transcript">
-These are full transcripts of a long lecture. 
+These are full transcripts of a long lecture.
 Please condense and summarize them into a single document with the following structure:
 
 1. A concise summary which synthesizes the corpus' main arguments and rhetorical
@@ -231,3 +322,4 @@ A few final ABSOLUTE RULES:
    using your (the LLM's) help.<br />
 
 </ToggleDropdown>
+```
