@@ -65,9 +65,14 @@ export default function Home({ initialQuote }: HomeProps) {
           <b>This spoke to me:</b>
           <button
             className={styles.themeToggleBtn}
-            onClick={() =>
-              setQuote(quotes[Math.floor(Math.random() * quotes.length)])
-            }
+            onClick={() => {
+              const availableQuotes = quotes.filter((q) => q !== quote)
+              setQuote(
+                availableQuotes[
+                  Math.floor(Math.random() * availableQuotes.length)
+                ]
+              )
+            }}
             aria-label="Get new random quote"
           >
             <ArrowPathIcon />
