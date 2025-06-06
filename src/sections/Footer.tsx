@@ -6,20 +6,16 @@ import { useResponsive } from '../hooks/useResponsive'
 const Footer = () => {
   const { isMobile } = useResponsive()
 
-  const desktopLinkStyle: React.CSSProperties = {
-    display: 'inline-flex',
-    alignItems: 'center',
-  }
-
-  const statementLinkStyle: React.CSSProperties = {
-    fontSize: '0.75em',
-  }
-
   return (
-    <footer className="px-2 sm:px-1 py-1 mt-2">
+    <footer className="px-2 sm:px-1 py-4 mt-8">
       <section className={styles.headingMd}>
         <div className={styles.horizLine} />
-        <div className={styles.socialIconRow}>
+
+        {/* Social Icons */}
+        <div
+          className={styles.socialIconRow}
+          style={{ marginBottom: '1.5rem' }}
+        >
           <ActiveIcon
             href="https://www.linkedin.com/in/cooper-reed/"
             imgSrc="/images/linkedin.png"
@@ -46,69 +42,67 @@ const Footer = () => {
             variant="social"
           />
         </div>
+
+        {/* Footer Links - Desktop only */}
         {!isMobile && (
           <div
             style={{
               display: 'flex',
-              flexDirection: 'column',
+              justifyContent: 'center',
               alignItems: 'center',
-              gap: '0.05rem',
-              marginTop: '0.3rem',
+              gap: '2rem',
+              marginBottom: '1rem',
             }}
           >
-            <div
-              style={{ display: 'flex', justifyContent: 'center', gap: '2rem' }}
-            >
-              <a
-                href="https://docs.google.com/document/d/15wtKG9juJMYQOI793LvNYMfmeu7hyErO4xWixkTrSHI/edit?usp=sharing"
-                style={desktopLinkStyle}
-              >
-                Resume
-              </a>
-              <Link href="/resources/linktree" style={desktopLinkStyle}>
-                All Links
-              </Link>
-            </div>
-            <div
-              className={styles.footerText}
+            <a
+              href="https://docs.google.com/document/d/15wtKG9juJMYQOI793LvNYMfmeu7hyErO4xWixkTrSHI/edit?usp=sharing"
               style={{
-                fontSize: '0.9em',
-                marginTop: '0.15rem',
-                marginBottom: '0.15rem',
+                textDecoration: 'underline',
+                textUnderlineOffset: '2px',
               }}
             >
-              Cooper Reed &copy; {new Date().getFullYear()}
-            </div>
-            <div
+              Resume
+            </a>
+            <Link
+              href="/resources/linktree"
               style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                width: '100%',
-                gap: '1.5rem',
-                paddingLeft: '2rem',
+                textDecoration: 'underline',
+                textUnderlineOffset: '2px',
               }}
             >
-              <Link
-                href="/resources/PrivacyStatement"
-                style={statementLinkStyle}
-              >
-                Privacy Statement
-              </Link>
-              <Link
-                href="/resources/AccessibilityStatement"
-                style={statementLinkStyle}
-              >
-                Accessibility Statement
-              </Link>
-            </div>
+              All Links
+            </Link>
+            <Link
+              href="/resources/PrivacyStatement"
+              style={{
+                textDecoration: 'underline',
+                textUnderlineOffset: '2px',
+              }}
+            >
+              Privacy
+            </Link>
+            <Link
+              href="/resources/AccessibilityStatement"
+              style={{
+                textDecoration: 'underline',
+                textUnderlineOffset: '2px',
+              }}
+            >
+              Accessibility
+            </Link>
           </div>
         )}
-        {isMobile && (
-          <div className={styles.footerText} style={{ marginTop: '1rem' }}>
-            Cooper Reed &copy; {new Date().getFullYear()}
-          </div>
-        )}
+
+        {/* Copyright */}
+        <div
+          className={styles.footerText}
+          style={{
+            textAlign: 'center',
+            marginTop: isMobile ? '1rem' : '0',
+          }}
+        >
+          Cooper Reed &copy; {new Date().getFullYear()}
+        </div>
       </section>
     </footer>
   )

@@ -82,7 +82,7 @@ const Sidebar = ({
             className={styles.navLink}
             activeClassName={styles.boldLink}
           >
-            Privacy Statement
+            🔒Privacy
           </ActiveLink>
         )}
         {accessibilityStatementUrl && (
@@ -91,7 +91,7 @@ const Sidebar = ({
             className={styles.navLink}
             activeClassName={styles.boldLink}
           >
-            Accessibility Statement
+            ♿Accessibility
           </ActiveLink>
         )}
       </nav>
