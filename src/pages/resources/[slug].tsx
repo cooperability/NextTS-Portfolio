@@ -35,7 +35,10 @@ export default function PostPage({ source, frontMatter }: Props) {
       <Layout home>
         <Head>
           <title>🧩 Prompt Composer | Cooper Reed | Co-Operability</title>
-          <meta name="description" content="Build modular prompts by selecting components. See how they combine in real-time." />
+          <meta
+            name="description"
+            content="Build modular prompts by selecting components. See how they combine in real-time."
+          />
         </Head>
         <PromptComposer />
       </Layout>
