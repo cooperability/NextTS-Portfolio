@@ -20,10 +20,63 @@ export default function Home({ initialQuote }: HomeProps) {
   return (
     <React.Fragment>
       <Head>
-        <title>Cooper Reed | Co-Operability</title>
+        <title>Cooper Reed | Full Stack Developer | Co-Operability</title>
         <meta
           name="description"
-          content="Cooper Reed's portfolio (Co-Operability) - Full Stack Developer  "
+          content="Cooper Reed - 7+ years building web applications with React, Next.js, TypeScript. Creator of open-source tools like Prompt Composer. Full stack developer who codes, writes, and interviews."
+        />
+        <meta
+          name="keywords"
+          content="Cooper Reed, full stack developer, React developer, Next.js, TypeScript, web development, open source, prompt engineering, JavaScript, Co-Operability"
+        />
+        <meta name="author" content="Cooper Reed" />
+        <meta
+          property="og:title"
+          content="Cooper Reed | Full Stack Developer | Co-Operability"
+        />
+        <meta
+          property="og:description"
+          content="7+ years building web applications. Creator of open-source tools. Full stack developer who codes, writes, and interviews."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/images/profile.jpg" />
+        <meta name="twitter:card" content="summary" />
+        <meta
+          name="twitter:title"
+          content="Cooper Reed | Full Stack Developer"
+        />
+        <meta
+          name="twitter:description"
+          content="7+ years building web applications. Creator of open-source tools."
+        />
+        <link rel="canonical" href="https://cooperability.com" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              name: 'Cooper Reed',
+              jobTitle: 'Full Stack Developer',
+              url: 'https://cooperability.com',
+              image: '/images/profile.jpg',
+              sameAs: [
+                'https://github.com/cooperability',
+                'https://cooperability.substack.com/',
+                'https://www.youtube.com/@cooperability',
+              ],
+              knowsAbout: [
+                'JavaScript',
+                'React',
+                'Next.js',
+                'TypeScript',
+                'Web Development',
+                'Prompt Engineering',
+              ],
+              description:
+                'Full stack developer with 7+ years of experience building web applications and open-source tools',
+            }),
+          }}
         />
       </Head>
       <h1 className="visually-hidden">
@@ -43,7 +96,7 @@ export default function Home({ initialQuote }: HomeProps) {
             className={styles.borderCircle}
             height={150}
             width={150}
-            alt="Cooper Reed"
+            alt="Cooper Reed - Full Stack Developer"
             placeholder="blur"
             blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
           />
@@ -56,11 +109,31 @@ export default function Home({ initialQuote }: HomeProps) {
           <a href="https://www.youtube.com/@cooperability">interview</a>
           .
           <br />
-          To me, <b>Co-Operability</b> means long-term synergy between my
-          ambitions and morals. I open-source my <Link href="/demos">work</Link>{' '}
-          and <Link href="/resources">learning</Link> as resources for others.
-          My interviews follow this theme.
+          To me, <b>Co-Operability</b> means long-term synergy between my career
+          ambitions and moral values.
         </p>
+
+        <p style={{ marginTop: '20px' }}>
+          I&apos;ve spent 7 years building web apps. I open-source my{' '}
+          <Link href="/demos">tools</Link> and{' '}
+          <Link href="/resources">learnings</Link>. My interviews follow the
+          same spirit of independent creation, publication, and education.
+        </p>
+
+        <Link
+          href="/prompt-composer"
+          style={{
+            display: 'inline-block',
+            padding: '10px 16px',
+            backgroundColor: 'var(--color-primary)',
+            color: 'white',
+            borderRadius: '6px',
+            marginBottom: '20px',
+          }}
+        >
+          Try 🧩 Prompt Composer →
+        </Link>
+
         <div className={styles.socialIconRow}>
           <b>This spoke to me:</b>
           <button

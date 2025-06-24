@@ -63,6 +63,92 @@ const Demos: React.FC = () => {
           </div>
           <div className={styles.projectItem}>
             <div className={styles.projectInfo}>
+              <Link href="/prompt-composer/">Prompt Composer[💻📱]</Link>
+              <span className={styles.projectStatus}>(2024)</span>
+            </div>
+            <div className={styles.techStackIcons}>
+              <ActiveIcon
+                href="https://www.typescriptlang.org/"
+                imgSrc="/images/typescript.png"
+                alt="TypeScript logo"
+                size="small"
+              />
+              <ActiveIcon
+                href="https://tailwindcss.com/"
+                imgSrc="/images/tailwind.png"
+                alt="Tailwind CSS logo"
+                size="small"
+                height={25}
+                width={40}
+              />
+            </div>
+          </div>
+          <div className={styles.projectItem}>
+            <div className={styles.projectInfo}>
+              <Link href="/opioid-converter/">Opioid Converter[💻📱]</Link>
+              <span className={styles.projectStatus}>(2021)</span>
+            </div>
+            <div className={styles.techStackIcons}>
+              <ActiveIcon
+                href="https://www.typescriptlang.org/"
+                imgSrc="/images/typescript.png"
+                alt="TypeScript logo"
+                size="small"
+              />
+              <ActiveIcon
+                href="https://tailwindcss.com/"
+                imgSrc="/images/tailwind.png"
+                alt="Tailwind CSS logo"
+                size="small"
+                height={25}
+                width={40}
+              />
+              <ActiveIcon
+                href="https://nodejs.org/en"
+                imgSrc="/images/njs.png"
+                alt="Node.js logo"
+                size="small"
+              />
+            </div>
+          </div>
+          <div className={styles.projectItem}>
+            <div className={styles.projectInfo}>
+              <a href="https://drive.google.com/file/d/1oDYsEytMWbKWmyotBZDIMBzoL5DM1tDV/view?usp=sharing">
+                Personnel Portal[📽️]
+              </a>
+              <span className={styles.projectStatus}>(2020)</span>
+            </div>
+            <div className={styles.techStackIcons}>
+              <ActiveIcon
+                href="https://redux.js.org/"
+                imgSrc="/images/redux.png"
+                alt="Redux logo"
+                size="small"
+              />
+              <ActiveIcon
+                href="https://react.dev/"
+                imgSrc="/images/react.png"
+                alt="React logo"
+                size="small"
+              />
+              <ActiveIcon
+                href="https://tailwindcss.com/"
+                imgSrc="/images/tailwind.png"
+                alt="Tailwind CSS logo"
+                size="small"
+                height={25}
+                width={40}
+              />
+              <ActiveIcon
+                href="https://nodejs.org/en"
+                imgSrc="/images/njs.png"
+                alt="Node.js logo"
+                size="small"
+              />
+            </div>
+          </div>
+          <div className={styles.projectItem}>
+            <div className={styles.projectInfo}>
               <a href="https://github.com/cooperability/BMX-bookmark-extractor">
                 BookMark eXtractor
               </a>
@@ -133,70 +219,6 @@ const Demos: React.FC = () => {
                 href="https://python-poetry.org/"
                 imgSrc="/images/poetry.png"
                 alt="Poetry logo"
-                size="small"
-              />
-            </div>
-          </div>
-          <div className={styles.projectItem}>
-            <div className={styles.projectInfo}>
-              <Link href="/opioid-converter/">Opioid Converter[💻📱]</Link>
-              <span className={styles.projectStatus}>(2021)</span>
-            </div>
-            <div className={styles.techStackIcons}>
-              <ActiveIcon
-                href="https://www.typescriptlang.org/"
-                imgSrc="/images/typescript.png"
-                alt="TypeScript logo"
-                size="small"
-              />
-              <ActiveIcon
-                href="https://tailwindcss.com/"
-                imgSrc="/images/tailwind.png"
-                alt="Tailwind CSS logo"
-                size="small"
-                height={25}
-                width={40}
-              />
-              <ActiveIcon
-                href="https://nodejs.org/en"
-                imgSrc="/images/njs.png"
-                alt="Node.js logo"
-                size="small"
-              />
-            </div>
-          </div>
-          <div className={styles.projectItem}>
-            <div className={styles.projectInfo}>
-              <a href="https://drive.google.com/file/d/1oDYsEytMWbKWmyotBZDIMBzoL5DM1tDV/view?usp=sharing">
-                Personnel Portal[📽️]
-              </a>
-              <span className={styles.projectStatus}>(2020)</span>
-            </div>
-            <div className={styles.techStackIcons}>
-              <ActiveIcon
-                href="https://redux.js.org/"
-                imgSrc="/images/redux.png"
-                alt="Redux logo"
-                size="small"
-              />
-              <ActiveIcon
-                href="https://react.dev/"
-                imgSrc="/images/react.png"
-                alt="React logo"
-                size="small"
-              />
-              <ActiveIcon
-                href="https://tailwindcss.com/"
-                imgSrc="/images/tailwind.png"
-                alt="Tailwind CSS logo"
-                size="small"
-                height={25}
-                width={40}
-              />
-              <ActiveIcon
-                href="https://nodejs.org/en"
-                imgSrc="/images/njs.png"
-                alt="Node.js logo"
                 size="small"
               />
             </div>

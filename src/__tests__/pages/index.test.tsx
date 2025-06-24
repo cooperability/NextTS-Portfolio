@@ -23,13 +23,13 @@ describe('Home', () => {
   })
 
   it('renders the introductory heading', () => {
-    render(<Home />)
+    render(<Home initialQuote="Test quote for testing" />)
     const heading = screen.getByText(/Cooper!/i)
     expect(heading).toBeInTheDocument()
   })
 
   it('renders an initial quote and changes it on button click', () => {
-    render(<Home />)
+    render(<Home initialQuote="Test quote for testing" />)
 
     // Get the initially displayed quote element
     // The quote is in a <span> directly within the <section className={styles.headingMd}>
@@ -57,7 +57,7 @@ describe('Home', () => {
   })
 
   it('renders navigation links with correct href attributes', () => {
-    render(<Home />)
+    render(<Home initialQuote="Test quote for testing" />)
     expect(screen.getByRole('link', { name: /code/i })).toHaveAttribute(
       'href',
       'https://github.com/cooperability'
@@ -73,7 +73,7 @@ describe('Home', () => {
   })
 
   it('renders the profile image with correct alt text', () => {
-    render(<Home />)
+    render(<Home initialQuote="Test quote for testing" />)
     expect(screen.getByAltText('Cooper Reed')).toBeInTheDocument()
   })
 })
