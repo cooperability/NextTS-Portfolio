@@ -64,7 +64,7 @@ const Demos: React.FC = () => {
           <div className={styles.projectItem}>
             <div className={styles.projectInfo}>
               <Link href="/prompt-composer/">Prompt Composer[💻📱]</Link>
-              <span className={styles.projectStatus}>(2024)</span>
+              <span className={styles.projectStatus}>(Ongoing)</span>
             </div>
             <div className={styles.techStackIcons}>
               <ActiveIcon
