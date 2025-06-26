@@ -119,20 +119,25 @@ export default function Home({ initialQuote }: HomeProps) {
           <Link href="/resources">learnings</Link>. My interviews follow the
           same spirit of independent creation, publication, and education.
         </p>
-
-        <Link
-          href="/prompt-composer"
+        <div
           style={{
-            display: 'inline-block',
-            padding: '10px 16px',
-            backgroundColor: 'var(--color-primary)',
-            color: 'white',
-            borderRadius: '6px',
+            border: '1px solid',
+            borderRadius: '30px',
+            padding: '0px 10px',
             marginBottom: '20px',
           }}
         >
-          Try 🧩 Prompt Composer →
-        </Link>
+          <Link
+            href="/prompt-composer"
+            style={{
+              display: 'inline-block',
+              borderRadius: '6px',
+              padding: '10px 0px',
+            }}
+          >
+            Try 🧩 Prompt Composer →
+          </Link>
+        </div>
 
         <div className={styles.socialIconRow}>
           <b>This spoke to me:</b>
