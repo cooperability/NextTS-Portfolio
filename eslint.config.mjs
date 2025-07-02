@@ -18,7 +18,9 @@ const compat = new FlatCompat({
 })
 
 export default defineConfig([
-  { ignores: ['.next/**'] },
+  {
+    ignores: ['.next/**', '.yarn/**', '.pnp.*', 'coverage/**'],
+  },
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
@@ -42,6 +44,24 @@ export default defineConfig([
       ...mdx.flatCodeBlocks.rules,
       'no-var': 'error',
       'prefer-const': 'error',
+    },
+  },
+  {
+    files: [
+      'next.config.js',
+      'tailwind.config.js',
+      'jest.config.js',
+      'postcss.config.js',
+      'next-sitemap.config.js',
+      'create-report-dir.js',
+      '*.cjs',
+    ],
+    languageOptions: {
+      sourceType: 'script',
+    },
+    rules: {
+      '@typescript-eslint/no-require-imports': 'off',
+      '@typescript-eslint/no-var-requires': 'off',
     },
   },
 ])

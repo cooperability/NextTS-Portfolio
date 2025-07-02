@@ -152,7 +152,7 @@
 }
 
 .themeToggleLight {
-  @apply bg-slate-400 border-black-50 hover:bg-slate-500 text-white;
+  @apply bg-slate-400 border border-slate-500 hover:bg-slate-500 text-white;
 }
 
 .themeToggleDark {
@@ -406,6 +406,18 @@
 
 .contentDark {
   background-color: #222;
+}
+
+.imageContainer {
+  @apply flex justify-evenly mt-5;
+}
+
+.promptComposerWrapper {
+  @apply mb-5 rounded-[30px] border border-current px-2.5;
+}
+
+.promptComposerLink {
+  @apply inline-block rounded-md py-2.5;
 }
 
 .arrowRight,

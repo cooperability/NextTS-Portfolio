@@ -7,14 +7,14 @@ const Footer = () => {
   const { isMobile } = useResponsive()
 
   return (
-    <footer className="px-2 sm:px-1 py-4 mt-8">
+    <footer>
       <section className={styles.headingMd}>
         <div className={styles.horizLine} />
 
         {/* Social Icons */}
         <div
           className={styles.socialIconRow}
-          style={{ marginBottom: '1.5rem' }}
+          style={{ marginBottom: '0.25rem' }}
         >
           <ActiveIcon
             href="https://www.linkedin.com/in/cooper-reed/"
