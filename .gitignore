@@ -34,3 +34,18 @@ public/robots.txt
 # Cursor AI configuration
 .cursorrules
 
+# Misc
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Yarn
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+

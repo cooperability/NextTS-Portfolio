@@ -1,4 +1,120 @@
 /*
+ * ==============================================
+ * SHADCN/UI INTEGRATION MANIFEST
+ * ==============================================
+ *
+ * This guide outlines the end-to-end process for integrating shadcn/ui into this
+ * component, replacing the existing custom components with their shadcn/ui equivalents.
+ * The primary goal is to enhance the UI and developer experience while siloing
+ * the changes to this component to avoid impacting the global bundle size.
+ *
+ * PHASE 1: INITIAL SETUP (TERMINAL)
+ * ---------------------------------
+ *
+ * 1. RUN THE INIT COMMAND:
+ *    Open your terminal and run the shadcn/ui initializer. Use `yarn` as it's the
+ *    project's package manager.
+ *
+ *    ```bash
+ *    yarn dlx shadcn-ui@latest init
+ *    ```
+ *
+ * 2. CONFIGURE THE CLI PROMPTS:
+ *    You will be asked a series of questions. Use the following answers to match
+ *    the existing project structure:
+ *
+ *    - Would you like to use TypeScript (recommended)? › yes
+ *    - Which style would you like to use? › Default
+ *    - Which color would you like to use as base color? › Slate
+ *    - Where is your global CSS file? › src/styles/global.css
+ *    - Would you like to use CSS variables for theming? › yes
+ *    - Where is your tailwind.config.js file? › tailwind.config.js
+ *    - Configure the import alias for components: › @/components
+ *    - Configure the import alias for utils: › @/lib
+ *    - Are you using React Server Components? › no
+ *    - Write configuration to components.json. › yes
+ *
+ *    This will create `components.json`, create `src/lib/utils.ts`, and modify
+ *    `tailwind.config.js` and `src/styles/global.css`. Review the changes.
+ *
+ * 3. INSTALL REQUIRED COMPONENTS:
+ *    We will add components incrementally. Start by adding the ones needed for this file.
+ *
+ *    ```bash
+ *    yarn dlx shadcn-ui@latest add button card accordion switch checkbox radio-group label tooltip
+ *    ```
+ *
+ * 4. INSTALL ICONS:
+ *    shadcn/ui components often use icons from `lucide-react`. Let's add it.
+ *
+ *    ```bash
+ *    yarn add lucide-react
+ *    ```
+ *
+ * PHASE 2: COMPONENT RETROFITTING
+ * --------------------------------
+ *
+ * Meticulously replace each custom component in `PromptComposer.tsx` with its
+ * `shadcn/ui` counterpart.
+ *
+ * 1. MAIN LAYOUT PANELS (`leftPanel`, `rightPanel`):
+ *    - CURRENT: `div` elements with `promptComposerStyles.leftPanel` and `rightPanel`.
+ *    - TARGET: Replace with `<Card>`, `<CardHeader>`, `<CardTitle>`, and `<CardContent>`
+ *      from `@/components/ui/card`. This provides better semantic structure.
+ *
+ * 2. CATEGORY SELECTION (`categoryContainer`):
+ *    - CURRENT: Custom `<button>` that toggles an expanded `div`.
+ *    - TARGET: Refactor the entire component selection area to use a single `<Accordion>`
+ *      component (`@/components/ui/accordion`). Each category will be an `<AccordionItem>`.
+ *      - The `<AccordionTrigger>` will contain the category icon and label.
+ *      - The `<AccordionContent>` will contain the list of checkboxes or radio buttons.
+ *
+ * 3. AUDIENCE TOGGLE:
+ *    - CURRENT: A custom-styled `<button>` acting as a toggle.
+ *    - TARGET: Replace with the `<Switch>` component from `@/components/ui/switch`,
+ *      placing it between two `<Label>` components for "General" and "Technical".
+ *
+ * 4. COMPONENT CHECKBOXES (`componentCheckbox`):
+ *    - CURRENT: `<input type="checkbox">`.
+ *    - TARGET: Replace with the `<Checkbox>` component from `@/components/ui/checkbox`.
+ *      Wrap the checkbox and its description in a `div` with `flex items-center space-x-2`
+ *      and associate it with a `<Label>`.
+ *
+ * 5. ROLE & REASONING RADIO BUTTONS (`componentRadio`):
+ *    - CURRENT: `<input type="radio">`.
+ *    - TARGET: Replace the group of radio buttons with the `<RadioGroup>` component.
+ *      Each option will be a `<RadioGroupItem>` paired with a `<Label>`.
+ *
+ * 6. COPY BUTTON (`copyButton`):
+ *    - CURRENT: A custom `<button>` with a Heroicon.
+ *    - TARGET: Replace with the `<Button>` component. Use the `Copy` icon from `lucide-react`.
+ *      Example: `<Button><Copy className="mr-2 h-4 w-4" /> Copy</Button>`.
+ *
+ * 7. STATISTICS CARD:
+ *    - CURRENT: A styled `div`.
+ *    - TARGET: Re-implement this using the `<Card>` component for consistency.
+ *
+ * 8. RESEARCH DOCUMENTATION DROPDOWN (`ToggleDropdown`):
+ *    - CURRENT: A custom `ToggleDropdown` component.
+ *    - TARGET: Replace with another `<Accordion type="single" collapsible>`. This standardizes
+ *      the expand/collapse behavior across the page.
+ *
+ * PHASE 3: SILOING & PERFORMANCE
+ * -------------------------------
+ *
+ * By following the steps above, you have naturally "siloed" the shadcn/ui components.
+ * - They are added directly to your codebase under `src/components/ui`.
+ * - They are only imported and used within `PromptComposer.tsx`.
+ * - Next.js code splitting will ensure these components are only included in the
+ *   JavaScript chunk for the page that renders `PromptComposer`, so the rest of
+ *   the site's bundle size and load time will not be affected.
+ *
+ * No further action is needed for siloing.
+ *
+ * ==============================================
+ */
+
+/*
  * PROMPT COMPOSER - Enhanced with Research-Backed Design
  * ==============================================
  *
@@ -129,9 +245,27 @@
 
 import React, { useState, useMemo } from 'react'
 import { useTheme } from 'next-themes'
-import ToggleDropdown from './ToggleDropdown'
-import styles from '../styles/utils.module.css'
-import { DocumentDuplicateIcon } from '@heroicons/react/24/solid'
+import { Copy } from 'lucide-react'
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion'
+import { Label } from '@/components/ui/label'
+import { Switch } from '@/components/ui/switch'
+import { Checkbox } from '@/components/ui/checkbox'
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from '@/components/ui/radio-group'
 
 // CSS Classes for Prompt Composer
 const promptComposerStyles = {
@@ -139,11 +273,9 @@ const promptComposerStyles = {
   container: 'container mx-auto p-4 md:p-6',
   title: 'text-2xl md:text-3xl font-bold mb-2 text-gray-800',
   subtitle: 'text-gray-600 mb-4 md:mb-6 text-sm md:text-base',
-  mainLayout: 'flex flex-col lg:flex-row gap-4 md:gap-6 h-full',
+  mainLayout: 'flex flex-col lg:flex-row gap-4 md:gap-6 h-full border-solid-white rounded-full border-2 border-white',
 
-  // Left panel styles
-  leftPanel: 'lg:w-2/5 bg-white rounded-lg shadow-sm border p-4 md:p-6',
-  leftPanelTitle: 'text-lg md:text-xl font-semibold mb-3 md:mb-4 text-gray-800',
+  // Component Selector styles (formerly leftPanel)
   categoryContainer: 'mb-4',
 
   // Category button styles
@@ -176,11 +308,9 @@ const promptComposerStyles = {
     'text-sm text-gray-800 group-hover:text-gray-900 font-bold mr-2',
   componentSubtitle: 'text-sm text-gray-600 font-normal',
 
-  // Right panel styles
-  rightPanel: 'lg:w-3/5 bg-white rounded-lg shadow-sm border p-4 md:p-6',
-  rightPanelHeader:
+  // Live Preview styles (formerly rightPanel)
+  livePreviewHeader:
     'flex flex-row sm:flex-row sm:items-center justify-between mb-3 md:mb-4 gap-2',
-  rightPanelTitle: 'text-lg md:text-xl font-semibold text-gray-800',
   copyButton:
     'px-3 md:px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors text-sm md:text-base font-medium',
 
@@ -212,6 +342,70 @@ const promptComposerStyles = {
   analysisSection: 'mt-3 pt-2 border-t border-blue-300',
   analysisContent: 'text-xs text-blue-600 space-y-1',
   analysisHighlight: 'ml-2 text-blue-500',
+}
+
+// PHASE 1: Centralized Tailwind Classes (alongside existing styles for gradual migration)
+const tw = {
+  // Layout & containers
+  mainContainer: 'container mx-auto p-4 md:p-6',
+  flexLayout: 'flex flex-col lg:flex-row gap-4 md:gap-6',
+  
+  // Typography
+  title: 'text-2xl md:text-3xl font-bold mb-2 text-gray-800 dark:text-gray-100',
+  subtitle: 'text-gray-600 dark:text-gray-400 mb-4 md:mb-6 text-sm md:text-base',
+  
+  // Interactive elements
+  audienceToggle: 'flex items-center justify-center space-x-2 p-3',
+  audienceLabelActive: 'text-sm font-medium text-blue-600 dark:text-blue-400 transition-colors',
+  audienceLabelInactive: 'text-sm font-medium text-gray-500 dark:text-gray-400 transition-colors',
+  
+  // Component styling
+  componentLabel: 'text-sm cursor-pointer',
+  componentLabelTitle: 'font-bold text-gray-800 dark:text-gray-200',
+  componentLabelDescription: 'font-normal text-gray-600 dark:text-gray-400',
+  
+  // Layout helpers
+  radioCheckboxContainer: 'p-3',
+  radioCheckboxItem: 'flex items-center space-x-2 mb-2',
+  
+  // Statistics
+  statsGrid: 'grid grid-cols-3 gap-4 text-center',
+  statsWord: 'text-lg font-bold text-green-600 dark:text-green-400',
+  statsComponent: 'text-lg font-bold text-blue-600 dark:text-blue-400',
+  statsCategory: 'text-lg font-bold text-purple-600 dark:text-purple-400',
+}
+
+// Theme-aware color utilities using Tailwind
+const getCategoryTailwindColors = (category: string, isDark: boolean = false) => {
+  const colorMap = {
+    role: isDark 
+      ? { bg: 'bg-blue-900/30', border: 'border-blue-400', text: 'text-blue-400' }
+      : { bg: 'bg-blue-50', border: 'border-blue-500', text: 'text-blue-600' },
+    audience: isDark
+      ? { bg: 'bg-pink-900/30', border: 'border-pink-400', text: 'text-pink-400' }
+      : { bg: 'bg-pink-50', border: 'border-pink-500', text: 'text-pink-600' },
+    context: isDark
+      ? { bg: 'bg-green-900/30', border: 'border-green-400', text: 'text-green-400' }
+      : { bg: 'bg-green-50', border: 'border-green-500', text: 'text-green-600' },
+    reasoning: isDark
+      ? { bg: 'bg-yellow-900/30', border: 'border-yellow-400', text: 'text-yellow-400' }
+      : { bg: 'bg-yellow-50', border: 'border-yellow-500', text: 'text-yellow-600' },
+    output: isDark
+      ? { bg: 'bg-orange-900/30', border: 'border-orange-400', text: 'text-orange-400' }
+      : { bg: 'bg-orange-50', border: 'border-orange-500', text: 'text-orange-600' },
+    constraints: isDark
+      ? { bg: 'bg-purple-900/30', border: 'border-purple-400', text: 'text-purple-400' }
+      : { bg: 'bg-purple-50', border: 'border-purple-500', text: 'text-purple-600' },
+    meta: isDark
+      ? { bg: 'bg-cyan-900/30', border: 'border-cyan-400', text: 'text-cyan-400' }
+      : { bg: 'bg-cyan-50', border: 'border-cyan-500', text: 'text-cyan-600' },
+  }
+  
+  return colorMap[category as keyof typeof colorMap] || {
+    bg: isDark ? 'bg-gray-800' : 'bg-gray-50',
+    border: isDark ? 'border-gray-600' : 'border-gray-300', 
+    text: isDark ? 'text-gray-400' : 'text-gray-600'
+  }
 }
 
 // Prompt components with research-backed categorization
@@ -391,6 +585,16 @@ const COMPONENT_ARRAY: PromptComponent[] = [
     inputType: 'checkbox',
   },
   {
+    id: 'output-probabilistic',
+    category: 'output',
+    label: 'Probabilistic Assessment',
+    description: 'Probabilistic assessment of different outcomes',
+    template:
+      'Provide a probabilistic assessment of different outcomes, including the likelihood of each outcome.',
+    priority: 5,
+    inputType: 'checkbox',
+  },
+  {
     id: 'output-actionable',
     category: 'output',
     label: 'Actionable Steps',
@@ -527,9 +731,6 @@ const PromptComposer: React.FC<PromptComposerProps> = ({ className }) => {
   const [selectedComponents, setSelectedComponents] = useState<Set<string>>(
     new Set()
   )
-  const [expandedCategories, setExpandedCategories] = useState<Set<string>>(
-    new Set()
-  )
   const [audienceToggle, setAudienceToggle] = useState<'technical' | 'general'>(
     'general'
   )
@@ -562,21 +763,9 @@ const PromptComposer: React.FC<PromptComposerProps> = ({ className }) => {
     setSelectedComponents(newSelected)
   }
 
-  const toggleCategory = (category: string) => {
-    const newExpanded = new Set(expandedCategories)
-    if (newExpanded.has(category)) {
-      newExpanded.delete(category)
-    } else {
-      newExpanded.add(category)
-    }
-    setExpandedCategories(newExpanded)
-  }
-
   // Handle audience toggle separately
-  const handleAudienceToggle = () => {
-    setAudienceToggle((prev) =>
-      prev === 'technical' ? 'general' : 'technical'
-    )
+  const handleAudienceToggle = (checked: boolean) => {
+    setAudienceToggle(checked ? 'technical' : 'general')
   }
 
   const copyToClipboard = async () => {
@@ -772,525 +961,524 @@ const PromptComposer: React.FC<PromptComposerProps> = ({ className }) => {
 
       {/* Main Layout */}
       <div className={promptComposerStyles.mainLayout}>
-        {/* Left Panel - Component Selection */}
-        <div className={promptComposerStyles.leftPanel}>
-          <h2
-            className={promptComposerStyles.leftPanelTitle}
-            style={{ color: 'inherit' }}
-          >
-            Prompt Components
-          </h2>
-
-          {Object.entries(categoryLabels).map(([category, label]) => (
-            <div
-              key={category}
-              className={promptComposerStyles.categoryContainer}
-            >
-              <button
-                onClick={() => toggleCategory(category)}
-                className={promptComposerStyles.categoryButton}
-                style={{
-                  backgroundColor: getCurrentCategoryColor(category),
-                  padding: 5,
-                }}
-              >
-                <span className="ml-auto text-gray-400">
-                  {expandedCategories.has(category) ? '▼' : '▶'}
-                </span>
-                <span className={promptComposerStyles.categoryIcon}>
-                  {categoryIcons[category as keyof typeof categoryIcons]}
-                </span>
-                <span
-                  className={promptComposerStyles.categoryLabel}
-                  style={{ fontSize: '1rem', fontWeight: 'bold' }}
+        {/* Component Selector Panel (formerly Left Panel) */}
+        <Card>
+          <CardHeader>
+            <CardTitle><h3 className='text-lg font-bold'>Prompt Components</h3></CardTitle>
+          </CardHeader>
+          <CardContent>
+            <Accordion type="multiple" className="w-full">
+              {Object.entries(categoryLabels).map(([category, label]) => (
+                <AccordionItem
+                  value={category}
+                  key={category}
+                  className="mb-2 rounded-lg"
                 >
-                  {label}
-                </span>
-              </button>
-
-              {expandedCategories.has(category) && (
-                <div className={promptComposerStyles.expandedContainer}>
-                  <div
-                    className={promptComposerStyles.componentContainer}
+                  <AccordionTrigger
+                    className={promptComposerStyles.categoryButton}
                     style={{
-                      borderColor: getCategoryBorderColor(category),
-                      backgroundColor: getCategoryBorderColor(category) + '40',
+                      backgroundColor: getCurrentCategoryColor(category),
+                      border: `1px solid ${getCategoryBorderColor(category)}`,
+                      width: '100%',
+                      padding: '10px 0 5px 0',
+                      display: 'flex',
                     }}
                   >
-                    <div
-                      className={promptComposerStyles.verticalLine}
-                      style={{
-                        backgroundColor: getCurrentCategoryColor(category),
-                      }}
-                    />
-                    <div className={promptComposerStyles.componentsWrapper}>
-                      {/* Handle audience toggle separately */}
-                      {category === 'audience' && (
-                        <div className={promptComposerStyles.componentWrapper}>
-                          <div className="p-3 hover:bg-white hover:bg-opacity-50">
-                            {/* Toggle with labels - forced horizontal layout */}
-                            <div
-                              style={{
-                                display: 'flex',
-                                flexDirection: 'row',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                gap: '12px',
-                              }}
-                            >
-                              <span
-                                className={`text-sm font-medium transition-colors ${
-                                  audienceToggle === 'general'
-                                    ? 'text-blue-600'
-                                    : 'text-gray-500'
-                                }`}
-                              >
-                                General
-                              </span>
-
-                              <button
-                                onClick={handleAudienceToggle}
-                                className={`${styles.themeSwitch} ${
-                                  audienceToggle === 'technical'
-                                    ? styles.themeToggleDark
-                                    : styles.themeToggleLight
-                                }`}
-                                style={{ borderRadius: '50px' }}
-                                aria-label={`Switch to ${audienceToggle === 'technical' ? 'general' : 'technical'} audience`}
-                              >
-                                <div
-                                  className={`${styles.themeSwitchCircle} ${
-                                    audienceToggle === 'technical'
-                                      ? styles.themeSwitchCircleDark
-                                      : styles.themeSwitchCircleLight
-                                  }`}
-                                />
-                              </button>
-
-                              <span
-                                className={`text-sm font-medium transition-colors ${
-                                  audienceToggle === 'technical'
-                                    ? 'text-blue-600'
-                                    : 'text-gray-500'
-                                }`}
-                              >
-                                Technical
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Regular components */}
-                      {groupedComponents[category]?.map((component) => (
-                        <div
-                          key={component.id}
-                          className={promptComposerStyles.componentWrapper}
-                        >
-                          <label
-                            className={promptComposerStyles.componentItem}
-                            style={{ display: 'flex', flexDirection: 'row' }}
-                          >
-                            {component.inputType === 'radio' ? (
-                              <input
-                                type="radio"
-                                name={component.radioGroup}
-                                checked={selectedComponents.has(component.id)}
-                                onChange={() =>
-                                  toggleComponent(
-                                    component.id,
-                                    component.inputType,
-                                    component.radioGroup
-                                  )
-                                }
-                                className={promptComposerStyles.componentRadio}
-                              />
-                            ) : (
-                              <input
-                                type="checkbox"
-                                checked={selectedComponents.has(component.id)}
-                                onChange={() =>
-                                  toggleComponent(
-                                    component.id,
-                                    component.inputType
-                                  )
-                                }
-                                className={
-                                  promptComposerStyles.componentCheckbox
-                                }
-                              />
-                            )}
-                            <div
-                              className={
-                                promptComposerStyles.componentTextContainer
-                              }
-                            >
-                              <span
-                                className={promptComposerStyles.componentTitle}
-                              >
-                                {component.label}:&nbsp;
-                              </span>
-                              <span
-                                className={
-                                  promptComposerStyles.componentSubtitle
-                                }
-                              >
-                                {component.description}
-                              </span>
-                            </div>
-                          </label>
-                        </div>
-                      ))}
+                    <div className="flex items-center">
+                      <span className={promptComposerStyles.categoryIcon}>
+                        {categoryIcons[category as keyof typeof categoryIcons]}
+                      </span>
+                      <span
+                        className={promptComposerStyles.categoryLabel}
+                        style={{ fontSize: '1rem', fontWeight: 'bold' }}
+                      >
+                        {label}
+                      </span>
                     </div>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <div className={promptComposerStyles.expandedContainer}>
+                      <div
+                        className={promptComposerStyles.componentContainer}
+                        style={{
+                          borderColor: getCategoryBorderColor(category),
+                          backgroundColor:
+                            getCategoryBorderColor(category) + '40',
+                        }}
+                      >
+                        <div
+                          className={promptComposerStyles.verticalLine}
+                          style={{
+                            backgroundColor: getCurrentCategoryColor(category),
+                          }}
+                        />
+                        <div
+                          className={promptComposerStyles.componentsWrapper}
+                        >
+                          {/* Handle audience toggle separately */}
+                          {category === 'audience' && (
+                            <div
+                              className={promptComposerStyles.componentWrapper}
+                            >
+                              <div className={tw.audienceToggle}>
+                                <Label
+                                  htmlFor="audience-switch"
+                                  className={
+                                    audienceToggle === 'general'
+                                      ? tw.audienceLabelActive
+                                      : tw.audienceLabelInactive
+                                  }
+                                >
+                                  General
+                                </Label>
+                                <Switch
+                                  id="audience-switch"
+                                  checked={audienceToggle === 'technical'}
+                                  onCheckedChange={handleAudienceToggle}
+                                />
+                                <Label
+                                  htmlFor="audience-switch"
+                                  className={
+                                    audienceToggle === 'technical'
+                                      ? tw.audienceLabelActive
+                                      : tw.audienceLabelInactive
+                                  }
+                                >
+                                  Technical
+                                </Label>
+                              </div>
+                            </div>
+                          )}
+
+                          {/* Regular components */}
+                          {(() => {
+                            const categoryComponents = groupedComponents[category] || []
+                            const radioGroups: { [key: string]: typeof categoryComponents } = {}
+                            const checkboxComponents: typeof categoryComponents = []
+                            
+                            // Separate radio and checkbox components
+                            categoryComponents.forEach(component => {
+                              if (component.inputType === 'radio' && component.radioGroup) {
+                                if (!radioGroups[component.radioGroup]) {
+                                  radioGroups[component.radioGroup] = []
+                                }
+                                radioGroups[component.radioGroup].push(component)
+                              } else if (component.inputType === 'checkbox') {
+                                checkboxComponents.push(component)
+                              }
+                            })
+                            
+                            return (
+                              <>
+                                {/* Render RadioGroups */}
+                                {Object.entries(radioGroups).map(([groupName, groupComponents]) => (
+                                  <div key={groupName} className={promptComposerStyles.componentWrapper}>
+                                    <div className={tw.radioCheckboxContainer}>
+                                      <RadioGroup
+                                        value={groupComponents.find(comp => selectedComponents.has(comp.id))?.id || ''}
+                                        onValueChange={(value) => {
+                                          const component = groupComponents.find(comp => comp.id === value)
+                                          if (component) {
+                                            toggleComponent(component.id, component.inputType, component.radioGroup)
+                                          }
+                                        }}
+                                      >
+                                        {groupComponents.map((component) => (
+                                          <div key={component.id} className={tw.radioCheckboxItem}>
+                                            <RadioGroupItem value={component.id} id={component.id} />
+                                            <Label htmlFor={component.id} className={tw.componentLabel}>
+                                              <span className={tw.componentLabelTitle}>
+                                                {component.label}:&nbsp;
+                                              </span>
+                                              <span className={tw.componentLabelDescription}>
+                                                {component.description}
+                                              </span>
+                                            </Label>
+                                          </div>
+                                        ))}
+                                      </RadioGroup>
+                                    </div>
+                                  </div>
+                                ))}
+                                
+                                {/* Render Checkbox components */}
+                                {checkboxComponents.map((component) => (
+                                  <div
+                                    key={component.id}
+                                    className={promptComposerStyles.componentWrapper}
+                                  >
+                                    <div className={tw.radioCheckboxContainer}>
+                                      <Checkbox
+                                        id={component.id}
+                                        checked={selectedComponents.has(
+                                          component.id
+                                        )}
+                                        onCheckedChange={() =>
+                                          toggleComponent(
+                                            component.id,
+                                            component.inputType
+                                          )
+                                        }
+                                      />
+                                      <Label
+                                        htmlFor={component.id}
+                                        className={tw.componentLabel}
+                                      >
+                                        <span className={tw.componentLabelTitle}>
+                                          {component.label}:&nbsp;
+                                        </span>
+                                        <span className={tw.componentLabelDescription}>
+                                          {component.description}
+                                        </span>
+                                      </Label>
+                                    </div>
+                                  </div>
+                                ))}
+                              </>
+                            )
+                          })()}
+                        </div>
+                      </div>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </CardContent>
+        </Card>
+
+        {/* Live Preview Panel (formerly Right Panel) */}
+        <Card className="lg:w-3/5">
+          <CardHeader>
+            <div className={promptComposerStyles.livePreviewHeader}>
+              <CardTitle>Compiled Prompt</CardTitle>
+              <Button
+                onClick={copyToClipboard}
+                disabled={!compiledPrompt.trim()}
+              >
+                <Copy className="mr-2 h-4 w-4" />
+                Copy
+              </Button>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <div className={promptComposerStyles.previewContainer}>
+              {compiledPrompt.trim() ? (
+                <div className={promptComposerStyles.previewContent}>
+                  {/* Show organized sections by category */}
+                  {Object.entries(categoryLabels).map(([category, label]) => {
+                    const categoryComponents = COMPONENT_ARRAY.filter(
+                      (comp) =>
+                        comp.category === category &&
+                        selectedComponents.has(comp.id)
+                    )
+
+                    const hasAudienceContent =
+                      category === 'audience' &&
+                      (audienceToggle === 'technical' ||
+                        audienceToggle === 'general')
+
+                    if (categoryComponents.length === 0 && !hasAudienceContent)
+                      return null
+
+                    return (
+                      <div
+                        key={category}
+                        className={promptComposerStyles.previewSection}
+                        style={{
+                          borderLeftColor: getCategoryBorderColor(category),
+                          backgroundColor: getCurrentCategoryColor(category),
+                        }}
+                      >
+                        <div
+                          className={
+                            promptComposerStyles.previewCategoryHeader
+                          }
+                          style={{ color: getCategoryBorderColor(category) }}
+                        >
+                          {categoryIcons[category as keyof typeof categoryIcons]}{' '}
+                          {label}
+                        </div>
+                        {hasAudienceContent && (
+                          <div
+                            className={
+                              promptComposerStyles.previewComponentText
+                            }
+                          >
+                            {audienceToggle === 'technical'
+                              ? 'Assume your audience has strong technical background and can handle detailed, specialized explanations.'
+                              : 'Explain concepts in accessible language suitable for a general audience without extensive technical background.'}
+                          </div>
+                        )}
+                        {categoryComponents.map((comp) => (
+                          <div
+                            key={comp.id}
+                            className={
+                              promptComposerStyles.previewComponentText
+                            }
+                          >
+                            {comp.template}
+                          </div>
+                        ))}
+                      </div>
+                    )
+                  })}
+                </div>
+              ) : (
+                <div className={promptComposerStyles.emptyState}>
+                  <div className={promptComposerStyles.emptyStateTitle}>
+                    No components selected
+                  </div>
+                  <div className={promptComposerStyles.emptyStateSubtitle}>
+                    Choose components from the left panel to build your prompt
                   </div>
                 </div>
               )}
             </div>
-          ))}
-        </div>
 
-        {/* Right Panel - Preview */}
-        <div className={promptComposerStyles.rightPanel}>
-          <div
-            className={promptComposerStyles.rightPanelHeader}
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-            }}
-          >
-            <h2
-              className={promptComposerStyles.rightPanelTitle}
-              style={{ color: 'inherit' }}
-            >
-              Compiled Prompt
-            </h2>
-            <button
-              onClick={copyToClipboard}
-              disabled={!compiledPrompt.trim()}
-              className={promptComposerStyles.copyButton}
-              style={{
-                borderRadius: '50px',
-                height: '40px',
-                marginTop: '2rem',
-              }}
-            >
-              <DocumentDuplicateIcon
-                style={{
-                  width: '20px',
-                  height: '20px',
-                  marginTop: '1px',
-                  marginRight: '10px',
-                }}
-              />
-              <span style={{ fontSize: '1rem', fontWeight: 'bold' }}>Copy</span>
-            </button>
-          </div>
-
-          <div className={promptComposerStyles.previewContainer}>
-            {compiledPrompt.trim() ? (
-              <div className={promptComposerStyles.previewContent}>
-                {/* Show organized sections by category */}
-                {Object.entries(categoryLabels).map(([category, label]) => {
-                  const categoryComponents = COMPONENT_ARRAY.filter(
-                    (comp) =>
-                      comp.category === category &&
-                      selectedComponents.has(comp.id)
-                  )
-
-                  const hasAudienceContent =
-                    category === 'audience' &&
-                    (audienceToggle === 'technical' ||
-                      audienceToggle === 'general')
-
-                  if (categoryComponents.length === 0 && !hasAudienceContent)
-                    return null
-
-                  return (
-                    <div
-                      key={category}
-                      className={promptComposerStyles.previewSection}
-                      style={{
-                        borderLeftColor: getCategoryBorderColor(category),
-                        backgroundColor: getCurrentCategoryColor(category),
-                      }}
-                    >
-                      <div
-                        className={promptComposerStyles.previewCategoryHeader}
-                        style={{ color: getCategoryBorderColor(category) }}
-                      >
-                        {categoryIcons[category as keyof typeof categoryIcons]}{' '}
-                        {label}
+            {/* Enhanced Statistics & Analysis */}
+            <div className="mt-6">
+              {/* Statistics Card */}
+              <Card className="mb-4">
+                <CardHeader>
+                  <CardTitle className="text-sm font-semibold flex items-center">
+                    📊 Prompt Statistics
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className={tw.statsGrid}>
+                    <div>
+                      <div className={tw.statsWord}>
+                        {statistics.wordCount} Words
                       </div>
-                      {hasAudienceContent && (
-                        <div
-                          className={promptComposerStyles.previewComponentText}
-                        >
-                          {audienceToggle === 'technical'
-                            ? 'Assume your audience has strong technical background and can handle detailed, specialized explanations.'
-                            : 'Explain concepts in accessible language suitable for a general audience without extensive technical background.'}
-                        </div>
-                      )}
-                      {categoryComponents.map((comp) => (
-                        <div
-                          key={comp.id}
-                          className={promptComposerStyles.previewComponentText}
-                        >
-                          {comp.template}
-                        </div>
-                      ))}
                     </div>
-                  )
-                })}
-              </div>
-            ) : (
-              <div className={promptComposerStyles.emptyState}>
-                <div className={promptComposerStyles.emptyStateTitle}>
-                  No components selected
-                </div>
-                <div className={promptComposerStyles.emptyStateSubtitle}>
-                  Choose components from the left panel to build your prompt
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Enhanced Statistics & Analysis */}
-          <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-4">
-            {/* Statistics Card */}
-            <div
-              className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700"
-              style={{ marginBottom: '20px' }}
-            >
-              <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 flex items-center">
-                📊 Prompt Statistics
-              </h3>
-              <div
-                className="grid grid-cols-3 gap-4 text-center"
-                style={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  justifyContent: 'space-evenly',
-                }}
-              >
-                <div>
-                  <div className="text-lg font-bold text-green-600 dark:text-green-400">
-                    {statistics.wordCount} Words
+                    <div>
+                      <div className={tw.statsComponent}>
+                        {statistics.components} Components
+                      </div>
+                    </div>
+                    <div>
+                      <div className={tw.statsCategory}>
+                        {statistics.categories} Categories
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div>
-                  <div className="text-lg font-bold text-blue-600 dark:text-blue-400">
-                    {statistics.components} Components{' '}
-                  </div>
-                </div>
-                <div>
-                  <div className="text-lg font-bold text-purple-600 dark:text-purple-400">
-                    {statistics.categories} Categories
-                  </div>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             </div>
-          </div>
 
-          {/* Research-Based Design Documentation */}
-          <ToggleDropdown
-            title="🔬 Research-Backed Design Documentation"
-            startOpen={false}
-          >
-            <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-              <div>
-                <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                  Design Philosophy & Research Foundation
-                </h4>
-                <p>
-                  This Prompt Composer integrates research in LLM effectiveness
-                  and UI/UX design.
-                  <strong> Radio buttons</strong> are used for mutually
-                  exclusive choices (role specification, reasoning strategy)
-                  because research shows conflicting instructions can reduce LLM
-                  performance.
-                  <strong> Checkboxes</strong> enable beneficial component
-                  combinations for context, output formatting, and constraints.
-                  The <strong>binary toggle</strong> for audience targeting
-                  follows established UX patterns and reflects the fundamental
-                  technical/non-technical communication divide. Component
-                  ordering follows task decomposition research showing role →
-                  context → reasoning → output → constraints as the optimal
-                  sequence for LLM comprehension.
-                </p>
-              </div>
-
-              <div>
-                <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                  Evidence-Based Component Categories
-                </h4>
-                <p>
-                  Each category represents a distinct cognitive function based
-                  on prompt engineering research:
-                  <strong>Role Specification</strong> establishes the AI
-                  persona, <strong>Context Provision</strong> leverages few-shot
-                  learning principles, <strong>Reasoning Strategy</strong>{' '}
-                  applies chain-of-thought research for complex tasks,{' '}
-                  <strong>Output Instructions</strong> ensure structured
-                  responses, <strong>Constraints</strong> maintain focus, and{' '}
-                  <strong>Meta-Prompt Enhancements</strong> enable
-                  self-improvement capabilities.
-                </p>
-              </div>
-
-              <div>
-                <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                  UI/UX Component Selection Strategy
-                </h4>
-                <p>
-                  The interface design follows established usability principles:
-                  radio buttons for mutually exclusive cognitive roles prevent
-                  conflicting instructions, toggle switches for binary states
-                  provide immediate visual feedback, and checkboxes for additive
-                  elements allow beneficial layering of context and constraints.
-                  Visual hierarchy and color coding reduce cognitive load while
-                  maintaining accessibility standards.
-                </p>
-              </div>
-
-              <div className="border-t border-gray-200 dark:border-gray-600 pt-4">
-                <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">
-                  References
-                </h4>
-                <div className="text-xs space-y-2 text-gray-600 dark:text-gray-400">
+            {/* Research-Based Design Documentation */}
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="research-documentation">
+                <AccordionTrigger>
+                  🔬 Research-Backed Design Documentation
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                <div>
+                  <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                    Design Philosophy & Research Foundation
+                  </h4>
                   <p>
-                    Brown, T., Mann, B., Ryder, N., Subbiah, M., Kaplan, J. D.,
-                    Dhariwal, P., ... & Amodei, D. (2020). Language models are
-                    few-shot learners.{' '}
-                    <em>Advances in Neural Information Processing Systems</em>,
-                    33, 1877-1901. Available:{' '}
-                    <a
-                      href="https://arxiv.org/abs/2005.14165"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-800 underline"
-                    >
-                      https://arxiv.org/abs/2005.14165
-                    </a>
-                  </p>
-
-                  <p>
-                    Khot, T., Trivedi, H., Finlayson, M., Sabharwal, A., &
-                    Clark, P. (2023). Decomposed prompting: A modular approach
-                    for solving complex tasks.{' '}
-                    <em>
-                      Proceedings of the International Conference on Learning
-                      Representations
-                    </em>
-                    . Available:{' '}
-                    <a
-                      href="https://arxiv.org/abs/2210.02406"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-800 underline"
-                    >
-                      https://arxiv.org/abs/2210.02406
-                    </a>
-                  </p>
-
-                  <p>
-                    Lu, Y., Bartolo, M., Moore, A., Riedel, S., & Stenetorp, P.
-                    (2022). Fantastically ordered prompts and where to find
-                    them: Overcoming few-shot prompt order sensitivity.{' '}
-                    <em>
-                      Proceedings of the 60th Annual Meeting of the Association
-                      for Computational Linguistics
-                    </em>
-                    , 1, 8086-8098. Available:{' '}
-                    <a
-                      href="https://arxiv.org/abs/2104.08786"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-800 underline"
-                    >
-                      https://arxiv.org/abs/2104.08786
-                    </a>
-                  </p>
-
-                  <p>
-                    Min, S., Lyu, X., Holtzman, A., Artetxe, M., Lewis, M.,
-                    Hajishirzi, H., & Zettlemoyer, L. (2022). Rethinking the
-                    role of demonstrations: What makes in-context learning work?{' '}
-                    <em>
-                      Proceedings of the 2022 Conference on Empirical Methods in
-                      Natural Language Processing
-                    </em>
-                    , 11048-11064. Available:{' '}
-                    <a
-                      href="https://arxiv.org/abs/2202.12837"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-800 underline"
-                    >
-                      https://arxiv.org/abs/2202.12837
-                    </a>
-                  </p>
-
-                  <p>
-                    Nielsen, J., & Budiu, R. (2012). <em>Mobile usability</em>.
-                    New Riders Publishing. Available:{' '}
-                    <a
-                      href="https://www.nngroup.com/books/mobile-usability/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-800 underline"
-                    >
-                      https://www.nngroup.com/books/mobile-usability/
-                    </a>
-                  </p>
-
-                  <p>
-                    Tullis, T., & Albert, B. (2013).{' '}
-                    <em>
-                      Measuring the user experience: Collecting, analyzing, and
-                      presenting usability metrics
-                    </em>
-                    . Morgan Kaufmann.
-                  </p>
-
-                  <p>
-                    Wang, X., Wei, J., Schuurmans, D., Le, Q., Chi, E., Narang,
-                    S., ... & Zhou, D. (2023). Self-consistency improves chain
-                    of thought reasoning in language models.{' '}
-                    <em>
-                      International Conference on Learning Representations
-                    </em>
-                    . Available:{' '}
-                    <a
-                      href="https://arxiv.org/abs/2203.11171"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-800 underline"
-                    >
-                      https://arxiv.org/abs/2203.11171
-                    </a>
-                  </p>
-
-                  <p>
-                    Wei, J., Wang, X., Schuurmans, D., Bosma, M., Chi, E., Le,
-                    Q. V., ... & Zhou, D. (2022). Chain-of-thought prompting
-                    elicits reasoning in large language models.{' '}
-                    <em>Advances in Neural Information Processing Systems</em>,
-                    35, 24824-24837. Available:{' '}
-                    <a
-                      href="https://arxiv.org/abs/2201.11903"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-800 underline"
-                    >
-                      https://arxiv.org/abs/2201.11903
-                    </a>
+                    This Prompt Composer integrates research in LLM effectiveness
+                    and UI/UX design.
+                    <strong> Radio buttons</strong> are used for mutually
+                    exclusive choices (role specification, reasoning strategy)
+                    because research shows conflicting instructions can reduce
+                    LLM performance.
+                    <strong> Checkboxes</strong> enable beneficial component
+                    combinations for context, output formatting, and
+                    constraints. The <strong>binary toggle</strong> for audience
+                    targeting follows established UX patterns and reflects the
+                    fundamental technical/non-technical communication divide.
+                    Component ordering follows task decomposition research
+                    showing role → context → reasoning → output → constraints as
+                    the optimal sequence for LLM comprehension.
                   </p>
                 </div>
-              </div>
-            </div>
-          </ToggleDropdown>
-        </div>
+
+                <div>
+                  <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                    Evidence-Based Component Categories
+                  </h4>
+                  <p>
+                    Each category represents a distinct cognitive function based
+                    on prompt engineering research:
+                    <strong>Role Specification</strong> establishes the AI
+                    persona, <strong>Context Provision</strong> leverages
+                    few-shot learning principles,{' '}
+                    <strong>Reasoning Strategy</strong> applies chain-of-thought
+                    research for complex tasks,{' '}
+                    <strong>Output Instructions</strong> ensure structured
+                    responses, <strong>Constraints</strong> maintain focus, and{' '}
+                    <strong>Meta-Prompt Enhancements</strong> enable
+                    self-improvement capabilities.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                    UI/UX Component Selection Strategy
+                  </h4>
+                  <p>
+                    The interface design follows established usability
+                    principles: radio buttons for mutually exclusive cognitive
+                    roles prevent conflicting instructions, toggle switches for
+                    binary states provide immediate visual feedback, and
+                    checkboxes for additive elements allow beneficial layering
+                    of context and constraints. Visual hierarchy and color
+                    coding reduce cognitive load while maintaining accessibility
+                    standards.
+                  </p>
+                </div>
+
+                <div className="border-t border-gray-200 dark:border-gray-600 pt-4">
+                  <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">
+                    References
+                  </h4>
+                  <div className="text-xs space-y-2 text-gray-600 dark:text-gray-400">
+                    <p>
+                      Brown, T., Mann, B., Ryder, N., Subbiah, M., Kaplan, J.
+                      D., Dhariwal, P., ... & Amodei, D. (2020). Language models
+                      are few-shot learners.{' '}
+                      <em>
+                        Advances in Neural Information Processing Systems
+                      </em>
+                      , 33, 1877-1901. Available:{' '}
+                      <a
+                        href="https://arxiv.org/abs/2005.14165"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-800 underline"
+                      >
+                        https://arxiv.org/abs/2005.14165
+                      </a>
+                    </p>
+
+                    <p>
+                      Khot, T., Trivedi, H., Finlayson, M., Sabharwal, A., &
+                      Clark, P. (2023). Decomposed prompting: A modular
+                      approach for solving complex tasks.{' '}
+                      <em>
+                        Proceedings of the International Conference on Learning
+                        Representations
+                      </em>
+                      . Available:{' '}
+                      <a
+                        href="https://arxiv.org/abs/2210.02406"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-800 underline"
+                      >
+                        https://arxiv.org/abs/2210.02406
+                      </a>
+                    </p>
+
+                    <p>
+                      Lu, Y., Bartolo, M., Moore, A., Riedel, S., & Stenetorp,
+                      P. (2022). Fantastically ordered prompts and where to
+                      find them: Overcoming few-shot prompt order sensitivity.{' '}
+                      <em>
+                        Proceedings of the 60th Annual Meeting of the
+                        Association for Computational Linguistics
+                      </em>
+                      , 1, 8086-8098. Available:{' '}
+                      <a
+                        href="https://arxiv.org/abs/2104.08786"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-800 underline"
+                      >
+                        https://arxiv.org/abs/2104.08786
+                      </a>
+                    </p>
+
+                    <p>
+                      Min, S., Lyu, X., Holtzman, A., Artetxe, M., Lewis, M.,
+                      Hajishirzi, H., & Zettlemoyer, L. (2022). Rethinking the
+                      role of demonstrations: What makes in-context learning
+                      work?{' '}
+                      <em>
+                        Proceedings of the 2022 Conference on Empirical Methods
+                        in Natural Language Processing
+                      </em>
+                      , 11048-11064. Available:{' '}
+                      <a
+                        href="https://arxiv.org/abs/2202.12837"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-800 underline"
+                      >
+                        https://arxiv.org/abs/2202.12837
+                      </a>
+                    </p>
+
+                    <p>
+                      Nielsen, J., & Budiu, R. (2012).{' '}
+                      <em>Mobile usability</em>. New Riders Publishing.
+                      Available:{' '}
+                      <a
+                        href="https://www.nngroup.com/books/mobile-usability/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-800 underline"
+                      >
+                        https://www.nngroup.com/books/mobile-usability/
+                      </a>
+                    </p>
+
+                    <p>
+                      Tullis, T., & Albert, B. (2013).{' '}
+                      <em>
+                        Measuring the user experience: Collecting, analyzing,
+                        and presenting usability metrics
+                      </em>
+                      . Morgan Kaufmann.
+                    </p>
+
+                    <p>
+                      Wang, X., Wei, J., Schuurmans, D., Le, Q., Chi, E.,
+                      Narang, S., ... & Zhou, D. (2023). Self-consistency
+                      improves chain of thought reasoning in language models.{' '}
+                      <em>
+                        International Conference on Learning Representations
+                      </em>
+                      . Available:{' '}
+                      <a
+                        href="https://arxiv.org/abs/2203.11171"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-800 underline"
+                      >
+                        https://arxiv.org/abs/2203.11171
+                      </a>
+                    </p>
+
+                    <p>
+                      Wei, J., Wang, X., Schuurmans, D., Bosma, M., Chi, E.,
+                      Le, Q. V., ... & Zhou, D. (2022). Chain-of-thought
+                      prompting elicits reasoning in large language models.{' '}
+                      <em>
+                        Advances in Neural Information Processing Systems
+                      </em>
+                      , 35, 24824-24837. Available:{' '}
+                      <a
+                        href="https://arxiv.org/abs/2201.11903"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-800 underline"
+                      >
+                        https://arxiv.org/abs/2201.11903
+                      </a>
+                    </p>
+                  </div>
+                </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </CardContent>
+        </Card>
       </div>
     </div>
   )
