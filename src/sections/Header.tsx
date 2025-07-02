@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
+import { Button } from '@/components/ui/button'
 import styles from '../styles/utils.module.css'
 import Sidebar from './Sidebar'
 import ActiveLink from '../components/activeLink'
@@ -21,23 +22,27 @@ const Header = () => {
     if (isMobile) {
       if (isSidebarOpen) {
         return (
-          <button
-            className={styles.themeToggleBtn}
+          <Button
+            variant="outline"
+            size="icon"
             onClick={toggleSidebar}
             aria-label="Close menu"
+            className="border"
           >
-            <XMarkIcon />
-          </button>
+            <XMarkIcon className="h-6 w-6" />
+          </Button>
         )
       } else {
         return (
-          <button
-            className={styles.themeToggleBtn}
+          <Button
+            variant="outline"
+            size="icon"
             onClick={toggleSidebar}
             aria-label="Open menu"
+            className="border"
           >
-            <Bars3Icon />
-          </button>
+            <Bars3Icon className="h-6 w-6" />
+          </Button>
         )
       }
     } else {

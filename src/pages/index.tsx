@@ -9,6 +9,7 @@ import { ReactElement } from 'react'
 import React from 'react'
 import { quotes, getRandomQuote } from '../lib/quotes'
 import { GetServerSideProps } from 'next'
+import { Button } from '@/components/ui/button'
 
 interface HomeProps {
   initialQuote: string
@@ -20,10 +21,10 @@ export default function Home({ initialQuote }: HomeProps) {
   return (
     <React.Fragment>
       <Head>
-        <title>Cooper Reed | Full Stack Developer | Co-Operability</title>
+        <title>Cooper Reed | Full Stack Engineer | Co-Operability</title>
         <meta
           name="description"
-          content="Cooper Reed - 7+ years building web applications with React, Next.js, TypeScript. Creator of open-source tools like Prompt Composer. Full stack developer who codes, writes, and interviews."
+          content="Cooper Reed - 7+ years building web applications with React, Next.js, TypeScript. Full stack engineer who codes, writes, and interviews."
         />
         <meta
           name="keywords"
@@ -80,69 +81,42 @@ export default function Home({ initialQuote }: HomeProps) {
         />
       </Head>
       <h1 className="visually-hidden">
-        Cooper Reed - Full Stack Developer Portfolio | Co-Operability
+        Cooper Reed - Full Stack Engineer Portfolio | Co-Operability
       </h1>
       <section className={styles.headingMd}>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-evenly',
-            marginTop: '20px',
-          }}
-        >
+        <div className={styles.imageContainer}>
           <Image
             priority
             src="/images/profile.jpg"
             className={styles.borderCircle}
             height={150}
             width={150}
-            alt="Cooper Reed - Full Stack Developer"
+            alt="Cooper Reed - Full Stack Engineer"
             placeholder="blur"
             blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
           />
         </div>
         <p>
-          Hi, I&apos;m <b>Cooper!</b> I&nbsp;
-          <a href="https://github.com/cooperability">code</a>
-          ,&nbsp;
-          <a href="https://cooperability.substack.com/">write</a>, and&nbsp;
-          <a href="https://www.youtube.com/@cooperability">interview</a>
-          .
-          <br />
-          To me, <b>Co-Operability</b> means long-term synergy between my career
-          ambitions and moral values.
-        </p>
-
-        <p style={{ marginTop: '20px' }}>
-          I&apos;ve spent 7 years building web apps. I open-source my{' '}
+          Hi, I&apos;m <b>Cooper!</b> To me, <b>Co-Operability</b> means
+          long-term synergy between my career ambitions and moral values. To
+          that end, I&apos;ve spent 7 years building web apps for carefully
+          selected organizations. I open-source my personal{' '}
           <Link href="/demos">tools</Link> and{' '}
           <Link href="/resources">learnings</Link>. My interviews follow the
           same spirit of independent creation, publication, and education.
         </p>
-        <div
-          style={{
-            border: '1px solid',
-            borderRadius: '30px',
-            padding: '0px 10px',
-            marginBottom: '20px',
-          }}
-        >
-          <Link
-            href="/prompt-composer"
-            style={{
-              display: 'inline-block',
-              borderRadius: '6px',
-              padding: '10px 0px',
-            }}
-          >
+
+        <Link href="/prompt-composer" className={styles.promptComposerLink}>
+          <div className={styles.promptComposerWrapper}>
             Try 🧩 Prompt Composer →
-          </Link>
-        </div>
+          </div>
+        </Link>
 
         <div className={styles.socialIconRow}>
           <b>This spoke to me:</b>
-          <button
-            className={styles.themeToggleBtn}
+          <Button
+            variant="outline"
+            size="icon"
             onClick={() => {
               const availableQuotes = quotes.filter((q) => q !== quote)
               setQuote(
@@ -154,7 +128,7 @@ export default function Home({ initialQuote }: HomeProps) {
             aria-label="Get new random quote"
           >
             <ArrowPathIcon />
-          </button>
+          </Button>
         </div>
         <span suppressHydrationWarning>{quote}</span>
       </section>

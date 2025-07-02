@@ -54,6 +54,12 @@ const Demos: React.FC = () => {
                 size="small"
               />
               <ActiveIcon
+                href="https://ui.shadcn.com/"
+                imgSrc="/images/shadcn.png"
+                alt="Shadcn logo"
+                size="small"
+              />
+              <ActiveIcon
                 href="https://vercel.com/"
                 imgSrc="/images/vercel.png"
                 alt="Vercel logo"
@@ -80,6 +86,12 @@ const Demos: React.FC = () => {
                 size="small"
                 height={25}
                 width={40}
+              />
+              <ActiveIcon
+                href="https://ui.shadcn.com/"
+                imgSrc="/images/shadcn.png"
+                alt="Shadcn logo"
+                size="small"
               />
             </div>
           </div>
@@ -231,6 +243,7 @@ const Demos: React.FC = () => {
             </a>
             <span className={styles.projectStatus}>(2025)</span>
           </p>
+          <br />
           <p>
             <a href="https://purl.stanford.edu/fh631qn1220">
               One Face, Many Names: An Investigation into Fake NGOs and Media

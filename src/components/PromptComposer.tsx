@@ -245,13 +245,8 @@
 
 import React, { useState, useMemo } from 'react'
 import { useTheme } from 'next-themes'
-import { Copy } from 'lucide-react'
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+import { Copy, Check } from 'lucide-react'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import {
   Accordion,
@@ -262,25 +257,23 @@ import {
 import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
 import { Checkbox } from '@/components/ui/checkbox'
-import {
-  RadioGroup,
-  RadioGroupItem,
-} from '@/components/ui/radio-group'
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 
 // CSS Classes for Prompt Composer
 const promptComposerStyles = {
   // Base component styles
-  container: 'container mx-auto p-4 md:p-6',
+  container: 'container mx-auto p-1 md:p-6',
   title: 'text-2xl md:text-3xl font-bold mb-2 text-gray-800',
   subtitle: 'text-gray-600 mb-4 md:mb-6 text-sm md:text-base',
-  mainLayout: 'flex flex-col lg:flex-row gap-4 md:gap-6 h-full border-solid-white rounded-full border-2 border-white',
+  mainLayout: 'flex flex-col gap-3 h-full',
+  componentGroup: 'border rounded-lg py-3 gap-1',
 
-  // Component Selector styles (formerly leftPanel)
-  categoryContainer: 'mb-4',
+  // Card styles
+  cardHeader: 'mb-1',
 
   // Category button styles
   categoryButton:
-    'flex items-center w-full p-3 text-inherit rounded-lg transition-colors duration-200 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50',
+    'flex items-center w-full text-inherit rounded-lg transition-colors duration-200 border focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50',
   categoryIcon: 'text-gray-900 mr-3 text-sm font-medium',
   categoryLabel: 'font-semibold',
 
@@ -310,17 +303,16 @@ const promptComposerStyles = {
 
   // Live Preview styles (formerly rightPanel)
   livePreviewHeader:
-    'flex flex-row sm:flex-row sm:items-center justify-between mb-3 md:mb-4 gap-2',
+    'flex text-lg font-bold flex-row sm:flex-row sm:items-center justify-between',
   copyButton:
-    'px-3 md:px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors text-sm md:text-base font-medium',
+    'px-2py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors text-sm md:text-base font-medium',
 
   // Preview styles - Updated for dark theme
-  previewContainer:
-    'border rounded-lg min-h-64 md:min-h-96 p-3 md:p-4 bg-gray-800',
+  previewContainer: 'border rounded-lg min-h-64 md:min-h-20 p-2 bg-gray-800',
   previewContent: 'space-y-3',
   previewSection: 'p-4 rounded-lg border-l-4 space-y-3',
   previewCategoryHeader: 'text-xs font-semibold uppercase tracking-wider mb-2',
-  previewComponentText: 'text-sm md:text-base text-gray-300 leading-relaxed',
+  previewComponentText: 'text-sm leading-relaxed',
 
   // Empty state styles - Updated for dark theme
   emptyState: 'text-center text-gray-400 mt-8 md:mt-12',
@@ -339,73 +331,47 @@ const promptComposerStyles = {
   costTableCellRight: 'text-right py-1 px-2',
 
   // Analysis section styles
-  analysisSection: 'mt-3 pt-2 border-t border-blue-300',
+  statsCard: 'mb-4 border rounded-lg',
+  analysisSection: 'pt-2 border-t border-blue-300',
   analysisContent: 'text-xs text-blue-600 space-y-1',
   analysisHighlight: 'ml-2 text-blue-500',
+
+  // Research documentation styles
+  researchDocumentation: 'border rounded-lg',
 }
 
 // PHASE 1: Centralized Tailwind Classes (alongside existing styles for gradual migration)
 const tw = {
   // Layout & containers
   mainContainer: 'container mx-auto p-4 md:p-6',
-  flexLayout: 'flex flex-col lg:flex-row gap-4 md:gap-6',
-  
+  flexLayout: 'flex flex-col lg:flex-row',
+
   // Typography
   title: 'text-2xl md:text-3xl font-bold mb-2 text-gray-800 dark:text-gray-100',
-  subtitle: 'text-gray-600 dark:text-gray-400 mb-4 md:mb-6 text-sm md:text-base',
-  
+  subtitle:
+    'text-gray-600 dark:text-gray-400 mb-4 md:mb-6 text-sm md:text-base',
+
   // Interactive elements
   audienceToggle: 'flex items-center justify-center space-x-2 p-3',
-  audienceLabelActive: 'text-sm font-medium text-blue-600 dark:text-blue-400 transition-colors',
-  audienceLabelInactive: 'text-sm font-medium text-gray-500 dark:text-gray-400 transition-colors',
-  
+  audienceLabelActive:
+    'text-sm font-medium text-blue-600 dark:text-blue-400 transition-colors',
+  audienceLabelInactive:
+    'text-sm font-medium text-gray-500 dark:text-gray-400 transition-colors',
+
   // Component styling
   componentLabel: 'text-sm cursor-pointer',
   componentLabelTitle: 'font-bold text-gray-800 dark:text-gray-200',
   componentLabelDescription: 'font-normal text-gray-600 dark:text-gray-400',
-  
+
   // Layout helpers
   radioCheckboxContainer: 'p-3',
   radioCheckboxItem: 'flex items-center space-x-2 mb-2',
-  
-  // Statistics
-  statsGrid: 'grid grid-cols-3 gap-4 text-center',
-  statsWord: 'text-lg font-bold text-green-600 dark:text-green-400',
-  statsComponent: 'text-lg font-bold text-blue-600 dark:text-blue-400',
-  statsCategory: 'text-lg font-bold text-purple-600 dark:text-purple-400',
-}
 
-// Theme-aware color utilities using Tailwind
-const getCategoryTailwindColors = (category: string, isDark: boolean = false) => {
-  const colorMap = {
-    role: isDark 
-      ? { bg: 'bg-blue-900/30', border: 'border-blue-400', text: 'text-blue-400' }
-      : { bg: 'bg-blue-50', border: 'border-blue-500', text: 'text-blue-600' },
-    audience: isDark
-      ? { bg: 'bg-pink-900/30', border: 'border-pink-400', text: 'text-pink-400' }
-      : { bg: 'bg-pink-50', border: 'border-pink-500', text: 'text-pink-600' },
-    context: isDark
-      ? { bg: 'bg-green-900/30', border: 'border-green-400', text: 'text-green-400' }
-      : { bg: 'bg-green-50', border: 'border-green-500', text: 'text-green-600' },
-    reasoning: isDark
-      ? { bg: 'bg-yellow-900/30', border: 'border-yellow-400', text: 'text-yellow-400' }
-      : { bg: 'bg-yellow-50', border: 'border-yellow-500', text: 'text-yellow-600' },
-    output: isDark
-      ? { bg: 'bg-orange-900/30', border: 'border-orange-400', text: 'text-orange-400' }
-      : { bg: 'bg-orange-50', border: 'border-orange-500', text: 'text-orange-600' },
-    constraints: isDark
-      ? { bg: 'bg-purple-900/30', border: 'border-purple-400', text: 'text-purple-400' }
-      : { bg: 'bg-purple-50', border: 'border-purple-500', text: 'text-purple-600' },
-    meta: isDark
-      ? { bg: 'bg-cyan-900/30', border: 'border-cyan-400', text: 'text-cyan-400' }
-      : { bg: 'bg-cyan-50', border: 'border-cyan-500', text: 'text-cyan-600' },
-  }
-  
-  return colorMap[category as keyof typeof colorMap] || {
-    bg: isDark ? 'bg-gray-800' : 'bg-gray-50',
-    border: isDark ? 'border-gray-600' : 'border-gray-300', 
-    text: isDark ? 'text-gray-400' : 'text-gray-600'
-  }
+  // Statistics
+  statsGrid: 'grid grid-cols-3 gap-4 text-center font-bold',
+  statsWord: 'text-md text-green-600 dark:text-green-400',
+  statsComponent: 'text-md text-blue-600 dark:text-blue-400',
+  statsCategory: 'text-md text-purple-600 dark:text-purple-400',
 }
 
 // Prompt components with research-backed categorization
@@ -727,6 +693,8 @@ interface PromptComposerProps {
 const PromptComposer: React.FC<PromptComposerProps> = ({ className }) => {
   const { theme } = useTheme()
   const isLightMode = theme === 'light'
+  // State to manage copy feedback
+  const [copied, setCopied] = useState(false)
 
   const [selectedComponents, setSelectedComponents] = useState<Set<string>>(
     new Set()
@@ -771,7 +739,9 @@ const PromptComposer: React.FC<PromptComposerProps> = ({ className }) => {
   const copyToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(compiledPrompt)
-      // Could add toast notification here
+      setCopied(true)
+      // Revert icon/text after a short delay
+      setTimeout(() => setCopied(false), 1500)
     } catch (err) {
       console.error('Failed to copy text: ', err)
     }
@@ -950,21 +920,23 @@ const PromptComposer: React.FC<PromptComposerProps> = ({ className }) => {
   return (
     <div className={`${promptComposerStyles.container} ${className || ''}`}>
       {/* Header */}
-      <div className="text-center mb-6 md:mb-8">
+      <div className="text-center">
         <h1 className={promptComposerStyles.title} style={{ color: 'inherit' }}>
-          Prompt Composer
+          🧩 Prompt Composer
         </h1>
         <p className={promptComposerStyles.subtitle}>
-          Research-backed modular construction for maximally effective prompts.
+          Research-backed modular construction for optimized prompts.
         </p>
       </div>
 
       {/* Main Layout */}
       <div className={promptComposerStyles.mainLayout}>
         {/* Component Selector Panel (formerly Left Panel) */}
-        <Card>
-          <CardHeader>
-            <CardTitle><h3 className='text-lg font-bold'>Prompt Components</h3></CardTitle>
+        <Card className={promptComposerStyles.componentGroup}>
+          <CardHeader className={promptComposerStyles.cardHeader}>
+            <CardTitle>
+              <h3 className="text-lg font-bold">Prompt Components</h3>
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <Accordion type="multiple" className="w-full">
@@ -975,14 +947,16 @@ const PromptComposer: React.FC<PromptComposerProps> = ({ className }) => {
                   className="mb-2 rounded-lg"
                 >
                   <AccordionTrigger
-                    className={promptComposerStyles.categoryButton}
-                    style={{
-                      backgroundColor: getCurrentCategoryColor(category),
-                      border: `1px solid ${getCategoryBorderColor(category)}`,
-                      width: '100%',
-                      padding: '10px 0 5px 0',
-                      display: 'flex',
-                    }}
+                    className={`${promptComposerStyles.categoryButton} bg-[var(--bg)] border-[var(--bc)]`}
+                    style={
+                      {
+                        '--bg': getCurrentCategoryColor(category),
+                        '--bc': getCategoryBorderColor(category),
+                        width: '100%',
+                        padding: '10px 0 5px 0',
+                        display: 'flex',
+                      } as React.CSSProperties
+                    }
                   >
                     <div className="flex items-center">
                       <span className={promptComposerStyles.categoryIcon}>
@@ -1012,9 +986,7 @@ const PromptComposer: React.FC<PromptComposerProps> = ({ className }) => {
                             backgroundColor: getCurrentCategoryColor(category),
                           }}
                         />
-                        <div
-                          className={promptComposerStyles.componentsWrapper}
-                        >
+                        <div className={promptComposerStyles.componentsWrapper}>
                           {/* Handle audience toggle separately */}
                           {category === 'audience' && (
                             <div
@@ -1035,6 +1007,7 @@ const PromptComposer: React.FC<PromptComposerProps> = ({ className }) => {
                                   id="audience-switch"
                                   checked={audienceToggle === 'technical'}
                                   onCheckedChange={handleAudienceToggle}
+                                  className="data-[state=unchecked]:bg-gray-300 data-[state=checked]:bg-gray-900 [&_[data-slot=switch-thumb]]:bg-white"
                                 />
                                 <Label
                                   htmlFor="audience-switch"
@@ -1052,60 +1025,108 @@ const PromptComposer: React.FC<PromptComposerProps> = ({ className }) => {
 
                           {/* Regular components */}
                           {(() => {
-                            const categoryComponents = groupedComponents[category] || []
-                            const radioGroups: { [key: string]: typeof categoryComponents } = {}
-                            const checkboxComponents: typeof categoryComponents = []
-                            
+                            const categoryComponents =
+                              groupedComponents[category] || []
+                            const radioGroups: {
+                              [key: string]: typeof categoryComponents
+                            } = {}
+                            const checkboxComponents: typeof categoryComponents =
+                              []
+
                             // Separate radio and checkbox components
-                            categoryComponents.forEach(component => {
-                              if (component.inputType === 'radio' && component.radioGroup) {
+                            categoryComponents.forEach((component) => {
+                              if (
+                                component.inputType === 'radio' &&
+                                component.radioGroup
+                              ) {
                                 if (!radioGroups[component.radioGroup]) {
                                   radioGroups[component.radioGroup] = []
                                 }
-                                radioGroups[component.radioGroup].push(component)
+                                radioGroups[component.radioGroup].push(
+                                  component
+                                )
                               } else if (component.inputType === 'checkbox') {
                                 checkboxComponents.push(component)
                               }
                             })
-                            
+
                             return (
                               <>
                                 {/* Render RadioGroups */}
-                                {Object.entries(radioGroups).map(([groupName, groupComponents]) => (
-                                  <div key={groupName} className={promptComposerStyles.componentWrapper}>
-                                    <div className={tw.radioCheckboxContainer}>
-                                      <RadioGroup
-                                        value={groupComponents.find(comp => selectedComponents.has(comp.id))?.id || ''}
-                                        onValueChange={(value) => {
-                                          const component = groupComponents.find(comp => comp.id === value)
-                                          if (component) {
-                                            toggleComponent(component.id, component.inputType, component.radioGroup)
-                                          }
-                                        }}
+                                {Object.entries(radioGroups).map(
+                                  ([groupName, groupComponents]) => (
+                                    <div
+                                      key={groupName}
+                                      className={
+                                        promptComposerStyles.componentWrapper
+                                      }
+                                    >
+                                      <div
+                                        className={tw.radioCheckboxContainer}
                                       >
-                                        {groupComponents.map((component) => (
-                                          <div key={component.id} className={tw.radioCheckboxItem}>
-                                            <RadioGroupItem value={component.id} id={component.id} />
-                                            <Label htmlFor={component.id} className={tw.componentLabel}>
-                                              <span className={tw.componentLabelTitle}>
-                                                {component.label}:&nbsp;
-                                              </span>
-                                              <span className={tw.componentLabelDescription}>
-                                                {component.description}
-                                              </span>
-                                            </Label>
-                                          </div>
-                                        ))}
-                                      </RadioGroup>
+                                        <RadioGroup
+                                          value={
+                                            groupComponents.find((comp) =>
+                                              selectedComponents.has(comp.id)
+                                            )?.id || ''
+                                          }
+                                          onValueChange={(value) => {
+                                            const component =
+                                              groupComponents.find(
+                                                (comp) => comp.id === value
+                                              )
+                                            if (component) {
+                                              toggleComponent(
+                                                component.id,
+                                                component.inputType,
+                                                component.radioGroup
+                                              )
+                                            }
+                                          }}
+                                        >
+                                          {groupComponents.map((component) => (
+                                            <div
+                                              key={component.id}
+                                              className={tw.radioCheckboxItem}
+                                            >
+                                              <RadioGroupItem
+                                                value={component.id}
+                                                id={component.id}
+                                              />
+                                              <Label
+                                                htmlFor={component.id}
+                                                className={tw.componentLabel}
+                                              >
+                                                <span
+                                                  className={
+                                                    tw.componentLabelTitle
+                                                  }
+                                                >
+                                                  {component.label}:&nbsp;
+                                                </span>
+                                                <span
+                                                  className={
+                                                    tw.componentLabelDescription
+                                                  }
+                                                >
+                                                  {component.description}
+                                                </span>
+                                              </Label>
+                                            </div>
+                                          ))}
+                                        </RadioGroup>
+                                      </div>
                                     </div>
-                                  </div>
-                                ))}
-                                
+                                  )
+                                )}
+
                                 {/* Render Checkbox components */}
                                 {checkboxComponents.map((component) => (
                                   <div
                                     key={component.id}
-                                    className={promptComposerStyles.componentWrapper}
+                                    className={
+                                      promptComposerStyles.componentWrapper
+                                    }
                                   >
                                     <div className={tw.radioCheckboxContainer}>
                                       <Checkbox
@@ -1124,10 +1145,16 @@ const PromptComposer: React.FC<PromptComposerProps> = ({ className }) => {
                                         htmlFor={component.id}
                                         className={tw.componentLabel}
                                       >
-                                        <span className={tw.componentLabelTitle}>
+                                        <span
+                                          className={tw.componentLabelTitle}
+                                        >
                                           {component.label}:&nbsp;
                                         </span>
-                                        <span className={tw.componentLabelDescription}>
+                                        <span
+                                          className={
+                                            tw.componentLabelDescription
+                                          }
+                                        >
                                           {component.description}
                                         </span>
                                       </Label>
@@ -1148,16 +1175,21 @@ const PromptComposer: React.FC<PromptComposerProps> = ({ className }) => {
         </Card>
 
         {/* Live Preview Panel (formerly Right Panel) */}
-        <Card className="lg:w-3/5">
+        <Card className={promptComposerStyles.componentGroup}>
           <CardHeader>
             <div className={promptComposerStyles.livePreviewHeader}>
               <CardTitle>Compiled Prompt</CardTitle>
               <Button
                 onClick={copyToClipboard}
                 disabled={!compiledPrompt.trim()}
+                variant="outline"
               >
-                <Copy className="mr-2 h-4 w-4" />
-                Copy
+                {copied ? (
+                  <Check className="mr-2 h-4 w-4 text-green-600" />
+                ) : (
+                  <Copy className="mr-2 h-4 w-4" />
+                )}
+                {copied ? 'Copied!' : 'Copy'}
               </Button>
             </div>
           </CardHeader>
@@ -1191,12 +1223,14 @@ const PromptComposer: React.FC<PromptComposerProps> = ({ className }) => {
                         }}
                       >
                         <div
-                          className={
-                            promptComposerStyles.previewCategoryHeader
-                          }
+                          className={promptComposerStyles.previewCategoryHeader}
                           style={{ color: getCategoryBorderColor(category) }}
                         >
-                          {categoryIcons[category as keyof typeof categoryIcons]}{' '}
+                          {
+                            categoryIcons[
+                              category as keyof typeof categoryIcons
+                            ]
+                          }{' '}
                           {label}
                         </div>
                         {hasAudienceContent && (
@@ -1239,7 +1273,7 @@ const PromptComposer: React.FC<PromptComposerProps> = ({ className }) => {
             {/* Enhanced Statistics & Analysis */}
             <div className="mt-6">
               {/* Statistics Card */}
-              <Card className="mb-4">
+              <Card className={promptComposerStyles.statsCard}>
                 <CardHeader>
                   <CardTitle className="text-sm font-semibold flex items-center">
                     📊 Prompt Statistics
@@ -1269,210 +1303,218 @@ const PromptComposer: React.FC<PromptComposerProps> = ({ className }) => {
 
             {/* Research-Based Design Documentation */}
             <Accordion type="single" collapsible className="w-full">
-              <AccordionItem value="research-documentation">
-                <AccordionTrigger>
+              <AccordionItem
+                value="research-documentation"
+                className={promptComposerStyles.researchDocumentation}
+              >
+                <AccordionTrigger
+                  className={promptComposerStyles.categoryButton}
+                >
                   🔬 Research-Backed Design Documentation
                 </AccordionTrigger>
                 <AccordionContent>
                   <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                    Design Philosophy & Research Foundation
-                  </h4>
-                  <p>
-                    This Prompt Composer integrates research in LLM effectiveness
-                    and UI/UX design.
-                    <strong> Radio buttons</strong> are used for mutually
-                    exclusive choices (role specification, reasoning strategy)
-                    because research shows conflicting instructions can reduce
-                    LLM performance.
-                    <strong> Checkboxes</strong> enable beneficial component
-                    combinations for context, output formatting, and
-                    constraints. The <strong>binary toggle</strong> for audience
-                    targeting follows established UX patterns and reflects the
-                    fundamental technical/non-technical communication divide.
-                    Component ordering follows task decomposition research
-                    showing role → context → reasoning → output → constraints as
-                    the optimal sequence for LLM comprehension.
-                  </p>
-                </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                        Design Philosophy & Research Foundation
+                      </h4>
+                      <p>
+                        This Prompt Composer integrates research in LLM
+                        effectiveness and UI/UX design.
+                        <strong> Radio buttons</strong> are used for mutually
+                        exclusive choices (role specification, reasoning
+                        strategy) because research shows conflicting
+                        instructions can reduce LLM performance.
+                        <strong> Checkboxes</strong> enable beneficial component
+                        combinations for context, output formatting, and
+                        constraints. The <strong>binary toggle</strong> for
+                        audience targeting follows established UX patterns and
+                        reflects the fundamental technical/non-technical
+                        communication divide. Component ordering follows task
+                        decomposition research showing role → context →
+                        reasoning → output → constraints as the optimal sequence
+                        for LLM comprehension.
+                      </p>
+                    </div>
 
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                    Evidence-Based Component Categories
-                  </h4>
-                  <p>
-                    Each category represents a distinct cognitive function based
-                    on prompt engineering research:
-                    <strong>Role Specification</strong> establishes the AI
-                    persona, <strong>Context Provision</strong> leverages
-                    few-shot learning principles,{' '}
-                    <strong>Reasoning Strategy</strong> applies chain-of-thought
-                    research for complex tasks,{' '}
-                    <strong>Output Instructions</strong> ensure structured
-                    responses, <strong>Constraints</strong> maintain focus, and{' '}
-                    <strong>Meta-Prompt Enhancements</strong> enable
-                    self-improvement capabilities.
-                  </p>
-                </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                        Evidence-Based Component Categories
+                      </h4>
+                      <p>
+                        Each category represents a distinct cognitive function
+                        based on prompt engineering research:
+                        <strong>Role Specification</strong> establishes the AI
+                        persona, <strong>Context Provision</strong> leverages
+                        few-shot learning principles,{' '}
+                        <strong>Reasoning Strategy</strong> applies
+                        chain-of-thought research for complex tasks,{' '}
+                        <strong>Output Instructions</strong> ensure structured
+                        responses, <strong>Constraints</strong> maintain focus,
+                        and <strong>Meta-Prompt Enhancements</strong> enable
+                        self-improvement capabilities.
+                      </p>
+                    </div>
 
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                    UI/UX Component Selection Strategy
-                  </h4>
-                  <p>
-                    The interface design follows established usability
-                    principles: radio buttons for mutually exclusive cognitive
-                    roles prevent conflicting instructions, toggle switches for
-                    binary states provide immediate visual feedback, and
-                    checkboxes for additive elements allow beneficial layering
-                    of context and constraints. Visual hierarchy and color
-                    coding reduce cognitive load while maintaining accessibility
-                    standards.
-                  </p>
-                </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                        UI/UX Component Selection Strategy
+                      </h4>
+                      <p>
+                        The interface design follows established usability
+                        principles: radio buttons for mutually exclusive
+                        cognitive roles prevent conflicting instructions, toggle
+                        switches for binary states provide immediate visual
+                        feedback, and checkboxes for additive elements allow
+                        beneficial layering of context and constraints. Visual
+                        hierarchy and color coding reduce cognitive load while
+                        maintaining accessibility standards.
+                      </p>
+                    </div>
 
-                <div className="border-t border-gray-200 dark:border-gray-600 pt-4">
-                  <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">
-                    References
-                  </h4>
-                  <div className="text-xs space-y-2 text-gray-600 dark:text-gray-400">
-                    <p>
-                      Brown, T., Mann, B., Ryder, N., Subbiah, M., Kaplan, J.
-                      D., Dhariwal, P., ... & Amodei, D. (2020). Language models
-                      are few-shot learners.{' '}
-                      <em>
-                        Advances in Neural Information Processing Systems
-                      </em>
-                      , 33, 1877-1901. Available:{' '}
-                      <a
-                        href="https://arxiv.org/abs/2005.14165"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-800 underline"
-                      >
-                        https://arxiv.org/abs/2005.14165
-                      </a>
-                    </p>
+                    <div className="border-t border-gray-200 dark:border-gray-600 pt-4">
+                      <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">
+                        References
+                      </h4>
+                      <div className="text-xs space-y-2 text-gray-600 dark:text-gray-400">
+                        <p>
+                          Brown, T., Mann, B., Ryder, N., Subbiah, M., Kaplan,
+                          J. D., Dhariwal, P., ... & Amodei, D. (2020). Language
+                          models are few-shot learners.{' '}
+                          <em>
+                            Advances in Neural Information Processing Systems
+                          </em>
+                          , 33, 1877-1901. Available:{' '}
+                          <a
+                            href="https://arxiv.org/abs/2005.14165"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:text-blue-800 underline"
+                          >
+                            https://arxiv.org/abs/2005.14165
+                          </a>
+                        </p>
 
-                    <p>
-                      Khot, T., Trivedi, H., Finlayson, M., Sabharwal, A., &
-                      Clark, P. (2023). Decomposed prompting: A modular
-                      approach for solving complex tasks.{' '}
-                      <em>
-                        Proceedings of the International Conference on Learning
-                        Representations
-                      </em>
-                      . Available:{' '}
-                      <a
-                        href="https://arxiv.org/abs/2210.02406"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-800 underline"
-                      >
-                        https://arxiv.org/abs/2210.02406
-                      </a>
-                    </p>
+                        <p>
+                          Khot, T., Trivedi, H., Finlayson, M., Sabharwal, A., &
+                          Clark, P. (2023). Decomposed prompting: A modular
+                          approach for solving complex tasks.{' '}
+                          <em>
+                            Proceedings of the International Conference on
+                            Learning Representations
+                          </em>
+                          . Available:{' '}
+                          <a
+                            href="https://arxiv.org/abs/2210.02406"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:text-blue-800 underline"
+                          >
+                            https://arxiv.org/abs/2210.02406
+                          </a>
+                        </p>
 
-                    <p>
-                      Lu, Y., Bartolo, M., Moore, A., Riedel, S., & Stenetorp,
-                      P. (2022). Fantastically ordered prompts and where to
-                      find them: Overcoming few-shot prompt order sensitivity.{' '}
-                      <em>
-                        Proceedings of the 60th Annual Meeting of the
-                        Association for Computational Linguistics
-                      </em>
-                      , 1, 8086-8098. Available:{' '}
-                      <a
-                        href="https://arxiv.org/abs/2104.08786"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-800 underline"
-                      >
-                        https://arxiv.org/abs/2104.08786
-                      </a>
-                    </p>
+                        <p>
+                          Lu, Y., Bartolo, M., Moore, A., Riedel, S., &
+                          Stenetorp, P. (2022). Fantastically ordered prompts
+                          and where to find them: Overcoming few-shot prompt
+                          order sensitivity.{' '}
+                          <em>
+                            Proceedings of the 60th Annual Meeting of the
+                            Association for Computational Linguistics
+                          </em>
+                          , 1, 8086-8098. Available:{' '}
+                          <a
+                            href="https://arxiv.org/abs/2104.08786"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:text-blue-800 underline"
+                          >
+                            https://arxiv.org/abs/2104.08786
+                          </a>
+                        </p>
 
-                    <p>
-                      Min, S., Lyu, X., Holtzman, A., Artetxe, M., Lewis, M.,
-                      Hajishirzi, H., & Zettlemoyer, L. (2022). Rethinking the
-                      role of demonstrations: What makes in-context learning
-                      work?{' '}
-                      <em>
-                        Proceedings of the 2022 Conference on Empirical Methods
-                        in Natural Language Processing
-                      </em>
-                      , 11048-11064. Available:{' '}
-                      <a
-                        href="https://arxiv.org/abs/2202.12837"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-800 underline"
-                      >
-                        https://arxiv.org/abs/2202.12837
-                      </a>
-                    </p>
+                        <p>
+                          Min, S., Lyu, X., Holtzman, A., Artetxe, M., Lewis,
+                          M., Hajishirzi, H., & Zettlemoyer, L. (2022).
+                          Rethinking the role of demonstrations: What makes
+                          in-context learning work?{' '}
+                          <em>
+                            Proceedings of the 2022 Conference on Empirical
+                            Methods in Natural Language Processing
+                          </em>
+                          , 11048-11064. Available:{' '}
+                          <a
+                            href="https://arxiv.org/abs/2202.12837"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:text-blue-800 underline"
+                          >
+                            https://arxiv.org/abs/2202.12837
+                          </a>
+                        </p>
 
-                    <p>
-                      Nielsen, J., & Budiu, R. (2012).{' '}
-                      <em>Mobile usability</em>. New Riders Publishing.
-                      Available:{' '}
-                      <a
-                        href="https://www.nngroup.com/books/mobile-usability/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-800 underline"
-                      >
-                        https://www.nngroup.com/books/mobile-usability/
-                      </a>
-                    </p>
+                        <p>
+                          Nielsen, J., & Budiu, R. (2012).{' '}
+                          <em>Mobile usability</em>. New Riders Publishing.
+                          Available:{' '}
+                          <a
+                            href="https://www.nngroup.com/books/mobile-usability/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:text-blue-800 underline"
+                          >
+                            https://www.nngroup.com/books/mobile-usability/
+                          </a>
+                        </p>
 
-                    <p>
-                      Tullis, T., & Albert, B. (2013).{' '}
-                      <em>
-                        Measuring the user experience: Collecting, analyzing,
-                        and presenting usability metrics
-                      </em>
-                      . Morgan Kaufmann.
-                    </p>
+                        <p>
+                          Tullis, T., & Albert, B. (2013).{' '}
+                          <em>
+                            Measuring the user experience: Collecting,
+                            analyzing, and presenting usability metrics
+                          </em>
+                          . Morgan Kaufmann.
+                        </p>
 
-                    <p>
-                      Wang, X., Wei, J., Schuurmans, D., Le, Q., Chi, E.,
-                      Narang, S., ... & Zhou, D. (2023). Self-consistency
-                      improves chain of thought reasoning in language models.{' '}
-                      <em>
-                        International Conference on Learning Representations
-                      </em>
-                      . Available:{' '}
-                      <a
-                        href="https://arxiv.org/abs/2203.11171"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-800 underline"
-                      >
-                        https://arxiv.org/abs/2203.11171
-                      </a>
-                    </p>
+                        <p>
+                          Wang, X., Wei, J., Schuurmans, D., Le, Q., Chi, E.,
+                          Narang, S., ... & Zhou, D. (2023). Self-consistency
+                          improves chain of thought reasoning in language
+                          models.{' '}
+                          <em>
+                            International Conference on Learning Representations
+                          </em>
+                          . Available:{' '}
+                          <a
+                            href="https://arxiv.org/abs/2203.11171"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:text-blue-800 underline"
+                          >
+                            https://arxiv.org/abs/2203.11171
+                          </a>
+                        </p>
 
-                    <p>
-                      Wei, J., Wang, X., Schuurmans, D., Bosma, M., Chi, E.,
-                      Le, Q. V., ... & Zhou, D. (2022). Chain-of-thought
-                      prompting elicits reasoning in large language models.{' '}
-                      <em>
-                        Advances in Neural Information Processing Systems
-                      </em>
-                      , 35, 24824-24837. Available:{' '}
-                      <a
-                        href="https://arxiv.org/abs/2201.11903"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-800 underline"
-                      >
-                        https://arxiv.org/abs/2201.11903
-                      </a>
-                    </p>
-                  </div>
-                </div>
+                        <p>
+                          Wei, J., Wang, X., Schuurmans, D., Bosma, M., Chi, E.,
+                          Le, Q. V., ... & Zhou, D. (2022). Chain-of-thought
+                          prompting elicits reasoning in large language models.{' '}
+                          <em>
+                            Advances in Neural Information Processing Systems
+                          </em>
+                          , 35, 24824-24837. Available:{' '}
+                          <a
+                            href="https://arxiv.org/abs/2201.11903"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:text-blue-800 underline"
+                          >
+                            https://arxiv.org/abs/2201.11903
+                          </a>
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </AccordionContent>
               </AccordionItem>
