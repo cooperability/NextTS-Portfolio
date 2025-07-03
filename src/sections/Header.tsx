@@ -1,12 +1,14 @@
 'use client'
 import { useState } from 'react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
+import { Bars3Icon } from '@heroicons/react/24/solid'
 import { Button } from '@/components/ui/button'
 import styles from '../styles/utils.module.css'
 import Sidebar from './Sidebar'
 import ActiveLink from '../components/activeLink'
 import ThemeSwitch from '../components/ThemeSwitch'
 import { useResponsive } from '../hooks/useResponsive'
+import Image from 'next/image'
+import Link from 'next/link'
 
 const resumeUrl =
   'https://docs.google.com/document/d/15wtKG9juJMYQOI793LvNYMfmeu7hyErO4xWixkTrSHI/edit?usp=sharing'
@@ -20,31 +22,17 @@ const Header = () => {
 
   const navigator = () => {
     if (isMobile) {
-      if (isSidebarOpen) {
-        return (
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={toggleSidebar}
-            aria-label="Close menu"
-            className="border"
-          >
-            <XMarkIcon className="h-6 w-6" />
-          </Button>
-        )
-      } else {
-        return (
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={toggleSidebar}
-            aria-label="Open menu"
-            className="border"
-          >
-            <Bars3Icon className="h-6 w-6" />
-          </Button>
-        )
-      }
+      return (
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={toggleSidebar}
+          aria-label="Open menu"
+          className="border"
+        >
+          <Bars3Icon className="h-6 w-6" />
+        </Button>
+      )
     } else {
       return (
         <div className="flex flex-row space-between">
@@ -87,6 +75,7 @@ const Header = () => {
       <div className={styles.Header} suppressHydrationWarning>
         <Sidebar
           isOpen={isSidebarOpen}
+          toggleSidebar={toggleSidebar}
           resumeUrl={isMobile ? resumeUrl : undefined}
           allLinksUrl={isMobile ? allLinksUrl : undefined}
           privacyStatementUrl={isMobile ? privacyStatementUrl : undefined}
@@ -94,14 +83,39 @@ const Header = () => {
             isMobile ? accessibilityStatementUrl : undefined
           }
         />
-        <nav
-          className={styles.navbar}
-          aria-label="Main navigation"
-          suppressHydrationWarning
-        >
-          {navigator()}
-        </nav>
-        {renderThemeChanger()}
+        <Link href="/">
+          <Image
+            src="/images/operamini.png"
+            alt="Logo"
+            height={50}
+            width={50}
+          />
+        </Link>
+        {isMobile ? (
+          <>
+            <div className="flex flex-row gap-3">
+              {renderThemeChanger()}
+              <nav
+                className={styles.navbar}
+                aria-label="Main navigation"
+                suppressHydrationWarning
+              >
+                {navigator()}
+              </nav>
+            </div>
+          </>
+        ) : (
+          <>
+            <nav
+              className={styles.navbar}
+              aria-label="Main navigation"
+              suppressHydrationWarning
+            >
+              {navigator()}
+            </nav>
+            {renderThemeChanger()}
+          </>
+        )}
       </div>
       <div className={styles.horizLine} />
     </div>

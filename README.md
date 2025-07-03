@@ -78,6 +78,8 @@ My Next.js portfolio website, running on Vercel. I'm parting with IPFS because i
 [Vercel Observability](https://vercel.com/docs/observability); [Vercel Analytics](https://vercel.com/docs/analytics)
 [Jest Testing in Next.js](https://nextjs.org/docs/pages/guides/testing/jest)
 
+#Abandon all hope ye who read below here
+
 ## Key Learnings from Recent Development (MDX, Theming, Layouts)
 
 1. **Date Sorting Implementation:**
