@@ -92,6 +92,10 @@
   color: inherit;
 }
 
+.navLink:link {
+  color: inherit;
+}
+
 .boldLink {
   font-weight: bold;
 }
@@ -272,6 +276,18 @@
     align-items: flex-start;
     border-bottom: 1px solid #333;
   }
+  .subProjects {
+    width: 100%;
+    flex-direction: column;
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+  }
+
+  .subProjectItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
   .projectInfo {
     margin-right: 0;
@@ -307,6 +323,7 @@
 .sidebar {
   position: fixed;
   top: 0;
+  padding-top: 3rem;
   right: -300px;
   /* Start off-screen */
   width: 300px;
@@ -427,4 +444,31 @@
 
 .arrowDown {
   transform: rotate(90deg);
+}
+
+.subProjects {
+  width: 100%;
+  margin-left: 1.5rem;
+  padding-top: 0.5rem;
+  padding-left: 0.5rem;
+  border-left: 1px solid #666;
+  display: flex;
+  flex-direction: column;
+}
+
+.subProjectItem {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.subProjectItem:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 570px) {
+  .subProjects {
+    margin-left: 1rem;
+    padding-left: 0.75rem;
+  }
 }

@@ -9,7 +9,6 @@ import Head from 'next/head'
 import Date from '../../components/date'
 import utilStyles from '../../styles/utils.module.css'
 import ToggleDropdown from '../../components/ToggleDropdown'
-import PromptComposer from '../../components/PromptComposer'
 
 interface MdxFrontMatterData {
   title: string
@@ -29,22 +28,6 @@ const components = {
 }
 
 export default function PostPage({ source, frontMatter }: Props) {
-  // Temporarily redirect LLMPrompts to PromptComposer
-  if (frontMatter.title === '📝 LLM Prompts') {
-    return (
-      <Layout home>
-        <Head>
-          <title>🧩 Prompt Composer | Cooper Reed | Co-Operability</title>
-          <meta
-            name="description"
-            content="Build modular prompts by selecting components. See how they combine in real-time."
-          />
-        </Head>
-        <PromptComposer />
-      </Layout>
-    )
-  }
-
   return (
     <Layout home>
       <Head>

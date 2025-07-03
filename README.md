@@ -8,7 +8,7 @@ My Next.js portfolio website, running on Vercel. I'm parting with IPFS because i
 - SEO; site:cooperability.com
 
 ## Linting, Formatting, and Testing
-TEST CHANGE FOR LINEAR
+
 - **Automation**: `husky` and `lint-staged` automatically run a pre-commit lint, format, and test of staged files.
 - **Available Scripts:**
 - `yarn dev`: Runs `next dev`, starting the local server
@@ -77,6 +77,8 @@ TEST CHANGE FOR LINEAR
 [something to explain mobile compatibility](https://en.wikipedia.org/wiki/Web_Compatibility_Test_for_Mobile_Browsers)
 [Vercel Observability](https://vercel.com/docs/observability); [Vercel Analytics](https://vercel.com/docs/analytics)
 [Jest Testing in Next.js](https://nextjs.org/docs/pages/guides/testing/jest)
+
+#Abandon all hope ye who read below here
 
 ## Key Learnings from Recent Development (MDX, Theming, Layouts)
 

@@ -2,9 +2,12 @@ import React from 'react'
 import styles from '../styles/utils.module.css'
 import ActiveLink from '../components/activeLink'
 import { useTheme } from 'next-themes'
+import { XMarkIcon } from '@heroicons/react/24/solid'
+import { Button } from '@/components/ui/button'
 
 interface SidebarProps {
   isOpen: boolean
+  toggleSidebar: () => void
   resumeUrl?: string
   allLinksUrl?: string
   privacyStatementUrl?: string
@@ -13,6 +16,7 @@ interface SidebarProps {
 
 const Sidebar = ({
   isOpen,
+  toggleSidebar,
   resumeUrl,
   allLinksUrl,
   privacyStatementUrl,
@@ -27,6 +31,16 @@ const Sidebar = ({
     <div
       className={`${styles.sidebar} ${isOpen ? styles.open : ''} ${sidebarThemeClass}`}
     >
+      {isOpen && (
+        <Button
+          onClick={toggleSidebar}
+          aria-label="Close menu"
+          className="absolute top-12 right-3 border rounded-md p-1 bg-transparent"
+        >
+          <XMarkIcon className="h-5 w-5" />
+        </Button>
+      )}
+
       <nav className={styles.sidebarNav} aria-label="Sidebar navigation">
         <ActiveLink
           className={styles.navLink}
