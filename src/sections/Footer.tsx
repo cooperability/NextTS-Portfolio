@@ -55,7 +55,7 @@ const Footer = () => {
             }}
           >
             <a
-              href="https://drive.google.com/file/d/1zTNSgOx9RN_yy8iJDUW9cGcbgS-aJ_OB/view?usp=sharing"
+              href="https://drive.google.com/file/d/1Y8JfJyflV93cD_Kw7mFrRLN7qSmyeCo0/view?usp=sharing"
               style={{
                 textDecoration: 'underline',
                 textUnderlineOffset: '2px',
