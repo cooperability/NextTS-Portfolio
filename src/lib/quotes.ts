@@ -18,13 +18,14 @@ export const quotes = [
   '"The only way to deal with the future is to be really present." -Alan Watts',
   '"There are decades where nothing happens; and there are weeks where decades happen." – Vladimir Ilyich Lenin',
   '"We don\'t hope. We plan." -Reverend Mother Mohian, Dune',
-  '"Risk is what\'s left over when you think you\'ve thought of everything." - Carl Richards, The Behavior Gap',
+  '"Risk is what\'s left over when you think you\'ve thought of everything." - Carl Richards, "The Behavior Gap"',
   '"Pride is not the opposite of shame, but its source. True humility is the only antidote to shame." - Uncle Iroh, Avatar: The Last Airbender',
   "\"Masculine means you go to work, you support your family, you help out your neighbors – that's masculine, that's machismo. We got it screwed up, thinking we're supposed to be warriors. No, we're not, we're supposed to be caretakers.\" -Danny Trejo",
   '"We judge ourselves by what we feel capable of doing, while others judge us by what we have already done." -Henry Wadsworth Longfellow',
   '"In a world where the big fish eat small fish and the small fish eat shrimps, Singapore must become a poisonous shrimp." -Lee Kuan Yew',
   '"No matter how far you have gone down a wrong road, turn back." -Turkish Proverb',
   '"It is impossible for a man to learn what he thinks he already knows." -Epictetus',
+  'You do not rise to the level of your goals. You fall to the level of your systems." -James Clear, "Atomic Habits"',
 ]
 
 export function getRandomQuote(): string {
