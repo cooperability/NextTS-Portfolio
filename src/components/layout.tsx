@@ -20,6 +20,15 @@ export default function Layout({
           <html lang="en" />
           <title>Cooper Reed | Co-Operability</title>
           <link rel="icon" type="image/ico" href="/icon.ico" />
+          <link rel="manifest" href="/icons/site.webmanifest" />
+          <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+          <meta name="theme-color" content="#ffffff" />
+          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="default"
+          />
+          <meta name="apple-mobile-web-app-title" content="Co-Operability" />
           <meta name="og:title" content={siteTitle} />
           <meta name="description" content="Cooper's portfolio website" />
         </Head>
