@@ -1300,9 +1300,12 @@ const PromptComposer: React.FC<PromptComposerProps> = ({ className }) => {
                 </CardContent>
               </Card>
             </div>
-
+          </CardContent>
+        </Card>
+        <Card>
+          <div className={promptComposerStyles.previewContent}>
             {/* Research-Based Design Documentation */}
-            <Accordion type="single" collapsible className="w-full">
+            <Accordion type="single" collapsible-classname="w-full">
               <AccordionItem
                 value="research-documentation"
                 className={promptComposerStyles.researchDocumentation}
@@ -1519,7 +1522,37 @@ const PromptComposer: React.FC<PromptComposerProps> = ({ className }) => {
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
-          </CardContent>
+            <br />
+            {/*Want to use Prompt Composer as an App? */}
+            <Accordion type="single" collapsible-classname="w-full">
+              <AccordionItem
+                value="research-documentation"
+                className={promptComposerStyles.researchDocumentation}
+              >
+                <AccordionTrigger
+                  className={promptComposerStyles.categoryButton}
+                >
+                  🧩Want to use Prompt-Composer as an app?
+                </AccordionTrigger>
+                <AccordionContent>
+                  <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                    <div>
+                      <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                        Now you can!
+                      </h4>
+                      <p>
+                        On iOS: <br />
+                        1. open in Safari, <br />
+                        2. click the share button and <br />
+                        3. select <b>Add to Home Screen</b>.
+                        <br />I THINK android works but I need to do QA.
+                      </p>
+                    </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
         </Card>
       </div>
     </div>
