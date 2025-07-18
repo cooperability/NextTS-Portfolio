@@ -47,9 +47,9 @@ public/robots.txt
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-.pnp.*
+!.yarn/cache
 
-# Yarn PnP files
+# Yarn PnP files (never commit)
 .yarn/install-state.gz
 .yarn/unplugged/
 .yarn/build-state.yml
@@ -58,3 +58,8 @@ public/robots.txt
 # .yarn/releases/ (Yarn binary)
 # .yarn/cache/ (actual packages)
 # .yarn/sdks/ (IDE integration)
+
+# Large SWC binaries that exceed GitHub limits
+.yarn/cache/@next-swc-win32-x64-msvc-npm-13.5.9-85e0ee17d3-10c0.zip
+.yarn/cache/@next-swc-win32-x64-msvc-npm-15.3.4-634862e121-10c0.zip
+.yarn/cache/next-npm-15.3.4-e949dec5b6-52d3fba6f5.zip

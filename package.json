@@ -53,6 +53,14 @@
     "tailwindcss": "^3.4.0",
     "tailwindcss-animate": "^1.0.7"
   },
+  "dependenciesMeta": {
+    "@next/swc-win32-x64-msvc": {
+      "unplugged": true
+    },
+    "next": {
+      "unplugged": true
+    }
+  },
   "devDependencies": {
     "@axe-core/cli": "^4.10.1",
     "@eslint/compat": "^1.2.9",
