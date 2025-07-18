@@ -10,6 +10,8 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "type-check:watch": "tsc --noEmit --watch",
+    "type-check:dev": "tsc --noEmit --project tsconfig.dev.json",
+    "test-types": "tsc --noEmit --project tsconfig.dev.json",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.mdx",
     "format": "prettier --write .",
     "test": "jest --watch",
@@ -53,6 +55,14 @@
     "tailwindcss": "^3.4.0",
     "tailwindcss-animate": "^1.0.7"
   },
+  "dependenciesMeta": {
+    "@next/swc-win32-x64-msvc": {
+      "unplugged": true
+    },
+    "next": {
+      "unplugged": true
+    }
+  },
   "devDependencies": {
     "@axe-core/cli": "^4.10.1",
     "@eslint/compat": "^1.2.9",
@@ -68,8 +78,9 @@
     "@types/jest": "^29.5.14",
     "@types/next-pwa": "^5",
     "@types/node": "22.15.3",
-    "@types/react": "19.1.2",
+    "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
+    "@yarnpkg/pnpify": "^4.1.5",
     "acorn": "^8.15.0",
     "autoprefixer": "^10.4.21",
     "cross-env": "^7.0.3",
