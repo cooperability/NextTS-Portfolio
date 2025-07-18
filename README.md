@@ -77,6 +77,7 @@ My Next.js portfolio website, running on Vercel. I'm parting with IPFS because i
 [something to explain mobile compatibility](https://en.wikipedia.org/wiki/Web_Compatibility_Test_for_Mobile_Browsers)
 [Vercel Observability](https://vercel.com/docs/observability); [Vercel Analytics](https://vercel.com/docs/analytics)
 [Jest Testing in Next.js](https://nextjs.org/docs/pages/guides/testing/jest)
+[Cross-platform Favicon Generation](https://realfavicongenerator.net/)
 
 #Abandon all hope ye who read below here
 
@@ -259,11 +260,42 @@ Historical "Untitled" listings and old paths (`/skills`, `/prompts`) have been r
 - **[ ] User Feedback Integration:** Process accessibility feedback for continuous improvement
 - **[ ] WCAG Compliance Review:** Regular audits against WCAG 2.1 AA standards
 
-### Known Testing Limitations
+##Known Testing Limitations
 
 - Axe CLI sometimes reports false positives for contrast on dynamically themed content
 - Pre-hydration testing doesn't always capture themed states accurately
 - Manual browser testing remains the most reliable method for theme-specific accessibility
+
+## PWA & App-like Experience
+
+This project aims to enhance the user experience by transforming the website and its individual applets (e.g., Prompt Composer, Opioid Converter) into installable Progressive Web Apps (PWAs). This provides a more integrated, native-like feel when launched from a user's home screen or desktop.
+
+### Current Progress
+
+- **✅ Iconography:** A comprehensive set of icons has been generated using `realfavicongenerator.net` to ensure proper display across iOS (apple-touch-icon), Android (adaptive icons), and modern browsers.
+- **✅ Web App Manifest:** A `site.webmanifest` file has been created to define the PWA's name, start URL, display mode (`standalone`), and theme colors.
+- **✅ Layout Integration:** The main `layout.tsx` has been updated to link the manifest and icons, enabling "Add to Home Screen" functionality.
+- **✅ Service Worker Setup:** The `next-pwa` package has been integrated to provide offline support by caching static assets, a core requirement for a reliable PWA experience.
+
+### Next Steps & Roadmap
+
+The foundation is now in place. The next phase focuses on enhancing individual applets to behave like true standalone applications.
+
+1.  **Isolate Applet Layouts:**
+    - For components like `PromptComposer` and `OpioidConverter`, create dedicated page routes (e.g., `/prompt-composer`, `/opioid-converter`).
+    - These pages should use a minimal layout that removes the main site header and footer, creating an immersive, app-like view. Next.js's `getLayout` pattern is ideal for this.
+
+2.  **Deep Linking & Scope Control:**
+    - Adjust the `scope` in `site.webmanifest` to be `'/'`. This allows any page to be added to the home screen while retaining the same PWA context.
+    - When a user adds a specific applet page (e.g., `cooperability.com/opioid-converter`) to their home screen, the `start_url` in the manifest will open the homepage. To launch the specific applet, we will need to explore solutions like dynamically setting the `start_url` or using a client-side router to redirect based on the launch URL.
+
+3.  **Enhance Offline Functionality:**
+    - While `next-pwa` handles static assets, the next step is to cache dynamic data or API calls used by applets. This will allow them to function even when the user is offline.
+    - Implement caching strategies within the service worker for resources specific to each applet.
+
+4.  **Refine the "Standalone" Experience:**
+    - Ensure that all navigation within an "app" stays within the PWA window. Links to external sites should open in a browser tab.
+    - For each applet, review and ensure that its design is fully responsive and feels seamless without the surrounding website chrome.
 
 ## Internal Tooling & Architecture Updates (2025-06)
 
