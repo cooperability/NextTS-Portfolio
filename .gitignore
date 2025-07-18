@@ -49,3 +49,12 @@ public/robots.txt
 !.yarn/versions
 .pnp.*
 
+# Yarn PnP files
+.yarn/install-state.gz
+.yarn/unplugged/
+.yarn/build-state.yml
+
+# Keep these Yarn PnP files committed:
+# .yarn/releases/ (Yarn binary)
+# .yarn/cache/ (actual packages)
+# .yarn/sdks/ (IDE integration)

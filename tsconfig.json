@@ -15,12 +15,12 @@
     "noEmit": true,
     "incremental": true,
     "jsx": "preserve",
-    "jsxImportSource": "react",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]
     },
-    "types": ["jest", "@testing-library/jest-dom"]
+    "types": ["jest", "@testing-library/jest-dom"],
+    "typeRoots": []
   },
   "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx", "next.config.js"],
   "exclude": ["node_modules"]
