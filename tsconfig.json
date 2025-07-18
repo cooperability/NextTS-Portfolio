@@ -19,7 +19,6 @@
     "paths": {
       "@/*": ["./*"]
     },
-    "types": ["jest"],
     "typeRoots": []
   },
   "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx", "next.config.js"],

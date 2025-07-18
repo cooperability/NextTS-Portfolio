@@ -10,6 +10,8 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "type-check:watch": "tsc --noEmit --watch",
+    "type-check:dev": "tsc --noEmit --project tsconfig.dev.json",
+    "test-types": "tsc --noEmit --project tsconfig.dev.json",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.mdx",
     "format": "prettier --write .",
     "test": "jest --watch",
